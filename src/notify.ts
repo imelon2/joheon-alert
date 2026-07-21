@@ -3,12 +3,13 @@ import type { EventType, IpoEvent, IpoRow } from './types.js';
 
 /** 발송 메시지에서의 표시 순서. 급한 것부터. */
 const SECTIONS: Array<{ type: EventType; heading: string }> = [
-  // 상장일이 맨 위다. 매도 가능일이라 놓치면 실제 손익이 갈린다.
+  // 일정 변경이 맨 위다. 나머지 트리거는 '오늘/내일'이라 예상 가능하지만,
+  // 일정 변경은 사용자가 알고 있던 계획 자체를 뒤집는 정보라 먼저 봐야 한다.
+  { type: 'SCHEDULE_CHANGED', heading: '📅 일정 변경' },
   { type: 'LISTING_DAY', heading: '🚀 오늘 상장 (매도 가능)' },
   { type: 'LAST_DAY', heading: '⚠️ 오늘 청약 마감' },
   { type: 'D_DAY', heading: '🔔 오늘 청약 시작' },
   { type: 'D_MINUS_1', heading: '⏰ 내일 청약 시작' },
-  { type: 'SCHEDULE_CHANGED', heading: '📅 일정 변경' },
 ];
 
 /** 텔레그램 sendMessage의 text 하드 상한. */
