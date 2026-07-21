@@ -2,65 +2,176 @@
 <html lang="ko">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta http-equiv="Cache-Control" content="no-store" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="theme-color" content="#000000" />
     <title>이동 중…</title>
     <style>
-      body { font-family: system-ui, sans-serif; margin: 0; padding: 32px 20px; line-height: 1.6; }
-      a { font-size: 1.1rem; }
-      .sub { font-size: .85rem; opacity: .6; margin-top: 12px; }
+      *, *::before, *::after { box-sizing: border-box; }
+
+      :root {
+        --fg: #f5f7fa;
+        --dim: #8b93a1;
+        --accent: #4c8dff;
+        --line: #1e232b;
+      }
+
+      html, body { height: 100%; }
+
+      body {
+        margin: 0;
+        background: #000;
+        color: var(--fg);
+        font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        /* 노치·홈 인디케이터를 피한다 */
+        padding: calc(24px + env(safe-area-inset-top)) 24px
+                 calc(24px + env(safe-area-inset-bottom));
+        text-align: center;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      main { width: 100%; max-width: 320px; }
+
+      /* 회전하는 링. 화면에 머무는 시간이 짧아 이것만으로 충분하다. */
+      .spinner {
+        width: 44px;
+        height: 44px;
+        margin: 0 auto 28px;
+        border-radius: 50%;
+        border: 2px solid var(--line);
+        border-top-color: var(--accent);
+        animation: spin .8s linear infinite;
+      }
+      @keyframes spin { to { transform: rotate(360deg); } }
+
+      .name {
+        font-size: 1.375rem;
+        font-weight: 600;
+        letter-spacing: -.01em;
+        margin: 0 0 8px;
+      }
+
+      .status {
+        font-size: .9375rem;
+        color: var(--dim);
+        margin: 0;
+      }
+
+      /* 성공하면 이 화면은 순식간에 사라진다. 그때 '직접 열기'가 번쩍이면
+         고장난 것처럼 보이므로, 자동 이동이 실패했을 법한 시점에만 드러낸다. */
+      .manual {
+        margin-top: 36px;
+        opacity: 0;
+        transform: translateY(6px);
+        transition: opacity .4s ease, transform .4s ease;
+      }
+      .manual.show { opacity: 1; transform: none; }
+
+      .manual a {
+        display: inline-block;
+        padding: 12px 22px;
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        color: var(--fg);
+        font-size: .9375rem;
+        text-decoration: none;
+      }
+      .manual a:active { background: #10141a; }
+
+      .diag {
+        margin-top: 28px;
+        font-size: .75rem;
+        color: #4a515c;
+        font-variant-numeric: tabular-nums;
+      }
+
+      /* 실패 화면에서는 도는 링 대신 정지된 표시를 쓴다 */
+      .spinner.stopped {
+        animation: none;
+        border-color: var(--line);
+        border-top-color: var(--line);
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .spinner { animation: none; border-top-color: var(--line); }
+        .manual { transition: none; }
+      }
     </style>
   </head>
   <body>
-    <p id="msg">이동 중…</p>
-    <p id="manual"></p>
-    <p class="sub" id="diag"></p>
+    <main>
+      <div class="spinner" id="spinner"></div>
+      <h1 class="name" id="name">잠시만요</h1>
+      <p class="status" id="status">이동 중…</p>
+      <div class="manual" id="manual"><a id="manual-link" href="./">공모주 일정 보기</a></div>
+      <p class="diag" id="diag"></p>
+    </main>
 
     <script>
       /*
        * 증권사 앱 스토어로 보내는 전용 페이지.
        *
        * Mini App(t.me/<봇>/<앱>)을 경유하지 않는다. 텔레그램이 Mini App 페이지를
-       * 오래 캐시해서 코드를 고쳐도 반영이 안 되는 문제를 겪었고, 애초에
+       * 오래 캐시해 코드를 고쳐도 반영되지 않는 문제를 겪었고, 애초에
        * WebApp.platform 없이 userAgent 만으로도 OS 판별이 충분하다.
        *
        *   버튼 → go.html?b=<slug> → userAgent 판별 → Play / App Store
        */
       (function () {
-        var q = new URLSearchParams(location.search);
-        var slug = q.get('b') || '';
+        var $ = function (id) { return document.getElementById(id); };
+        var MANUAL_DELAY_MS = 1800;
+
+        var slug = new URLSearchParams(location.search).get('b') || '';
         var ua = navigator.userAgent;
         var isAndroid = /Android/i.test(ua);
-        var isIOS = /iPhone|iPad|iPod/i.test(ua) || (/Macintosh/.test(ua) && 'ontouchend' in document);
+        var isIOS = /iPhone|iPad|iPod/i.test(ua) ||
+                    (/Macintosh/.test(ua) && 'ontouchend' in document);
 
-        document.getElementById('diag').textContent =
-          (isAndroid ? 'Android' : isIOS ? 'iOS' : '기타') + ' · ' + slug;
+        $('diag').textContent = (isAndroid ? 'Android' : isIOS ? 'iOS' : '기타') +
+                                (slug ? ' · ' + slug : '');
 
-        function fail(text) {
-          document.getElementById('msg').textContent = text;
-          document.getElementById('manual').innerHTML =
-            '<a href="./">공모주 일정 전체 보기</a>';
+        function showManual(label, href) {
+          var link = $('manual-link');
+          link.textContent = label;
+          if (href) link.href = href;
+          setTimeout(function () { $('manual').classList.add('show'); }, MANUAL_DELAY_MS);
         }
 
-        if (!slug) return fail('잘못된 주소입니다.');
+        function fail(title, detail) {
+          $('spinner').classList.add('stopped');
+          $('name').textContent = title;
+          $('status').textContent = detail;
+          $('manual').classList.add('show'); // 실패했으면 즉시 보여준다
+        }
+
+        if (!slug) {
+          return fail('잘못된 주소', '증권사가 지정되지 않았습니다.');
+        }
 
         fetch('state/brokers.json', { cache: 'no-store' })
           .then(function (r) { return r.json(); })
           .then(function (map) {
             var name = Object.keys(map).find(function (k) { return map[k].slug === slug; });
-            if (!name) return fail('알 수 없는 증권사입니다: ' + slug);
+            if (!name) return fail('알 수 없는 증권사', slug);
 
             var links = map[name];
             var url = isAndroid ? links.android : isIOS ? links.ios : links.landing;
+            var store = isAndroid ? 'Play 스토어' : isIOS ? 'App Store' : '증권사 페이지';
 
-            document.getElementById('msg').textContent = name + ' 앱으로 이동 중…';
-            // 자동 이동이 막혀도 누를 수 있게 수동 링크를 먼저 그린다.
-            document.getElementById('manual').innerHTML =
-              '<a href="' + url + '">열리지 않으면 여기를 누르세요</a>';
-            // location.replace 는 팝업 차단 대상이 아니고, 뒤로가기 이력도 안 남긴다.
+            $('name').textContent = name;
+            $('status').textContent = store + '로 이동 중…';
+            showManual('열리지 않나요? 직접 열기', url);
+
+            // location.replace 는 팝업 차단 대상이 아니고 뒤로가기 이력도 안 남긴다.
             location.replace(url);
           })
-          .catch(function (e) { fail('불러오지 못했습니다: ' + e.message); });
+          .catch(function (e) {
+            fail('불러오지 못했습니다', e.message);
+          });
       })();
     </script>
   </body>

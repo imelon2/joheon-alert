@@ -180,7 +180,7 @@ export function brokerUrl(name: string): string | undefined {
  * `v` 는 캐시 무력화용. 페이지 로직을 고치면 올린다.
  */
 export const REDIRECT_BASE = 'https://imelon2.github.io/joheon-alert/go.html';
-const REDIRECT_VERSION = '1';
+const REDIRECT_VERSION = '2';
 
 export function brokerButtonUrl(slug: string): string {
   return `${REDIRECT_BASE}?b=${slug}&v=${REDIRECT_VERSION}`;
