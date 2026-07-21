@@ -44,10 +44,21 @@ describe('renderMessages — 내용', () => {
       { type: 'D_MINUS_1', row: row({ no: '2', name: 'YANKEE' }) },
       { type: 'LAST_DAY', row: row({ no: '3', name: 'XRAY' }) },
       { type: 'D_DAY', row: row({ no: '4', name: 'WHISKEY' }) },
+      { type: 'LISTING_DAY', row: row({ no: '5', name: 'VICTOR' }) },
     ]);
-    const order = ['XRAY', 'WHISKEY', 'YANKEE', 'ZETA'].map((n) => text.indexOf(n));
+    // 상장일이 맨 위 — 매도 가능일이라 놓치면 실제 손익이 갈린다
+    const order = ['VICTOR', 'XRAY', 'WHISKEY', 'YANKEE', 'ZETA'].map((n) => text.indexOf(n));
     expect(order.every((i) => i >= 0)).toBe(true);
     expect(order).toEqual([...order].sort((a, b) => a - b));
+  });
+
+  it('상장일 알림은 매도 가능일임을 제목에 밝힌다', () => {
+    const text = only([
+      { type: 'LISTING_DAY', row: row({ listingDate: '2026-08-25', finalPrice: '19,500' }) },
+    ]);
+    expect(text).toContain('오늘 상장 (매도 가능)');
+    expect(text).toContain('상장일  2026-08-25');
+    expect(text).toContain('확정가  19,500'); // 매도 판단에 쓰인다
   });
 
   it('6개 필드를 모두 보여준다', () => {

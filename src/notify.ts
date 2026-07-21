@@ -3,6 +3,8 @@ import type { EventType, IpoEvent, IpoRow } from './types.js';
 
 /** 발송 메시지에서의 표시 순서. 급한 것부터. */
 const SECTIONS: Array<{ type: EventType; heading: string }> = [
+  // 상장일이 맨 위다. 매도 가능일이라 놓치면 실제 손익이 갈린다.
+  { type: 'LISTING_DAY', heading: '🚀 오늘 상장 (매도 가능)' },
   { type: 'LAST_DAY', heading: '⚠️ 오늘 청약 마감' },
   { type: 'D_DAY', heading: '🔔 오늘 청약 시작' },
   { type: 'D_MINUS_1', heading: '⏰ 내일 청약 시작' },

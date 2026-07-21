@@ -38,6 +38,14 @@ const LISTING_LOOKBACK_DAYS = 60;
 /** 한 실행에서 받을 상세 페이지 수 상한. 첫 실행에 몰리는 것을 막는다. */
 const LISTING_FETCH_CAP = 20;
 
+/** 오늘로부터 며칠 떨어져 있나(과거·미래 무관). 조회 우선순위 정렬용. */
+function daysFrom(today: string, date: string): number {
+  const day = 86_400_000;
+  return Math.abs(
+    (Date.parse(`${date}T00:00:00Z`) - Date.parse(`${today}T00:00:00Z`)) / day,
+  );
+}
+
 /**
  * 모든 행에 상장일을 채운다. 스냅샷에 저장되므로 Mini App 같은 소비자도 쓸 수 있다.
  *
@@ -65,7 +73,12 @@ async function enrichListingDates(
 
   // 2) 아직 모르는 것 중 최근 종목만 조회 대상
   const cutoff = addDays(today, -LISTING_LOOKBACK_DAYS);
-  const targets = carried.filter((r) => r.listingDate === null && r.subEnd >= cutoff);
+  const targets = carried
+    .filter((r) => r.listingDate === null && r.subEnd >= cutoff)
+    // 상한에 걸려 잘릴 때 무엇이 남는지가 중요하다. 상장은 청약 마감 1~2주 뒤라
+    // subEnd가 오늘에 가까운 종목일수록 상장이 임박했다 — 그 종목의 상장일을
+    // 못 받으면 LISTING_DAY(매도 가능일) 알림을 그날 통째로 놓친다.
+    .sort((a, b) => daysFrom(today, a.subEnd) - daysFrom(today, b.subEnd));
   const picked = targets.slice(0, LISTING_FETCH_CAP);
   if (targets.length > picked.length) {
     // 조용한 상한은 '전부 처리했다'로 오해되기 쉽다. 남은 수를 남긴다.

@@ -31,6 +31,9 @@ export function detectEvents(
     if (row.subStart === tomorrow) events.push({ type: 'D_MINUS_1', row });
     if (row.subStart === today) events.push({ type: 'D_DAY', row });
     if (row.subEnd === today) events.push({ type: 'LAST_DAY', row });
+    // 상장일 = 매도 가능일. listingDate가 null이면(미정·미조회) 조용히 넘어간다 —
+    // 없는 날짜로 알릴 방법은 없다. 대신 pipeline이 상장 임박 종목부터 조회한다.
+    if (row.listingDate === today) events.push({ type: 'LISTING_DAY', row });
   }
 
   return events;
@@ -49,6 +52,10 @@ export function eventDate(event: IpoEvent, today: string): string {
       return event.row.subStart;
     case 'LAST_DAY':
       return event.row.subEnd;
+    // detectEvents가 listingDate === today 일 때만 만드므로 null일 수 없다.
+    // ?? today 는 타입 방어일 뿐, 실제로 쓰이면 그날 기준으로 한 번만 나간다.
+    case 'LISTING_DAY':
+      return event.row.listingDate ?? today;
     default:
       return today; // diff 기반 이벤트는 '발견한 날'이 곧 사건일
   }

@@ -59,6 +59,41 @@ describe('detectEvents — 날짜 기반', () => {
   });
 });
 
+describe('detectEvents — 상장일 (매도 가능일)', () => {
+  const listed = row({ listingDate: '2026-09-04' });
+
+  it('상장일이 오늘이면 LISTING_DAY', () => {
+    const types = detectEvents(snapshot(listed), [listed], '2026-09-04').map((e) => e.type);
+    expect(types).toEqual(['LISTING_DAY']);
+  });
+
+  it('상장일 전날에는 나가지 않는다', () => {
+    expect(detectEvents(snapshot(listed), [listed], '2026-09-03')).toEqual([]);
+  });
+
+  it('상장일이 지나면 다시 나가지 않는다', () => {
+    expect(detectEvents(snapshot(listed), [listed], '2026-09-07')).toEqual([]);
+  });
+
+  it('상장일 미정(null)이면 조용히 넘어간다 — 없는 날짜로 알릴 수 없다', () => {
+    const unknown = row({ listingDate: null });
+    expect(detectEvents(snapshot(unknown), [unknown], '2026-09-04')).toEqual([]);
+  });
+
+  it('청약 마감일과 상장일이 같은 날이어도 둘 다 난다', () => {
+    // 현실에선 겹치지 않지만, 트리거끼리 서로를 가리지 않는지 확인한다.
+    const both = row({ subEnd: TODAY, listingDate: TODAY });
+    const types = detectEvents(snapshot(both), [both], TODAY).map((e) => e.type);
+    expect(types).toContain('LAST_DAY');
+    expect(types).toContain('LISTING_DAY');
+  });
+
+  it('멱등성 키는 상장일에 고정된다 — 같은 날 재실행해도 한 번만', () => {
+    const [event] = detectEvents(snapshot(listed), [listed], '2026-09-04');
+    expect(notifyKey(event!, '2026-09-04')).toBe('2307:LISTING_DAY:2026-09-04');
+  });
+});
+
 describe('detectEvents — diff 기반', () => {
   it('신규 종목이 등장해도 알리지 않는다', () => {
     // 신규 등록 알림은 의도적으로 뺐다. 해당 종목은 D-1에 어차피 알림이 간다.

@@ -266,4 +266,33 @@ describe('run — 상장일 (행 단위 + 캐싱)', () => {
 
     expect(result.messages[0]?.text).toContain('상장일  -');
   });
+
+  it('조회 상한에 걸리면 상장이 임박한 종목부터 받는다', async () => {
+    // 상한에 잘려 상장 임박 종목의 상장일을 못 받으면, 그날 LISTING_DAY
+    // (매도 가능일) 알림을 통째로 놓친다. 무엇이 잘리는지가 중요하다.
+    const rows = [
+      // 청약이 한참 남은 종목들 — 상장은 더 나중이다
+      ...Array.from({ length: 25 }, (_, i) =>
+        row({ no: `far${i}`, subStart: '2026-10-01', subEnd: '2026-10-02' }),
+      ),
+      // 어제 청약이 끝났다 = 1~2주 뒤 상장. 가장 급하다
+      row({ no: 'imminent', subStart: '2026-08-23', subEnd: '2026-08-24' }),
+    ];
+    const calls: string[] = [];
+    const h = harness(
+      {
+        fetchRows: async () => rows,
+        fetchListingDate: async (no) => {
+          calls.push(no);
+          return '2026-09-10';
+        },
+      },
+      [],
+    );
+
+    await run(h.deps, TODAY, { dryRun: false });
+
+    expect(calls).toHaveLength(20); // LISTING_FETCH_CAP
+    expect(calls).toContain('imminent'); // 잘려나가지 않았다
+  });
 });
