@@ -11,6 +11,7 @@
     "dry-run": "tsx src/main.ts --dry-run",
     "test": "vitest run",
     "test:send": "tsx scripts/send-test.ts",
+    "send:preview": "tsx scripts/send-preview.ts",
     "send:links": "tsx scripts/send-broker-links.ts",
     "typecheck": "tsc --noEmit",
     "gen:brokers": "tsx scripts/gen-brokers.ts"
