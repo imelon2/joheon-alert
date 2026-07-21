@@ -37,7 +37,7 @@ describe('renderMessages — 내용', () => {
     expect(renderMessages([], '2026-08-25')).toEqual([]);
   });
 
-  it('일정 변경 → 상장 → 마감 → 오늘 → 내일 순으로 정렬한다', () => {
+  it('급한 것부터(마감 → 오늘 → 내일) 정렬한다', () => {
     // 종목명은 라벨(확정가/희망가 등)과 겹치지 않는 문자열이어야 indexOf가 정확하다
     const text = only([
       { type: 'SCHEDULE_CHANGED', row: row({ no: '1', name: 'ZETA' }) },
@@ -46,8 +46,8 @@ describe('renderMessages — 내용', () => {
       { type: 'D_DAY', row: row({ no: '4', name: 'WHISKEY' }) },
       { type: 'LISTING_DAY', row: row({ no: '5', name: 'VICTOR' }) },
     ]);
-    // ZETA=일정변경, VICTOR=상장, XRAY=마감, WHISKEY=오늘, YANKEE=내일
-    const order = ['ZETA', 'VICTOR', 'XRAY', 'WHISKEY', 'YANKEE'].map((n) => text.indexOf(n));
+    // 상장일이 맨 위 — 매도 가능일이라 놓치면 실제 손익이 갈린다
+    const order = ['VICTOR', 'XRAY', 'WHISKEY', 'YANKEE', 'ZETA'].map((n) => text.indexOf(n));
     expect(order.every((i) => i >= 0)).toBe(true);
     expect(order).toEqual([...order].sort((a, b) => a - b));
   });
