@@ -7,7 +7,7 @@
 
 - 상시 서버 없음. **GitHub Actions cron**이 스케줄러, **리포 커밋**이 DB다.
 - 실행 시각: `cron: '30 23 * * 0-4'` (UTC) = **평일 08:30 KST**
-- 알림 본문 아래 **증권사 버튼** → GitHub Pages 리다이렉트 페이지 → 각 OS 앱스토어
+- 알림 본문 아래 **증권사 버튼** → Cloudflare Pages 리다이렉트 페이지 → 각 OS 앱스토어
 - TypeScript / pnpm / Node 20+ / vitest. 빌드 없음(`tsx`로 직접 실행).
 
 ## 파일 지도
@@ -131,12 +131,15 @@ pnpm start                             # 실전 실행. state를 갱신한다
 ## 증권사 앱 연결
 
 ```
-알림 버튼 → https://imelon2.github.io/joheon-alert/?b=<slug>&v=<ver>
+알림 버튼 → https://joheon-alert.pages.dev/?b=<slug>&v=<ver>
           → userAgent 판별 → Play 스토어 / App Store
 ```
 
 `landing` 직행이면 16곳 중 2곳만 스토어로 간다. 리다이렉트 페이지를 거쳐야 전부 간다.
-배포는 GitHub Pages(Settings → Pages → `main` / `/ (root)`). 사이트 루트가 곧 이 페이지이고, 파라미터 없이 들어오면 안내 문구만 보여준다.
+배포는 **Cloudflare Pages(Git 연동)**. `main` 푸시 시 `pnpm build:pages`가 서빙에 필요한 파일만 `dist/`에 모으고(`index.html` + `state/brokers.json`), Cloudflare는 그 `dist/`만 올린다. 사이트 루트가 곧 `index.html`이고 상대경로로 `state/brokers.json`을 읽는다. Cloudflare 대시보드 설정: 프로젝트를 `imelon2/joheon-alert`에 연결, **Build command `pnpm build:pages` / Build output directory `dist`**. 파라미터 없이 들어오면 안내 문구만 보여준다.
+
+> ⚠️ **출력 디렉터리를 리포 루트(`/`)로 잡지 말 것.** Cloudflare는 빌드 중 설치한 `node_modules`까지 업로드하려다 `workerd`(122 MiB)가 25 MiB 자산 상한에 걸려 실패한다(실제로 겪음). 서빙 대상은 반드시 `build:pages` 산출물인 `dist/`로 좁힌다.
+버튼 호스트(`REDIRECT_BASE`, `src/brokers.ts`)는 Pages 프로젝트 이름과 묶인다 — 프로젝트를 다른 이름으로 만들면 `<이름>.pages.dev`에 맞춰 이 상수를 고쳐야 한다. 이전 GitHub Pages(`imelon2.github.io/joheon-alert`)는 비활성화하며, 그 URL로 이미 발송된 과거 알림 버튼은 그때부터 404가 된다(과거 알림이라 무해).
 
 `src/brokers.ts`의 링크 32개(Play 패키지 16 + iOS 앱 ID 16)는 2026-07-21에 전수 검증했다 — iOS는 iTunes Lookup API로 **앱 이름까지** 확인. 삼성증권 `landing`은 `m.samsungpop.com/?h=mPOPNew`를 유지한다(다른 후보는 스토어로 보내지 않는 일반 웹페이지였다).
 

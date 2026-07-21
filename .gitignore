@@ -9,3 +9,6 @@ node_modules/
 
 # 에이전트 도구의 런타임 상태(세션 ID, HUD 캐시 등). 리포에 들어갈 것이 아니다.
 .omc/
+
+# Cloudflare Pages 서빙용 산출물(build:pages). 빌드 때마다 재생성된다.
+dist/

@@ -253,7 +253,7 @@ describe('buildBrokerKeyboard', () => {
     expect(kb?.inline_keyboard).toEqual([
       [{ text: '삼성증권', url: brokerButtonUrl('samsung') }],
     ]);
-    expect(kb?.inline_keyboard[0]?.[0]?.url).toContain('joheon-alert/?b=samsung');
+    expect(kb?.inline_keyboard[0]?.[0]?.url).toContain('joheon-alert.pages.dev/?b=samsung');
   });
 
   it('16곳 모두 리다이렉트 링크를 만들 수 있다', () => {
