@@ -168,7 +168,7 @@ GitHub Pages: Settings → Pages → Source `Deploy from a branch` → `main` / 
 
 상시 서버 없이 무료 cron + 상태 보관을 동시에 해결합니다.
 
-`.github/workflows/ipo-notify.yml` — `cron: '30 22 * * 0-4'` (UTC) = **평일 07:30 KST**.
+`.github/workflows/ipo-notify.yml` — `cron: '30 23 * * 0-4'` (UTC) = **평일 08:30 KST**.
 cron은 항상 UTC라 요일도 하루 당겨 적어야 합니다(UTC 일~목 = KST 월~금). 실행은 수 분~수십 분 지연될 수 있습니다.
 
 리포 설정 두 가지가 필요합니다:
