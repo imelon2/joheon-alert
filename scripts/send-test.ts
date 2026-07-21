@@ -10,7 +10,7 @@
  */
 import '../src/net.js'; // Happy Eyeballs 폴백 시간 조정 (최우선 로드)
 import { requireEnv } from '../src/env.js';
-import { renderMessages } from '../src/notify.js';
+import { buildBrokerKeyboard, renderMessages } from '../src/notify.js';
 import type { IpoEvent } from '../src/types.js';
 
 const API = 'https://api.telegram.org';
@@ -83,9 +83,10 @@ async function main(): Promise<void> {
 
   await call(token, 'sendMessage', {
     chat_id: chatId,
-    text: `${message}\n\n※ 발송 경로 점검용 테스트 메시지입니다.`,
+    text: `${message!.text}\n\n※ 발송 경로 점검용 테스트 메시지입니다.`,
     parse_mode: 'HTML',
     disable_web_page_preview: true,
+    reply_markup: buildBrokerKeyboard(message!.brokers),
   });
   console.log('✓ 발송 완료 — 채널에 메시지가 도착했는지 확인하세요.');
 }

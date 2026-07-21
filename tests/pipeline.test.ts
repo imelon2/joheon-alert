@@ -26,8 +26,8 @@ function harness(over: Partial<Deps> = {}, prev: IpoRow[] = [row()]): Harness {
   const sends: string[] = [];
   const deps: Deps = {
     fetchRows: async () => [row()],
-    send: async (text) => {
-      sends.push(text);
+    send: async (message) => {
+      sends.push(message.text);
     },
     readSnapshot: async () => ({
       updatedAt: '2026-08-01T00:00:00Z',
@@ -139,7 +139,7 @@ describe('run — dry-run', () => {
     const h = harness();
     const result = await run(h.deps, TODAY, { dryRun: true });
 
-    expect(result.messages[0]).toContain('오늘 청약 시작');
+    expect(result.messages[0]?.text).toContain('오늘 청약 시작');
     expect(result.statePersisted).toBe(false);
     expect(h.sends).toHaveLength(0);
     expect(h.writes.snapshot).toHaveLength(0);
@@ -171,7 +171,7 @@ describe('run — 멱등성', () => {
     const h = harness({ readNotified: async () => ({ sent: ['2307:D_DAY:2026-08-25'] }) });
     const late = await run(h.deps, '2026-08-26', { dryRun: false });
 
-    const types = late.messages.join('');
+    const types = late.messages.map((m) => m.text).join('');
     expect(types).not.toContain('오늘 청약 시작');
   });
 });
@@ -188,7 +188,7 @@ describe('run — 상장일 (행 단위 + 캐싱)', () => {
     const h = harness();
     const result = await run(h.deps, TODAY, { dryRun: true });
 
-    expect(result.messages[0]).toContain('상장일  2026-09-10');
+    expect(result.messages[0]?.text).toContain('상장일  2026-09-10');
   });
 
   it('이미 아는 상장일은 다시 받지 않는다', async () => {
@@ -209,7 +209,7 @@ describe('run — 상장일 (행 단위 + 캐싱)', () => {
     const result = await run(h.deps, TODAY, { dryRun: false });
     expect(calls).toEqual([]); // 조회 없음
     expect(h.writes.snapshot[0]?.items['2307']?.listingDate).toBe('2026-09-10'); // 이어받음
-    expect(result.messages[0]).toContain('상장일  2026-09-10');
+    expect(result.messages[0]?.text).toContain('상장일  2026-09-10');
   });
 
   it('아직 모르는 상장일은 받아서 채운다', async () => {
@@ -264,6 +264,6 @@ describe('run — 상장일 (행 단위 + 캐싱)', () => {
     const h = harness({ fetchListingDate: async () => null });
     const result = await run(h.deps, TODAY, { dryRun: true });
 
-    expect(result.messages[0]).toContain('상장일  -');
+    expect(result.messages[0]?.text).toContain('상장일  -');
   });
 });

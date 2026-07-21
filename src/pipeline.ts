@@ -1,4 +1,4 @@
-import { TelegramError, renderMessages } from './notify.js';
+import { TelegramError, renderMessages, type OutgoingMessage } from './notify.js';
 import {
   addDays,
   checkHealth,
@@ -12,7 +12,7 @@ import type { IpoRow, NotifiedLog, Snapshot } from './types.js';
 
 export type Deps = {
   fetchRows: () => Promise<IpoRow[]>;
-  send: (text: string) => Promise<void>;
+  send: (message: OutgoingMessage) => Promise<void>;
   readSnapshot: () => Promise<Snapshot>;
   readNotified: () => Promise<NotifiedLog>;
   writeSnapshot: (value: Snapshot) => Promise<void>;
@@ -27,7 +27,7 @@ export type Deps = {
 export type RunResult = {
   rowCount: number;
   pendingCount: number;
-  messages: string[];
+  messages: OutgoingMessage[];
   sent: boolean;
   statePersisted: boolean;
   warning?: string;

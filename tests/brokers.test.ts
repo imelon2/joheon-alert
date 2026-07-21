@@ -1,6 +1,6 @@
 import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
-import { BROKER_APP_URLS, brokerUrl, splitBrokers } from '../src/brokers.js';
+import { BROKER_APP_URLS, brokerBySlug, brokerUrl, splitBrokers } from '../src/brokers.js';
 
 /** 실데이터(2026-07-21 스냅샷 30건)에 등장한 증권사 전부. */
 const SEEN_IN_DATA = [
@@ -89,5 +89,29 @@ describe('state/brokers.json (웹페이지용 생성물)', () => {
         type: expect.any(String),
       });
     }
+  });
+});
+
+describe('slug (Mini App startapp 식별자)', () => {
+  it('모두 고유하다', () => {
+    const slugs = Object.values(BROKER_APP_URLS).map((l) => l.slug);
+    expect(new Set(slugs).size).toBe(slugs.length);
+  });
+
+  it('startapp 이 허용하는 문자만 쓴다', () => {
+    // 텔레그램 startapp 은 영숫자·_·- 만 받는다. 한글이 섞이면 버튼이 깨진다.
+    for (const [name, links] of Object.entries(BROKER_APP_URLS)) {
+      expect(links.slug, name).toMatch(/^[A-Za-z0-9_-]{1,64}$/);
+    }
+  });
+
+  it('slug 로 증권사를 되찾을 수 있다', () => {
+    for (const [name, links] of Object.entries(BROKER_APP_URLS)) {
+      expect(brokerBySlug(links.slug), name).toBe(name);
+    }
+  });
+
+  it('모르는 slug 는 undefined', () => {
+    expect(brokerBySlug('nope')).toBeUndefined();
   });
 });

@@ -100,11 +100,45 @@
         return art;
       }
 
+      /**
+       * 버튼이 넘겨준 증권사 slug. 텔레그램은 startapp 값을 두 경로로 준다:
+       * Mini App 으로 열리면 initDataUnsafe.start_param, 일반 브라우저로
+       * 열리면 쿼리스트링(tgWebAppStartParam). 둘 다 본다.
+       */
+      function startParam() {
+        const q = new URLSearchParams(location.search);
+        return (
+          tg?.initDataUnsafe?.start_param ||
+          q.get('tgWebAppStartParam') ||
+          q.get('startapp') ||
+          ''
+        );
+      }
+
+      /** 증권사 버튼으로 들어온 경우: 목록을 보여주지 않고 곧장 스토어로 보낸다. */
+      function redirectMode(brokers, slug) {
+        const entry = Object.entries(brokers).find(([, v]) => v.slug === slug);
+        if (!entry) return false;
+
+        const [name, links] = entry;
+        const url = pickUrl(links);
+        document.getElementById('meta').textContent = `${name} 앱으로 이동 중…`;
+        document.getElementById('list').append(
+          // 자동 이동이 막히는 경우를 대비한 수동 링크. 빈 화면으로 끝나면 안 된다.
+          el('p', {}, el('a', { href: url, textContent: `${name} 열기` })),
+        );
+        openUrl(url);
+        return true;
+      }
+
       async function main() {
         const [snapshot, brokers] = await Promise.all([
           fetch('state/ipo.json').then((r) => r.json()),
           fetch('state/brokers.json').then((r) => r.json()),
         ]);
+
+        const slug = startParam();
+        if (slug && redirectMode(brokers, slug)) return;
 
         // 이미 끝난 공모는 앱을 열 이유가 없다. 진행 예정/중인 것만.
         const today = todayKst();

@@ -1,4 +1,4 @@
-import { brokerUrl, splitBrokers } from './brokers.js';
+import { BROKER_APP_URLS, MINI_APP_URL, brokerUrl, splitBrokers } from './brokers.js';
 import type { EventType, IpoEvent, IpoRow } from './types.js';
 
 /** 발송 메시지에서의 표시 순서. 급한 것부터. */
@@ -80,6 +80,13 @@ function renderItem(event: IpoEvent): string[] {
   ];
 }
 
+/** 한 통의 발송 단위. 본문과, 그 본문에 등장한 증권사(버튼용). */
+export type OutgoingMessage = {
+  text: string;
+  /** 이 메시지에 등장한 증권사 이름. 분할된 경우 해당 조각의 것만 담는다. */
+  brokers: string[];
+};
+
 /**
  * 여러 이벤트를 묶되 텔레그램 상한을 넘지 않게 분할한다.
  *
@@ -94,12 +101,13 @@ export function renderMessages(
   events: IpoEvent[],
   today: string,
   limit = CHUNK_TARGET,
-): string[] {
+): OutgoingMessage[] {
   if (events.length === 0) return [];
 
   const header = `📊 공모주 알림 (${today})`;
-  const chunks: string[] = [];
+  const chunks: Array<{ lines: string[]; brokers: Set<string> }> = [];
   let lines: string[] = [header];
+  let brokers = new Set<string>();
 
   for (const { type, heading } of SECTIONS) {
     const matched = events.filter((e) => e.type === type);
@@ -111,30 +119,67 @@ export function renderMessages(
       const tooLong = visibleLength([...lines, ...prefix, ...item].join('\n')) > limit;
 
       if (tooLong && lines.length > 1) {
-        chunks.push(lines.join('\n'));
+        chunks.push({ lines, brokers });
         lines = [header, '', heading, ...item];
+        brokers = new Set();
       } else {
         lines.push(...prefix, ...item);
       }
+      // 버튼은 그 조각에 실제로 실린 종목의 증권사만 달아야 한다.
+      for (const name of splitBrokers(event.row.underwriter ?? '')) brokers.add(name);
       headingWritten = true;
     }
   }
-  chunks.push(lines.join('\n'));
+  chunks.push({ lines, brokers });
 
   const total = chunks.length;
-  return chunks.map((chunk, i) => {
-    const labelled = total > 1 ? `${chunk}\n\n(${i + 1}/${total})` : chunk;
-    // 한 항목이 통째로 상한을 넘는 병리적 경우의 최후 방어.
-    // 태그 중간에서 자르면 파싱이 깨지므로 여기서는 자르지 않고 그대로 둔다;
-    // 정상 경로에서는 위 분할이 limit(<상한)을 지키므로 도달하지 않는다.
-    return labelled;
-  });
+  return chunks.map((chunk, i) => ({
+    // 한 항목이 통째로 상한을 넘는 병리적 경우엔 자르지 않고 그대로 둔다.
+    // 태그 중간에서 자르면 파싱이 깨진다; 정상 경로에선 위 분할이 limit을 지킨다.
+    text:
+      total > 1
+        ? `${chunk.lines.join('\n')}\n\n(${i + 1}/${total})`
+        : chunk.lines.join('\n'),
+    brokers: [...chunk.brokers],
+  }));
+}
+
+/** 인라인 키보드 한 줄에 넣을 버튼 수. 이름이 길어 2개가 한계다. */
+const BUTTONS_PER_ROW = 2;
+
+/**
+ * 본문 아래에 붙일 증권사 버튼.
+ *
+ * 채널에서는 `web_app` 버튼이 막혀 있어(실측: BUTTON_TYPE_INVALID) `url` 버튼만
+ * 쓸 수 있고, url 버튼만으로는 수신자 OS를 알 수 없다. 그래서 Mini App을 경유한다:
+ *
+ *   버튼 → t.me/<봇>/<앱>?startapp=<slug> → Mini App이 platform 판별 → 해당 스토어
+ *
+ * 이렇게 해야 16곳 전부가 각 OS의 스토어로 간다(landing 직행이면 2곳만 스토어).
+ * 매핑에 없는 증권사는 버튼을 만들지 않는다 — 깨진 링크보다 낫다.
+ */
+export function buildBrokerKeyboard(
+  brokerNames: string[],
+): { inline_keyboard: Array<Array<{ text: string; url: string }>> } | undefined {
+  const buttons = brokerNames
+    .map((name) => ({ name, slug: BROKER_APP_URLS[name]?.slug }))
+    .filter((b): b is { name: string; slug: string } => Boolean(b.slug))
+    .map((b) => ({ text: b.name, url: `${MINI_APP_URL}?startapp=${b.slug}` }));
+
+  if (buttons.length === 0) return undefined;
+
+  const rows: Array<Array<{ text: string; url: string }>> = [];
+  for (let i = 0; i < buttons.length; i += BUTTONS_PER_ROW) {
+    rows.push(buttons.slice(i, i + BUTTONS_PER_ROW));
+  }
+  return { inline_keyboard: rows };
 }
 
 export async function sendTelegram(
   text: string,
   token: string,
   chatId: string,
+  replyMarkup?: unknown,
 ): Promise<void> {
   const res = await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
     method: 'POST',
@@ -146,6 +191,7 @@ export async function sendTelegram(
       // escapeHtml을 거치므로 태그로 오인될 문자가 남아 있으면 안 된다.
       parse_mode: 'HTML',
       disable_web_page_preview: true,
+      ...(replyMarkup ? { reply_markup: replyMarkup } : {}),
     }),
     signal: AbortSignal.timeout(20_000),
   });
@@ -170,6 +216,7 @@ export async function sendWithRetry(
   text: string,
   token: string,
   chatId: string,
+  replyMarkup?: unknown,
   attempts = 3,
   send = sendTelegram,
   sleep: (ms: number) => Promise<void> = (ms) =>
@@ -178,7 +225,7 @@ export async function sendWithRetry(
   let lastError: unknown;
   for (let i = 0; i < attempts; i++) {
     try {
-      await send(text, token, chatId);
+      await send(text, token, chatId, replyMarkup);
       return;
     } catch (err) {
       lastError = err;

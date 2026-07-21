@@ -2,11 +2,12 @@ import { describe, expect, it, vi } from 'vitest';
 import {
   TELEGRAM_LIMIT,
   TelegramError,
+  buildBrokerKeyboard,
   renderMessages,
   sendWithRetry,
   visibleLength,
 } from '../src/notify.js';
-import { brokerUrl } from '../src/brokers.js';
+import { BROKER_APP_URLS, MINI_APP_URL, brokerUrl } from '../src/brokers.js';
 import type { IpoEvent, IpoRow } from '../src/types.js';
 
 function row(over: Partial<IpoRow> = {}): IpoRow {
@@ -28,7 +29,7 @@ function row(over: Partial<IpoRow> = {}): IpoRow {
 const only = (events: IpoEvent[], today = '2026-08-25') => {
   const messages = renderMessages(events, today);
   expect(messages).toHaveLength(1);
-  return messages[0]!;
+  return messages[0]!.text;
 };
 
 describe('renderMessages — 내용', () => {
@@ -115,20 +116,20 @@ describe('renderMessages — 분할', () => {
 
     expect(messages.length).toBeGreaterThan(1);
     // 상한은 태그를 제외한 보이는 텍스트 기준이다 (실측 확인)
-    for (const m of messages) expect(visibleLength(m)).toBeLessThanOrEqual(TELEGRAM_LIMIT);
+    for (const m of messages) expect(visibleLength(m.text)).toBeLessThanOrEqual(TELEGRAM_LIMIT);
   });
 
   it('분할해도 모든 종목이 하나도 빠지지 않는다', () => {
     const events = many(60);
-    const joined = renderMessages(events, '2026-08-25').join('\n');
+    const joined = renderMessages(events, '2026-08-25').map((m) => m.text).join('\n');
     for (let i = 0; i < 60; i++) expect(joined).toContain(`종목${i}`);
   });
 
   it('분할된 각 메시지에 날짜 헤더와 (n/m) 표시가 붙는다', () => {
     const messages = renderMessages(many(60), '2026-08-25');
     messages.forEach((m, i) => {
-      expect(m).toContain('공모주 알림 (2026-08-25)');
-      expect(m).toContain(`(${i + 1}/${messages.length})`);
+      expect(m.text).toContain('공모주 알림 (2026-08-25)');
+      expect(m.text).toContain(`(${i + 1}/${messages.length})`);
     });
   });
 
@@ -147,7 +148,7 @@ describe('sendWithRetry', () => {
       if (++calls < 3) throw new TelegramError('HTTP 503', 503, true);
     });
 
-    await sendWithRetry('hi', 't', 'c', 3, send, noSleep);
+    await sendWithRetry('hi', 't', 'c', undefined, 3, send, noSleep);
     expect(calls).toBe(3);
   });
 
@@ -156,7 +157,7 @@ describe('sendWithRetry', () => {
       throw new TelegramError('HTTP 400 too long', 400, false);
     });
 
-    await expect(sendWithRetry('hi', 't', 'c', 3, send, noSleep)).rejects.toThrow('400');
+    await expect(sendWithRetry('hi', 't', 'c', undefined, 3, send, noSleep)).rejects.toThrow('400');
     expect(send).toHaveBeenCalledTimes(1);
   });
 
@@ -165,7 +166,7 @@ describe('sendWithRetry', () => {
       throw new TelegramError('HTTP 503', 503, true);
     });
 
-    await expect(sendWithRetry('hi', 't', 'c', 2, send, noSleep)).rejects.toThrow('503');
+    await expect(sendWithRetry('hi', 't', 'c', undefined, 2, send, noSleep)).rejects.toThrow('503');
     expect(send).toHaveBeenCalledTimes(2);
   });
 });
@@ -229,7 +230,83 @@ describe('visibleLength', () => {
       row: row({ no: String(i), name: `종목${i}`, underwriter: '미래에셋증권,삼성증권' }),
     }));
     const messages = renderMessages(many, '2026-08-25');
-    for (const m of messages) expect(visibleLength(m)).toBeLessThanOrEqual(TELEGRAM_LIMIT);
+    for (const m of messages) expect(visibleLength(m.text)).toBeLessThanOrEqual(TELEGRAM_LIMIT);
     expect(messages).toHaveLength(1); // 보이는 텍스트 기준이면 한 통에 들어간다
+  });
+});
+
+describe('buildBrokerKeyboard', () => {
+  it('버튼은 Mini App 을 경유한다', () => {
+    // url 버튼만으로는 OS를 알 수 없다. Mini App 안에서 판별해 스토어로 보낸다.
+    const kb = buildBrokerKeyboard(['삼성증권']);
+    expect(kb?.inline_keyboard).toEqual([
+      [{ text: '삼성증권', url: `${MINI_APP_URL}?startapp=samsung` }],
+    ]);
+  });
+
+  it('16곳 모두 startapp 링크를 만들 수 있다', () => {
+    for (const [name, links] of Object.entries(BROKER_APP_URLS)) {
+      const kb = buildBrokerKeyboard([name]);
+      expect(kb?.inline_keyboard[0]?.[0]?.url, name).toBe(
+        `${MINI_APP_URL}?startapp=${links.slug}`,
+      );
+    }
+  });
+
+  it('한 줄에 2개씩 배치한다', () => {
+    const kb = buildBrokerKeyboard(['삼성증권', '미래에셋증권', 'KB증권']);
+    expect(kb?.inline_keyboard.map((r) => r.length)).toEqual([2, 1]);
+  });
+
+  it('매핑에 없는 증권사는 버튼을 만들지 않는다', () => {
+    // 눌러도 아무 일 없는 버튼보다 없는 게 낫다
+    const kb = buildBrokerKeyboard(['없는증권', '삼성증권']);
+    expect(kb?.inline_keyboard.flat().map((b) => b.text)).toEqual(['삼성증권']);
+  });
+
+  it('만들 버튼이 하나도 없으면 undefined', () => {
+    // reply_markup 을 아예 안 붙여야 빈 키보드가 안 생긴다
+    expect(buildBrokerKeyboard(['없는증권'])).toBeUndefined();
+    expect(buildBrokerKeyboard([])).toBeUndefined();
+  });
+});
+
+describe('renderMessages — 버튼용 증권사 수집', () => {
+  it('본문에 등장한 증권사를 모아준다', () => {
+    const [m] = renderMessages(
+      [{ type: 'D_DAY', row: row({ underwriter: '미래에셋증권,삼성증권' }) }],
+      '2026-08-25',
+    );
+    expect(m?.brokers).toEqual(['미래에셋증권', '삼성증권']);
+  });
+
+  it('여러 종목의 같은 증권사는 한 번만 담는다', () => {
+    const [m] = renderMessages(
+      [
+        { type: 'D_DAY', row: row({ no: '1', underwriter: '삼성증권' }) },
+        { type: 'D_MINUS_1', row: row({ no: '2', underwriter: '삼성증권' }) },
+      ],
+      '2026-08-25',
+    );
+    expect(m?.brokers).toEqual(['삼성증권']);
+  });
+
+  it('분할되면 각 조각이 자기 증권사만 갖는다', () => {
+    // 버튼이 그 메시지에 없는 종목의 증권사를 가리키면 혼란스럽다
+    const many = Array.from({ length: 60 }, (_, i) => ({
+      type: 'D_MINUS_1' as const,
+      row: row({
+        no: String(i),
+        name: `종목${i}`,
+        underwriter: i < 30 ? '삼성증권' : 'KB증권',
+      }),
+    }));
+    const messages = renderMessages(many, '2026-08-25');
+    expect(messages.length).toBeGreaterThan(1);
+    for (const m of messages) {
+      for (const name of m.brokers) {
+        expect(m.text).toContain(name);
+      }
+    }
   });
 });

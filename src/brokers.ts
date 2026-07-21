@@ -7,11 +7,18 @@
  *   - `ios` 16곳: iTunes Lookup API로 **앱 이름까지** 확인
  *     (ID가 실재하지만 다른 앱인 경우를 걸러내기 위함)
  *
- * 렌더링에는 `landing` 하나만 쓴다. 텔레그램 메시지는 수신자의 OS를 알 수 없어
- * android/ios를 골라 보낼 방법이 없다. 두 필드는 검증된 출처 기록이자,
- * 나중에 OS 분기가 가능한 채널이 생겼을 때를 위한 자료다.
+ * 메시지 본문의 인라인 링크는 `landing`을 쓴다(OS를 알 수 없으므로).
+ * 본문 아래 **버튼**은 Mini App을 경유해 `android`/`ios` 중 맞는 쪽으로 보낸다 —
+ * Mini App 안에서는 WebApp.platform 으로 OS가 판별되기 때문이다.
  */
 export interface BrokerAppLinks {
+  /**
+   * Mini App 버튼 URL에 실을 식별자.
+   *
+   * 텔레그램 startapp 파라미터는 영숫자·`_`·`-` 만 허용해서 한글 이름을 못 쓴다.
+   * 한 번 정하면 바꾸지 말 것 — 과거 메시지의 버튼이 전부 깨진다.
+   */
+  slug: string;
   /** 실제 탭 대상. 공식 통합·안내 페이지 또는 스마트링크. */
   landing: string;
   /** Android Google Play (현재 렌더링에 미사용) */
@@ -32,42 +39,49 @@ export const BROKER_APP_URLS: Readonly<Record<string, BrokerAppLinks>> = {
     landing: 'https://www.dbsec.co.kr/main/main.do',
     android: 'https://play.google.com/store/apps/details?id=com.dbfi.xts',
     ios: 'https://apps.apple.com/kr/app/id1603371564', // DB증권 MTS(알파증권)
+    slug: 'db',
     type: 'official-page',
   },
   IBK투자증권: {
     landing: 'https://m.ibks.com/ikd/IKD060101.do?cam_from=mw_main_top2',
     android: 'https://play.google.com/store/apps/details?id=com.ibks.ione.mts',
     ios: 'https://apps.apple.com/kr/app/id6612018102', // IBK투자증권 Wings
+    slug: 'ibk',
     type: 'download-page',
   },
   KB증권: {
     landing: 'https://m.kbsec.com/lms/mobile_menu1.html',
     android: 'https://play.google.com/store/apps/details?id=com.kbsec.mts.iplustarngm2',
     ios: 'https://apps.apple.com/kr/app/id350742701', // KB M-able
+    slug: 'kb',
     type: 'download-page',
   },
   NH투자증권: {
     landing: 'https://www.mynamuhbegin.com/',
     android: 'https://play.google.com/store/apps/details?id=com.wooriwm.txsmart',
     ios: 'https://apps.apple.com/kr/app/id486312400', // 나무증권
+    slug: 'nh',
     type: 'official-page',
   },
   교보증권: {
     landing: 'https://www.iprovest.com/customhelp/channel/smartpro.htm',
     android: 'https://play.google.com/store/apps/details?id=kr.com.wink',
     ios: 'https://apps.apple.com/kr/app/id1282214166', // 교보증권 Win.K
+    slug: 'kyobo',
     type: 'download-page',
   },
   대신증권: {
     landing: 'https://m.daishin.com/g.ds?m=3821&p=4141&v=3101',
     android: 'https://play.google.com/store/apps/details?id=com.daishin',
     ios: 'https://apps.apple.com/kr/app/id414850336', // 대신증권 CYBOS Touch
+    slug: 'daishin',
     type: 'download-page',
   },
   메리츠증권: {
     landing: 'https://home.imeritz.com/mobile/sub/MblApp.html',
     android: 'https://play.google.com/store/apps/details?id=com.imeritz.smartmeritz',
     ios: 'https://apps.apple.com/kr/app/id1104272974', // 메리츠SMART
+    slug: 'meritz',
     type: 'download-page',
   },
   미래에셋증권: {
@@ -76,6 +90,7 @@ export const BROKER_APP_URLS: Readonly<Record<string, BrokerAppLinks>> = {
     landing: 'https://onelink.to/m.stock',
     android: 'https://play.google.com/store/apps/details?id=com.miraeasset.trade',
     ios: 'https://apps.apple.com/kr/app/id1248716281', // 미래에셋증권 M-STOCK
+    slug: 'mirae',
     type: 'smart-link',
   },
   삼성증권: {
@@ -84,36 +99,42 @@ export const BROKER_APP_URLS: Readonly<Record<string, BrokerAppLinks>> = {
     landing: 'http://m.samsungpop.com/?h=mPOPNew',
     android: 'https://play.google.com/store/apps/details?id=com.samsungpop.android.mpop',
     ios: 'https://apps.apple.com/kr/app/id1150231646', // 삼성증권 mPOP
+    slug: 'samsung',
     type: 'smart-link',
   },
   신한투자증권: {
     landing: 'https://www.shinhansec.com/siw/customer-center/channel/75060307/view.do',
     android: 'https://play.google.com/store/apps/details?id=com.shinhaninvest.nsmts',
     ios: 'https://apps.apple.com/kr/app/id1168512940', // 신한 SOL증권
+    slug: 'shinhan',
     type: 'download-page',
   },
   유안타증권: {
     landing: 'https://www.tradar.co.kr/',
     android: 'https://play.google.com/store/apps/details?id=com.yuanta.tradars',
     ios: 'https://apps.apple.com/kr/app/id6482289992', // 유안타증권 티레이더M
+    slug: 'yuanta',
     type: 'official-page',
   },
   유진투자증권: {
     landing: 'https://www.eugenefn.com/serv/svwc/getSvwc500p.do?svwcHeader=500&svwcLeft=520',
     android: 'https://play.google.com/store/apps/details?id=com.eugenefn.smartchampion2',
     ios: 'https://apps.apple.com/kr/app/id1080300592', // 유진투자증권
+    slug: 'eugene',
     type: 'download-page',
   },
   키움증권: {
     landing: 'https://www.kiwoom.com/h/customer/download/VChannelHts4View',
     android: 'https://play.google.com/store/apps/details?id=com.kiwoom.heromts',
     ios: 'https://apps.apple.com/kr/app/id1570370057', // 키움증권 영웅문S#
+    slug: 'kiwoom',
     type: 'download-page',
   },
   하나증권: {
     landing: 'https://www.hanaw.com/main/customer/event/CS_112405_P.cmd?tab=y',
     android: 'https://play.google.com/store/apps/details?id=com.hanasec.stock',
     ios: 'https://apps.apple.com/kr/app/id1506702407', // 하나증권 원큐프로
+    slug: 'hana',
     type: 'official-page',
   },
   한국투자증권: {
@@ -121,12 +142,14 @@ export const BROKER_APP_URLS: Readonly<Record<string, BrokerAppLinks>> = {
       'https://securities.koreainvestment.com/main/customer/systemdown/_static/TF04eb031400_2n.shtm',
     android: 'https://play.google.com/store/apps/details?id=com.truefriend.neosmartarenewal',
     ios: 'https://apps.apple.com/kr/app/id1621986905', // 한국투자증권 MTS
+    slug: 'koreainvest',
     type: 'download-page',
   },
   현대차증권: {
     landing: 'https://www.hmsec.com/mobile/download.to',
     android: 'https://play.google.com/store/apps/details?id=com.hmsec.mts',
     ios: 'https://apps.apple.com/kr/app/id6444633082', // 현대차증권 내일
+    slug: 'hyundai',
     type: 'download-page',
   },
 };
@@ -145,4 +168,12 @@ export function splitBrokers(underwriter: string): string[] {
  */
 export function brokerUrl(name: string): string | undefined {
   return BROKER_APP_URLS[name]?.landing;
+}
+
+/** 등록된 Mini App. BotFather `/newapp` 으로 만든 direct link. */
+export const MINI_APP_URL = 'https://t.me/chi_stock_alert_bot/chi_alrt';
+
+/** slug → 증권사 이름 역인덱스. Mini App 페이지가 startapp 값을 풀 때 쓴다. */
+export function brokerBySlug(slug: string): string | undefined {
+  return Object.keys(BROKER_APP_URLS).find((n) => BROKER_APP_URLS[n]!.slug === slug);
 }

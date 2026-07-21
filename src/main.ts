@@ -3,7 +3,7 @@ import { envSource, requireEnv } from './env.js';
 import { fetchListHtml } from './fetch.js';
 import { fetchListingDate } from './detail.js';
 import { parseList } from './parse.js';
-import { sendWithRetry } from './notify.js';
+import { buildBrokerKeyboard, sendWithRetry } from './notify.js';
 import { run } from './pipeline.js';
 import { todayKst } from './rules.js';
 import {
@@ -42,7 +42,8 @@ async function main(): Promise<void> {
     {
       fetchRows: async () => parseList(await fetchListHtml()),
       fetchListingDate,
-      send: (text) => sendWithRetry(text, credentials!.token, credentials!.chatId),
+      send: ({ text, brokers }) =>
+        sendWithRetry(text, credentials!.token, credentials!.chatId, buildBrokerKeyboard(brokers)),
       readSnapshot: () => readSnapshot(),
       readNotified: () => readNotified(),
       writeSnapshot: (value) => writeJson(SNAPSHOT_PATH, value),
@@ -59,7 +60,12 @@ async function main(): Promise<void> {
       return;
     }
     console.log('\n--- DRY RUN: 아래 메시지가 발송됩니다 ---\n');
-    console.log(result.messages.join('\n\n──────────\n\n'));
+    for (const m of result.messages) {
+      console.log(m.text);
+      const kb = buildBrokerKeyboard(m.brokers);
+      const labels = kb?.inline_keyboard.flat().map((b) => `[${b.text}]`).join(' ') ?? '(없음)';
+      console.log(`\n  버튼: ${labels}\n──────────`);
+    }
     console.log('\n--- (dry-run이므로 state를 갱신하지 않습니다) ---');
     return;
   }
