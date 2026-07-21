@@ -21,6 +21,7 @@ function row(over: Partial<IpoRow> = {}): IpoRow {
     ratio: null,
     underwriter: 'IBK투자증권',
     url: 'http://www.38.co.kr/html/fund/?o=v&no=2307',
+    listingDate: null,
     ...over,
   };
 }

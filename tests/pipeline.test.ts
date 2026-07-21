@@ -14,6 +14,7 @@ function row(over: Partial<IpoRow> = {}): IpoRow {
     ratio: null,
     underwriter: 'IBK투자증권',
     url: 'http://www.38.co.kr/html/fund/?o=v&no=2307',
+    listingDate: null,
     ...over,
   };
 }
@@ -175,35 +176,78 @@ describe('run — 멱등성', () => {
   });
 });
 
-describe('run — 상장일 보강', () => {
-  it('발송 대상 종목의 상장일을 메시지에 넣는다', async () => {
+describe('run — 상장일 (행 단위 + 캐싱)', () => {
+  it('스냅샷에 저장되어 Mini App 같은 소비자가 읽을 수 있다', async () => {
+    const h = harness();
+    await run(h.deps, TODAY, { dryRun: false });
+
+    expect(h.writes.snapshot[0]?.items['2307']?.listingDate).toBe('2026-09-10');
+  });
+
+  it('메시지에도 같은 값이 나간다', async () => {
     const h = harness();
     const result = await run(h.deps, TODAY, { dryRun: true });
 
     expect(result.messages[0]).toContain('상장일  2026-09-10');
   });
 
-  it('같은 종목에 이벤트가 여러 개여도 상세 페이지는 한 번만 받는다', async () => {
+  it('이미 아는 상장일은 다시 받지 않는다', async () => {
+    // 확정된 상장일은 바뀌지 않는다. 매일 다시 받으면 요청만 낭비된다.
     const calls: string[] = [];
-    // 시작=마감 → D_DAY와 LAST_DAY가 동시에 발생하는 종목
-    const oneDay = row({ subStart: TODAY, subEnd: TODAY });
+    const known = row({ listingDate: '2026-09-10' });
     const h = harness(
       {
-        fetchRows: async () => [oneDay],
+        fetchRows: async () => [row()], // 목록 파싱 결과는 항상 null
         fetchListingDate: async (no) => {
           calls.push(no);
           return '2026-09-10';
         },
       },
-      [oneDay],
+      [known], // 이전 스냅샷에는 값이 있다
     );
 
-    const result = await run(h.deps, TODAY, { dryRun: true });
-    expect(result.pendingCount).toBe(2);
+    const result = await run(h.deps, TODAY, { dryRun: false });
+    expect(calls).toEqual([]); // 조회 없음
+    expect(h.writes.snapshot[0]?.items['2307']?.listingDate).toBe('2026-09-10'); // 이어받음
+    expect(result.messages[0]).toContain('상장일  2026-09-10');
+  });
+
+  it('아직 모르는 상장일은 받아서 채운다', async () => {
+    const calls: string[] = [];
+    const h = harness(
+      {
+        fetchListingDate: async (no) => {
+          calls.push(no);
+          return '2026-09-10';
+        },
+      },
+      [row()], // 이전 스냅샷도 null
+    );
+
+    await run(h.deps, TODAY, { dryRun: false });
     expect(calls).toEqual(['2307']);
   });
 
-  it('상장일 조회가 실패해도 알림은 그대로 발송된다', async () => {
+  it('오래 끝난 공모는 조회하지 않는다', async () => {
+    // 60일 넘게 지난 종목까지 매일 재조회하면 영원히 요청이 줄지 않는다
+    const calls: string[] = [];
+    const old = row({ no: '999', subStart: '2026-01-01', subEnd: '2026-01-02' });
+    const h = harness(
+      {
+        fetchRows: async () => [old],
+        fetchListingDate: async (no) => {
+          calls.push(no);
+          return '2026-01-10';
+        },
+      },
+      [old],
+    );
+
+    await run(h.deps, TODAY, { dryRun: false });
+    expect(calls).toEqual([]);
+  });
+
+  it('조회가 실패해도 알림은 그대로 발송된다', async () => {
     // 부가 정보 때문에 '오늘 청약 마감' 같은 본질적 알림이 죽으면 안 된다
     const h = harness({
       fetchListingDate: async () => {

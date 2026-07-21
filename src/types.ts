@@ -21,6 +21,14 @@ export type IpoRow = {
   ratio: string | null;
   underwriter: string | null;
   url: string;
+  /**
+   * 상장일 'YYYY-MM-DD'. 목록 페이지에 없어서 종목별 상세 페이지를 따로 받아 채운다.
+   *
+   * null은 '미정' 또는 '아직 조회 안 함' 둘 다를 뜻한다. 조회 비용을 아끼려고
+   * 한 번 확정된 값은 다시 받지 않고 스냅샷에서 이어받으므로, 둘을 구분할
+   * 실익이 없다(어느 쪽이든 화면에는 '-'로 나간다).
+   */
+  listingDate: string | null;
 };
 
 export type Snapshot = {
@@ -46,14 +54,6 @@ export type IpoEvent = {
   row: IpoRow;
   /** SCHEDULE_CHANGED 등 변경 이벤트의 이전 값 설명. */
   detail?: string;
-  /**
-   * 상장일 'YYYY-MM-DD'. 목록 페이지에 없어서 상세 페이지를 따로 받아 채운다.
-   *
-   * IpoRow가 아니라 이벤트에 붙인다. IpoRow는 '목록 페이지가 말하는 것'으로
-   * 두어야 스냅샷에 일부만 채워진 필드가 섞이지 않는다. 미정이거나 조회에
-   * 실패하면 undefined/null.
-   */
-  listingDate?: string | null;
 };
 
 export type NotifiedLog = {

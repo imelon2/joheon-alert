@@ -72,7 +72,7 @@ function renderItem(event: IpoEvent): string[] {
     `  · ${escapeHtml(row.name)}`,
     ...(event.detail ? [`    변경    ${escapeHtml(event.detail)}`] : []),
     `    일정    ${formatPeriod(row)}`,
-    `    상장일  ${show(event.listingDate ?? null)}`,
+    `    상장일  ${show(row.listingDate)}`,
     `    확정가  ${show(row.finalPrice)}`,
     `    희망가  ${show(row.hopePrice)}`,
     `    경쟁률  ${show(row.ratio)}`,

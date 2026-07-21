@@ -39,6 +39,7 @@ describe('parseList', () => {
       ratio: null, // 원문 ''
       underwriter: 'IBK투자증권',
       url: 'http://www.38.co.kr/html/fund/?o=v&no=2307',
+      listingDate: null, // 목록 페이지엔 없다. 상세 페이지에서 별도로 채운다.
     });
   });
 

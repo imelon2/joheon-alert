@@ -41,6 +41,7 @@ export function parseList(html: string): IpoRow[] {
       ratio: nullIfUnset(text($(cells[4]))),
       underwriter: nullIfUnset(text($(cells[5]))),
       url: `${BASE_URL}/html/fund/?o=v&no=${no}`,
+      listingDate: null, // 목록 페이지엔 없다. 상세 페이지에서 별도로 채운다.
     });
   });
 
