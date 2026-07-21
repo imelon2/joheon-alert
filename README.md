@@ -95,12 +95,12 @@ DB 인스턴스 없이 리포에 커밋해 보관합니다. `git log -p state/ip
 
 **최초 실행은 베이스라인만 만듭니다** — 일정 변경을 비교할 기준이 없어서입니다. 단 날짜 기반 트리거(D-1/D-DAY/마감)는 최초 실행에도 동작합니다.
 
-## 증권사 앱 연결 (go.html)
+## 증권사 앱 연결 (index.html)
 
 알림 메시지 아래 증권사 버튼을 누르면 각 OS의 앱스토어로 보냅니다.
 
 ```
-버튼 → go.html?b=<slug> → userAgent 판별 → Play 스토어 / App Store
+버튼 → <Pages 루트>?b=<slug> → userAgent 판별 → Play 스토어 / App Store
 ```
 
 **왜 리다이렉트 페이지를 두는가.** 채널에서는 `web_app` 버튼이 막혀 있어(실측:
@@ -129,7 +129,7 @@ pnpm gen:brokers   # src/brokers.ts 를 고쳤다면 반드시 실행
 
 GitHub Pages: Settings → Pages → Source `Deploy from a branch` → `main` / `/ (root)`
 
-사이트 루트(`/`)에는 페이지가 없습니다. `go.html` 만 씁니다.
+사이트 루트(`/`)가 곧 리다이렉트 페이지입니다. 파라미터 없이 들어오면 안내 문구만 보여줍니다.
 
 ## 사이트 특성 (구현 시 유의)
 

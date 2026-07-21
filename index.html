@@ -119,7 +119,10 @@
        * 오래 캐시해 코드를 고쳐도 반영되지 않는 문제를 겪었고, 애초에
        * WebApp.platform 없이 userAgent 만으로도 OS 판별이 충분하다.
        *
-       *   버튼 → go.html?b=<slug> → userAgent 판별 → Play / App Store
+       *   버튼 → ?b=<slug> → userAgent 판별 → Play / App Store
+       *
+       * 사이트 루트가 이 페이지다. 파라미터 없이 들어오면 에러가 아니라
+       * 무엇을 하는 곳인지 알려준다.
        */
       (function () {
         var $ = function (id) { return document.getElementById(id); };
@@ -150,7 +153,8 @@
         }
 
         if (!slug) {
-          return fail('잘못된 주소', '증권사가 지정되지 않았습니다.');
+          // 루트로 그냥 들어온 경우. 잘못한 게 없으니 에러처럼 보이면 안 된다.
+          return fail('공모주 알림', '알림 메시지의 증권사 버튼을 통해 열리는 페이지입니다.');
         }
 
         fetch('state/brokers.json', { cache: 'no-store' })

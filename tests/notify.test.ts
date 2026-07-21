@@ -237,12 +237,12 @@ describe('visibleLength', () => {
 
 describe('buildBrokerKeyboard', () => {
   it('버튼은 리다이렉트 페이지를 경유한다', () => {
-    // url 버튼만으로는 OS를 알 수 없다. go.html 이 userAgent 로 판별해 스토어로 보낸다.
+    // url 버튼만으로는 OS를 알 수 없다. 리다이렉트 페이지가 userAgent 로 판별해 보낸다.
     const kb = buildBrokerKeyboard(['삼성증권']);
     expect(kb?.inline_keyboard).toEqual([
       [{ text: '삼성증권', url: brokerButtonUrl('samsung') }],
     ]);
-    expect(kb?.inline_keyboard[0]?.[0]?.url).toContain('go.html?b=samsung');
+    expect(kb?.inline_keyboard[0]?.[0]?.url).toContain('joheon-alert/?b=samsung');
   });
 
   it('16곳 모두 리다이렉트 링크를 만들 수 있다', () => {
