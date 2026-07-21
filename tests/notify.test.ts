@@ -7,7 +7,7 @@ import {
   sendWithRetry,
   visibleLength,
 } from '../src/notify.js';
-import { BROKER_APP_URLS, MINI_APP_URL, brokerUrl } from '../src/brokers.js';
+import { BROKER_APP_URLS, brokerButtonUrl, brokerUrl } from '../src/brokers.js';
 import type { IpoEvent, IpoRow } from '../src/types.js';
 
 function row(over: Partial<IpoRow> = {}): IpoRow {
@@ -236,20 +236,19 @@ describe('visibleLength', () => {
 });
 
 describe('buildBrokerKeyboard', () => {
-  it('버튼은 Mini App 을 경유한다', () => {
-    // url 버튼만으로는 OS를 알 수 없다. Mini App 안에서 판별해 스토어로 보낸다.
+  it('버튼은 리다이렉트 페이지를 경유한다', () => {
+    // url 버튼만으로는 OS를 알 수 없다. go.html 이 userAgent 로 판별해 스토어로 보낸다.
     const kb = buildBrokerKeyboard(['삼성증권']);
     expect(kb?.inline_keyboard).toEqual([
-      [{ text: '삼성증권', url: `${MINI_APP_URL}?startapp=samsung` }],
+      [{ text: '삼성증권', url: brokerButtonUrl('samsung') }],
     ]);
+    expect(kb?.inline_keyboard[0]?.[0]?.url).toContain('go.html?b=samsung');
   });
 
-  it('16곳 모두 startapp 링크를 만들 수 있다', () => {
+  it('16곳 모두 리다이렉트 링크를 만들 수 있다', () => {
     for (const [name, links] of Object.entries(BROKER_APP_URLS)) {
       const kb = buildBrokerKeyboard([name]);
-      expect(kb?.inline_keyboard[0]?.[0]?.url, name).toBe(
-        `${MINI_APP_URL}?startapp=${links.slug}`,
-      );
+      expect(kb?.inline_keyboard[0]?.[0]?.url, name).toBe(brokerButtonUrl(links.slug));
     }
   });
 

@@ -170,8 +170,21 @@ export function brokerUrl(name: string): string | undefined {
   return BROKER_APP_URLS[name]?.landing;
 }
 
-/** 등록된 Mini App. BotFather `/newapp` 으로 만든 direct link. */
-export const MINI_APP_URL = 'https://t.me/chi_stock_alert_bot/chi_alrt';
+/**
+ * 버튼이 향하는 리다이렉트 페이지.
+ *
+ * Mini App(t.me/<봇>/<앱>)을 쓰지 않는다. 텔레그램이 Mini App 페이지를 오래
+ * 캐시해 코드 수정이 반영되지 않는 문제를 겪었고, 인앱 브라우저에서는
+ * userAgent 만으로 OS 판별이 충분하다.
+ *
+ * `v` 는 캐시 무력화용. 페이지 로직을 고치면 올린다.
+ */
+export const REDIRECT_BASE = 'https://imelon2.github.io/joheon-alert/go.html';
+const REDIRECT_VERSION = '1';
+
+export function brokerButtonUrl(slug: string): string {
+  return `${REDIRECT_BASE}?b=${slug}&v=${REDIRECT_VERSION}`;
+}
 
 /** slug → 증권사 이름 역인덱스. Mini App 페이지가 startapp 값을 풀 때 쓴다. */
 export function brokerBySlug(slug: string): string | undefined {

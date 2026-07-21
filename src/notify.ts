@@ -1,4 +1,4 @@
-import { BROKER_APP_URLS, MINI_APP_URL, brokerUrl, splitBrokers } from './brokers.js';
+import { BROKER_APP_URLS, brokerButtonUrl, brokerUrl, splitBrokers } from './brokers.js';
 import type { EventType, IpoEvent, IpoRow } from './types.js';
 
 /** 발송 메시지에서의 표시 순서. 급한 것부터. */
@@ -151,9 +151,9 @@ const BUTTONS_PER_ROW = 2;
  * 본문 아래에 붙일 증권사 버튼.
  *
  * 채널에서는 `web_app` 버튼이 막혀 있어(실측: BUTTON_TYPE_INVALID) `url` 버튼만
- * 쓸 수 있고, url 버튼만으로는 수신자 OS를 알 수 없다. 그래서 Mini App을 경유한다:
+ * 쓸 수 있고, url 버튼만으로는 수신자 OS를 알 수 없다. 그래서 리다이렉트 페이지를 둔다:
  *
- *   버튼 → t.me/<봇>/<앱>?startapp=<slug> → Mini App이 platform 판별 → 해당 스토어
+ *   버튼 → go.html?b=<slug> → userAgent 판별 → Play / App Store
  *
  * 이렇게 해야 16곳 전부가 각 OS의 스토어로 간다(landing 직행이면 2곳만 스토어).
  * 매핑에 없는 증권사는 버튼을 만들지 않는다 — 깨진 링크보다 낫다.
@@ -164,7 +164,7 @@ export function buildBrokerKeyboard(
   const buttons = brokerNames
     .map((name) => ({ name, slug: BROKER_APP_URLS[name]?.slug }))
     .filter((b): b is { name: string; slug: string } => Boolean(b.slug))
-    .map((b) => ({ text: b.name, url: `${MINI_APP_URL}?startapp=${b.slug}` }));
+    .map((b) => ({ text: b.name, url: brokerButtonUrl(b.slug) }));
 
   if (buttons.length === 0) return undefined;
 
