@@ -107,7 +107,7 @@
       <div class="spinner" id="spinner"></div>
       <h1 class="name" id="name">잠시만요</h1>
       <p class="status" id="status">이동 중…</p>
-      <div class="manual" id="manual"><a id="manual-link" href="./">공모주 일정 보기</a></div>
+      <div class="manual" id="manual" hidden><a id="manual-link" href="#"></a></div>
       <p class="diag" id="diag"></p>
     </main>
 
@@ -137,7 +137,8 @@
         function showManual(label, href) {
           var link = $('manual-link');
           link.textContent = label;
-          if (href) link.href = href;
+          link.href = href;
+          $('manual').hidden = false;
           setTimeout(function () { $('manual').classList.add('show'); }, MANUAL_DELAY_MS);
         }
 
@@ -145,7 +146,7 @@
           $('spinner').classList.add('stopped');
           $('name').textContent = title;
           $('status').textContent = detail;
-          $('manual').classList.add('show'); // 실패했으면 즉시 보여준다
+          // 보낼 만한 곳이 없다(목록 페이지 없음). 상태만 알리고 끝낸다.
         }
 
         if (!slug) {

@@ -95,17 +95,23 @@ DB 인스턴스 없이 리포에 커밋해 보관합니다. `git log -p state/ip
 
 **최초 실행은 베이스라인만 만듭니다** — 일정 변경을 비교할 기준이 없어서입니다. 단 날짜 기반 트리거(D-1/D-DAY/마감)는 최초 실행에도 동작합니다.
 
-## Mini App (index.html)
+## 증권사 앱 연결 (go.html)
 
-증권사 앱으로 연결하는 것이 목적인 최소 페이지입니다. 디자인은 생략했습니다.
+알림 메시지 아래 증권사 버튼을 누르면 각 OS의 앱스토어로 보냅니다.
 
-- `state/ipo.json` + `state/brokers.json` 을 fetch해서 **진행 예정 종목만** 표시
-- 증권사 버튼을 누르면 `WebApp.platform` 으로 판별해 스토어로 이동
-  (Android → Play, iOS → App Store, 판별 불가 → landing)
-- 일반 브라우저로 열려도 `navigator.userAgent` 로 보조 판정하므로 깨지지 않음
-- 매핑에 없는 증권사는 **비활성 버튼** — 깨진 링크보다 낫습니다
+```
+버튼 → go.html?b=<slug> → userAgent 판별 → Play 스토어 / App Store
+```
 
-`state/brokers.json` 은 `src/brokers.ts` 에서 생성합니다. 손으로 복사하면 반드시 어긋나므로:
+**왜 리다이렉트 페이지를 두는가.** 채널에서는 `web_app` 버튼이 막혀 있어(실측:
+`BUTTON_TYPE_INVALID`) `url` 버튼만 쓸 수 있는데, url 버튼만으로는 수신자 OS를
+알 수 없습니다. `landing` 직행이면 16곳 중 2곳만 스토어로 갑니다.
+
+Telegram Mini App(`t.me/<봇>/<앱>`)도 시도했지만 **텔레그램이 페이지를 오래 캐시해
+코드 수정이 기기에 반영되지 않았습니다.** 인앱 브라우저에서는 `userAgent` 만으로
+OS 판별이 충분해서 Mini App 없이 갑니다.
+
+`state/brokers.json` 은 `src/brokers.ts` 에서 생성합니다:
 
 ```bash
 pnpm gen:brokers   # src/brokers.ts 를 고쳤다면 반드시 실행
@@ -113,10 +119,17 @@ pnpm gen:brokers   # src/brokers.ts 를 고쳤다면 반드시 실행
 
 어긋난 채 커밋되면 `tests/brokers.test.ts` 가 CI에서 잡습니다.
 
+### 페이지를 고칠 때
+
+**`src/brokers.ts` 의 `REDIRECT_VERSION` 을 올리세요.** 버튼 URL의 `v` 파라미터가
+바뀌어야 캐시된 옛 페이지 대신 새 페이지가 열립니다. 이걸 빠뜨려서 수정이
+반영되지 않는 문제를 실제로 겪었습니다.
+
 ### 배포
 
 GitHub Pages: Settings → Pages → Source `Deploy from a branch` → `main` / `/ (root)`
-BotFather: `/newapp` → 봇 선택 → Pages 주소 입력 → 짧은 이름 지정 → `t.me/<봇>/<앱>` 링크 생성
+
+사이트 루트(`/`)에는 페이지가 없습니다. `go.html` 만 씁니다.
 
 ## 사이트 특성 (구현 시 유의)
 
