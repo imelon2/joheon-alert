@@ -1,3 +1,4 @@
+import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 import { BROKER_APP_URLS, brokerUrl, splitBrokers } from '../src/brokers.js';
 
@@ -67,5 +68,26 @@ describe('brokerUrl', () => {
 
   it('모르는 증권사는 undefined — 깨진 링크를 만들지 않는다', () => {
     expect(brokerUrl('없는증권')).toBeUndefined();
+  });
+});
+
+describe('state/brokers.json (웹페이지용 생성물)', () => {
+  const committed = JSON.parse(readFileSync('state/brokers.json', 'utf8'));
+
+  it('TS 원본과 정확히 일치한다', () => {
+    // 어긋나면 웹페이지가 옛 링크를 쓴다. 조용히 틀리는 대신 여기서 깨진다.
+    // 고치는 법: pnpm gen:brokers
+    expect(committed).toEqual(BROKER_APP_URLS);
+  });
+
+  it('페이지가 필요로 하는 필드를 모두 담고 있다', () => {
+    for (const name of SEEN_IN_DATA) {
+      expect(committed[name], name).toMatchObject({
+        landing: expect.any(String),
+        android: expect.any(String),
+        ios: expect.any(String),
+        type: expect.any(String),
+      });
+    }
   });
 });

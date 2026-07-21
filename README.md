@@ -95,6 +95,29 @@ DB 인스턴스 없이 리포에 커밋해 보관합니다. `git log -p state/ip
 
 **최초 실행은 베이스라인만 만듭니다** — 일정 변경을 비교할 기준이 없어서입니다. 단 날짜 기반 트리거(D-1/D-DAY/마감)는 최초 실행에도 동작합니다.
 
+## Mini App (index.html)
+
+증권사 앱으로 연결하는 것이 목적인 최소 페이지입니다. 디자인은 생략했습니다.
+
+- `state/ipo.json` + `state/brokers.json` 을 fetch해서 **진행 예정 종목만** 표시
+- 증권사 버튼을 누르면 `WebApp.platform` 으로 판별해 스토어로 이동
+  (Android → Play, iOS → App Store, 판별 불가 → landing)
+- 일반 브라우저로 열려도 `navigator.userAgent` 로 보조 판정하므로 깨지지 않음
+- 매핑에 없는 증권사는 **비활성 버튼** — 깨진 링크보다 낫습니다
+
+`state/brokers.json` 은 `src/brokers.ts` 에서 생성합니다. 손으로 복사하면 반드시 어긋나므로:
+
+```bash
+pnpm gen:brokers   # src/brokers.ts 를 고쳤다면 반드시 실행
+```
+
+어긋난 채 커밋되면 `tests/brokers.test.ts` 가 CI에서 잡습니다.
+
+### 배포
+
+GitHub Pages: Settings → Pages → Source `Deploy from a branch` → `main` / `/ (root)`
+BotFather: `/newapp` → 봇 선택 → Pages 주소 입력 → 짧은 이름 지정 → `t.me/<봇>/<앱>` 링크 생성
+
 ## 사이트 특성 (구현 시 유의)
 
 - 응답 인코딩이 **euc-kr**. `TextDecoder('euc-kr')` 사용 (full-ICU 빌드 필요, 아니면 즉시 실패)

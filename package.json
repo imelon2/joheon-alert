@@ -12,7 +12,8 @@
     "test": "vitest run",
     "test:send": "tsx scripts/send-test.ts",
     "send:links": "tsx scripts/send-broker-links.ts",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "gen:brokers": "tsx scripts/gen-brokers.ts"
   },
   "dependencies": {
     "cheerio": "^1.0.0",
