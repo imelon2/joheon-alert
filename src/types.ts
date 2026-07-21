@@ -1,0 +1,58 @@
+/** 38.co.kr 공모주 청약일정 한 행. */
+export type IpoRow = {
+  /** 38.co.kr 고유번호. 상세 링크의 `no` 파라미터. 종목의 안정적 PK. */
+  no: string;
+  name: string;
+  /** ISO 'YYYY-MM-DD' */
+  subStart: string;
+  /** ISO 'YYYY-MM-DD' */
+  subEnd: string;
+  /** 확정공모가. 원문 '-'(미확정)은 null. */
+  finalPrice: string | null;
+  hopePrice: string | null;
+  /**
+   * 청약경쟁률. 원문 ''(미집계)은 null.
+   *
+   * 원문에서 미정 표기는 컬럼마다 다르다(공모가는 '-', 경쟁률은 ''). 파서는 둘 다
+   * null로 정규화하며, 어느 표기였는지는 보존하지 않는다. 현재 어떤 판정도 그
+   * 구분에 의존하지 않으므로 무해하다. 구분이 필요해지면 파서에서 별도 필드로
+   * 승격해야 한다.
+   */
+  ratio: string | null;
+  underwriter: string | null;
+  url: string;
+};
+
+export type Snapshot = {
+  updatedAt: string;
+  /** key = IpoRow.no */
+  items: Record<string, IpoRow>;
+};
+
+export type EventType =
+  | 'NEW'
+  | 'PRICE_FIXED'
+  | 'SCHEDULE_CHANGED'
+  | 'D_MINUS_1'
+  | 'D_DAY'
+  | 'LAST_DAY';
+
+export type IpoEvent = {
+  type: EventType;
+  row: IpoRow;
+  /** SCHEDULE_CHANGED 등 변경 이벤트의 이전 값 설명. */
+  detail?: string;
+  /**
+   * 상장일 'YYYY-MM-DD'. 목록 페이지에 없어서 상세 페이지를 따로 받아 채운다.
+   *
+   * IpoRow가 아니라 이벤트에 붙인다. IpoRow는 '목록 페이지가 말하는 것'으로
+   * 두어야 스냅샷에 일부만 채워진 필드가 섞이지 않는다. 미정이거나 조회에
+   * 실패하면 undefined/null.
+   */
+  listingDate?: string | null;
+};
+
+export type NotifiedLog = {
+  /** 멱등성 키: `${no}:${type}:${eventDate}` */
+  sent: string[];
+};

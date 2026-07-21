@@ -1,0 +1,128 @@
+# 공모주 알림 (38.co.kr)
+
+38.co.kr 공모주 청약일정을 수집해, **놓치면 안 되는 시점에만** 텔레그램으로 알립니다.
+매일 목록을 덤프하지 않습니다.
+
+## 발송 트리거
+
+| 트리거 | 조건 |
+|---|---|
+| `D_MINUS_1` | 청약 시작일 == 내일 |
+| `D_DAY` | 청약 시작일 == 오늘 |
+| `LAST_DAY` | 청약 마감일 == 오늘 |
+| `NEW` | 이전에 없던 종목 등장 |
+| `PRICE_FIXED` | 확정공모가가 미정 → 확정 |
+| `SCHEDULE_CHANGED` | 청약 일정 변경 |
+
+멱등성 키는 `{no}:{type}:{date}`. 재실행·수동 실행에도 같은 알림이 두 번 가지 않습니다.
+
+## 로컬 실행
+
+```bash
+pnpm install
+pnpm test              # 파서·룰·렌더링 단위 테스트
+pnpm dry-run           # 실제 크롤 후 발송 예정 메시지를 콘솔 출력 (토큰 불필요)
+
+# 특정 날짜 기준으로 확인 (dry-run 전용)
+pnpm tsx src/main.ts --dry-run --date=2026-07-30
+```
+
+## 설정 (.env)
+
+```bash
+cp .env.example .env
+# .env 를 열어 TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID 채우기
+pnpm start
+```
+
+`.env` 는 `.gitignore` 대상입니다. **토큰이 들어가므로 절대 커밋하지 마세요.**
+
+### 받는 곳 (`TELEGRAM_CHAT_ID`)
+
+세 가지 형태를 모두 그대로 넣을 수 있습니다. 값은 문자열로 전달되므로 코드 분기가 없습니다.
+
+| 대상 | 값 | 비고 |
+|---|---|---|
+| 개인 대화 | `987654321` | 봇에게 `/start` 를 먼저 보내야 함 |
+| 공개 채널 | `@my_ipo_alerts` | 가장 간단. 숫자 ID 불필요 |
+| 비공개 채널 | `-1001234567890` | `-100` 접두사 포함 |
+
+채널을 쓸 때는 **봇을 채널 관리자로 추가하고 `게시물 게시(Post Messages)` 권한을 켜야** 합니다. 안 켜면 403이 납니다.
+
+ID 확인 (개인 대화는 `message`, 채널은 `channel_post` 로 오므로 둘 다 처리):
+
+```bash
+curl -s "https://api.telegram.org/bot<토큰>/getUpdates" | python3 -c "
+import sys, json
+for u in json.load(sys.stdin)['result']:
+    c = (u.get('channel_post') or u.get('message') or {}).get('chat')
+    if c: print(c['id'], c.get('type'), c.get('title') or c.get('username'))
+"
+```
+
+우선순위는 **실제 환경변수 > `.env`** 입니다 (dotenv의 `override` 기본값 `false`).
+
+| 실행 환경 | 값의 출처 |
+|---|---|
+| 로컬 | `.env` |
+| GitHub Actions | Secrets가 실제 환경변수로 주입 → **`.env` 가 있어도 Secrets가 이김** |
+| 일회성 오버라이드 | `TELEGRAM_CHAT_ID=123 pnpm start` — 해당 변수만 셸 값이 이김 |
+
+우선순위는 변수 단위로 적용됩니다. 실행 시 값은 찍지 않고 출처만 로그에 남습니다:
+
+```
+[info] 자격증명 출처: TELEGRAM_BOT_TOKEN=shell, TELEGRAM_CHAT_ID=dotenv
+```
+
+`.env` 를 고쳤는데 안 먹는다면 이 줄이 `shell` 인지 보면 됩니다 — 셸에 같은 이름이 export 되어 있다는 뜻입니다.
+
+## 상태 파일
+
+| 파일 | 역할 |
+|---|---|
+| `state/ipo.json` | 최신 스냅샷. 다음 실행의 diff 기준 |
+| `state/notified.json` | 발송 이력 (90일 보관). 중복 발송 차단 |
+
+DB 인스턴스 없이 리포에 커밋해 보관합니다. `git log -p state/ipo.json` 이 그대로 변경 이력이 됩니다.
+
+**최초 실행은 베이스라인만 만듭니다** — 기존 30건을 `NEW`로 쏟아내지 않습니다. 단 날짜 기반 트리거(D-1/D-DAY/마감)는 최초 실행에도 동작합니다.
+
+## 사이트 특성 (구현 시 유의)
+
+- 응답 인코딩이 **euc-kr**. `TextDecoder('euc-kr')` 사용 (full-ICU 빌드 필요, 아니면 즉시 실패)
+- **HTTPS 불가** — 서버 DH 파라미터가 약해 Node/OpenSSL3이 `ERR_SSL_DH_KEY_TOO_SMALL`로 거절. 자격증명을 보내지 않는 공개 GET이라 http 사용
+- 일정 원문 `2026.08.25~08.26` 은 **끝 날짜에 연도가 없음**. 연말 걸침은 +1년 처리
+- 확정공모가 미정은 `-`, 경쟁률 미집계는 `''` — **서로 다른 표기**
+- 파싱 0건은 정상이 아니라 **실패**로 처리 (오알림 방지)
+
+## 실패 처리
+
+| 상황 | 동작 |
+|---|---|
+| 사이트 응답 없음 | 3회 백오프 재시도. 4xx는 즉시 실패 |
+| 파싱 0건 | **치명적 실패.** 발송도 저장도 하지 않음 |
+| 진행 예정 종목 50%↓ | 경고만 하고 진행 |
+| 텔레그램 5xx·네트워크 | 3회 재시도(429는 `retry_after` 존중). 실패 시 **state 미갱신** → 다음 실행에서 재시도 |
+| 텔레그램 4xx | 재시도해도 실패하므로 이 배치를 포기하고 **state는 전진**. 종료 코드로 실패 통보 |
+
+마지막 줄이 중요합니다. 4xx에서 state를 붙들면 매일 같은 payload로 실패하는 무한 루프가 되어 이후 모든 알림이 죽습니다. 메시지는 텔레그램 상한(4096자)에 맞춰 자동 분할됩니다.
+
+멱등성 키는 **실행일이 아니라 사건일**에 고정되어 있어, 같은 날 수동 재실행으로 복구해도 중복 발송되지 않습니다.
+
+## 다음 단계 (미구현)
+
+GitHub Actions 연동. 상시 서버 없이 무료 cron + 상태 보관을 동시에 해결합니다.
+
+1. `.github/workflows/ipo-notify.yml` — `cron: '30 22 * * 0-4'` (= 07:30 KST), `workflow_dispatch` 포함
+2. 리포 Settings → Secrets: `TELEGRAM_BOT_TOKEN`, `TELEGRAM_CHAT_ID`
+3. Settings → Actions → Workflow permissions: **Read and write** (state 커밋용)
+4. 발송 성공 후에만 `state/` 커밋 & push
+
+발송(⑥) → 저장(⑦) 순서가 중요합니다. 반대면 발송 실패 시 이벤트가 영구 유실됩니다. 이 불변식은 `tests/pipeline.test.ts`가 지키고 있습니다(순서를 뒤집으면 5개 테스트가 깨집니다).
+
+Ops 단계에서 함께 처리해야 할 것:
+
+- **`concurrency:` 그룹** — 예약 실행과 수동 `workflow_dispatch`가 겹치면 state 커밋이 충돌합니다
+- **state 커밋 원자성** — `ipo.json`과 `notified.json`을 반드시 한 커밋에. 러너가 두 write 사이에서 취소되면 스냅샷만 전진해 diff 이벤트가 유실됩니다
+- **실패 가시성** — 건전성 경고와 치명적 실패는 현재 Actions 로그에만 남습니다. Actions 실패 알림 메일에 의존할지, 텔레그램으로도 보낼지 결정 필요
+- **하루치 실행이 통째로 실패하면** 그날의 `LAST_DAY`(오늘 마감) 알림은 복구되지 않습니다. 같은 날 `workflow_dispatch` 수동 실행이 유일한 복구 경로입니다
