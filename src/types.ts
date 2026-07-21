@@ -29,13 +29,17 @@ export type Snapshot = {
   items: Record<string, IpoRow>;
 };
 
+/**
+ * 발송 트리거 4종.
+ *
+ * 신규 등록·공모가 확정은 의도적으로 제외했다. 해당 종목은 어차피 D-1에
+ * 알림이 나가고 그때 확정가/희망가가 함께 표시되므로, 별도 알림은 소음이 된다.
+ */
 export type EventType =
-  | 'NEW'
-  | 'PRICE_FIXED'
-  | 'SCHEDULE_CHANGED'
   | 'D_MINUS_1'
   | 'D_DAY'
-  | 'LAST_DAY';
+  | 'LAST_DAY'
+  | 'SCHEDULE_CHANGED';
 
 export type IpoEvent = {
   type: EventType;

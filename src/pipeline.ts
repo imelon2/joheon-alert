@@ -84,7 +84,7 @@ export async function run(
   const isFirstRun = Object.keys(prevSnapshot.items).length === 0;
   log(
     `[info] ${rows.length}건 수집 | 기준일 ${today} (KST)` +
-      (isFirstRun ? ' | 최초 실행: 베이스라인 생성' : ''),
+      (isFirstRun ? ' | 최초 실행: 일정 변경 비교용 베이스라인 생성' : ''),
   );
 
   const pending = await enrichWithListingDate(

@@ -59,12 +59,17 @@ describe('detectEvents — 날짜 기반', () => {
 });
 
 describe('detectEvents — diff 기반', () => {
-  it('기존 목록에 없던 no는 NEW', () => {
-    const events = detectEvents(snapshot(row({ no: '1' })), [row({ no: '1' }), row({ no: '2' })], '2026-08-20');
-    expect(events).toEqual([{ type: 'NEW', row: row({ no: '2' }) }]);
+  it('신규 종목이 등장해도 알리지 않는다', () => {
+    // 신규 등록 알림은 의도적으로 뺐다. 해당 종목은 D-1에 어차피 알림이 간다.
+    const events = detectEvents(
+      snapshot(row({ no: '1' })),
+      [row({ no: '1' }), row({ no: '2' })],
+      '2026-08-20',
+    );
+    expect(events).toEqual([]);
   });
 
-  it('최초 실행(이전 스냅샷 없음)은 NEW를 쏟아내지 않는다', () => {
+  it('최초 실행(이전 스냅샷 없음)에도 쏟아내지 않는다', () => {
     const events = detectEvents({}, [row({ no: '1' }), row({ no: '2' })], '2026-08-20');
     expect(events).toEqual([]);
   });
@@ -74,26 +79,16 @@ describe('detectEvents — diff 기반', () => {
     expect(events.map((e) => e.type)).toEqual(['D_DAY']);
   });
 
-  it("확정공모가가 '-'(null)에서 값으로 바뀌면 PRICE_FIXED", () => {
+  it('확정공모가가 정해져도 그 자체로는 알리지 않는다', () => {
+    // 공모가 확정 알림도 뺐다. D-1 알림의 '확정가' 줄에 값이 실려 나간다.
     const after = row({ finalPrice: '19,500' });
-    const events = detectEvents(snapshot(row()), [after], '2026-08-20');
-    expect(events[0]?.type).toBe('PRICE_FIXED');
-    expect(events[0]?.detail).toContain('19,500');
+    expect(detectEvents(snapshot(row()), [after], '2026-08-20')).toEqual([]);
   });
 
-  it('이미 확정된 가격이 유지되면 재발송하지 않는다', () => {
-    const fixed = row({ finalPrice: '19,500' });
-    expect(detectEvents(snapshot(fixed), [fixed], '2026-08-20')).toEqual([]);
-  });
-
-  it('확정가가 정정되면 PRICE_FIXED로 알린다', () => {
-    // 수요예측 재실시로 공모가가 바뀌는 경우 — 구독자가 가장 알아야 할 변화다
+  it('확정가가 정정되어도 그 자체로는 알리지 않는다', () => {
     const before = row({ finalPrice: '19,500' });
     const after = row({ finalPrice: '21,000' });
-    const events = detectEvents(snapshot(before), [after], '2026-08-20');
-    expect(events[0]?.type).toBe('PRICE_FIXED');
-    expect(events[0]?.detail).toContain('정정');
-    expect(events[0]?.detail).toContain('21,000');
+    expect(detectEvents(snapshot(before), [after], '2026-08-20')).toEqual([]);
   });
 
   it('일정이 바뀌면 SCHEDULE_CHANGED', () => {
@@ -192,7 +187,9 @@ describe('eventDate / notifyKey', () => {
   });
 
   it('diff 기반 이벤트는 발견한 날에 고정된다', () => {
-    expect(notifyKey({ type: 'NEW', row: row() }, TODAY)).toBe('2307:NEW:2026-08-25');
+    expect(notifyKey({ type: 'SCHEDULE_CHANGED', row: row() }, TODAY)).toBe(
+      '2307:SCHEDULE_CHANGED:2026-08-25',
+    );
   });
 });
 

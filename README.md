@@ -10,9 +10,9 @@
 | `D_MINUS_1` | 청약 시작일 == 내일 |
 | `D_DAY` | 청약 시작일 == 오늘 |
 | `LAST_DAY` | 청약 마감일 == 오늘 |
-| `NEW` | 이전에 없던 종목 등장 |
-| `PRICE_FIXED` | 확정공모가가 미정 → 확정 |
 | `SCHEDULE_CHANGED` | 청약 일정 변경 |
+
+신규 등록과 공모가 확정은 **의도적으로 트리거에서 뺐습니다.** 해당 종목은 어차피 D-1에 알림이 나가고 그때 확정가·희망가가 함께 표시되므로, 별도 알림은 소음이 됩니다.
 
 멱등성 키는 `{no}:{type}:{date}`. 재실행·수동 실행에도 같은 알림이 두 번 가지 않습니다.
 
@@ -85,7 +85,7 @@ for u in json.load(sys.stdin)['result']:
 
 DB 인스턴스 없이 리포에 커밋해 보관합니다. `git log -p state/ipo.json` 이 그대로 변경 이력이 됩니다.
 
-**최초 실행은 베이스라인만 만듭니다** — 기존 30건을 `NEW`로 쏟아내지 않습니다. 단 날짜 기반 트리거(D-1/D-DAY/마감)는 최초 실행에도 동작합니다.
+**최초 실행은 베이스라인만 만듭니다** — 일정 변경을 비교할 기준이 없어서입니다. 단 날짜 기반 트리거(D-1/D-DAY/마감)는 최초 실행에도 동작합니다.
 
 ## 사이트 특성 (구현 시 유의)
 
@@ -109,20 +109,28 @@ DB 인스턴스 없이 리포에 커밋해 보관합니다. `git log -p state/ip
 
 멱등성 키는 **실행일이 아니라 사건일**에 고정되어 있어, 같은 날 수동 재실행으로 복구해도 중복 발송되지 않습니다.
 
-## 다음 단계 (미구현)
+## 자동 실행 (GitHub Actions)
 
-GitHub Actions 연동. 상시 서버 없이 무료 cron + 상태 보관을 동시에 해결합니다.
+상시 서버 없이 무료 cron + 상태 보관을 동시에 해결합니다.
 
-1. `.github/workflows/ipo-notify.yml` — `cron: '30 22 * * 0-4'` (= 07:30 KST), `workflow_dispatch` 포함
-2. 리포 Settings → Secrets: `TELEGRAM_BOT_TOKEN`, `TELEGRAM_CHAT_ID`
-3. Settings → Actions → Workflow permissions: **Read and write** (state 커밋용)
-4. 발송 성공 후에만 `state/` 커밋 & push
+`.github/workflows/ipo-notify.yml` — `cron: '30 22 * * 0-4'` (UTC) = **평일 07:30 KST**.
+cron은 항상 UTC라 요일도 하루 당겨 적어야 합니다(UTC 일~목 = KST 월~금). 실행은 수 분~수십 분 지연될 수 있습니다.
 
-발송(⑥) → 저장(⑦) 순서가 중요합니다. 반대면 발송 실패 시 이벤트가 영구 유실됩니다. 이 불변식은 `tests/pipeline.test.ts`가 지키고 있습니다(순서를 뒤집으면 5개 테스트가 깨집니다).
+리포 설정 두 가지가 필요합니다:
 
-Ops 단계에서 함께 처리해야 할 것:
+1. Settings → Secrets: `TELEGRAM_BOT_TOKEN`, `TELEGRAM_CHAT_ID`
+2. Settings → Actions → Workflow permissions: **Read and write** (state 커밋용)
 
-- **`concurrency:` 그룹** — 예약 실행과 수동 `workflow_dispatch`가 겹치면 state 커밋이 충돌합니다
-- **state 커밋 원자성** — `ipo.json`과 `notified.json`을 반드시 한 커밋에. 러너가 두 write 사이에서 취소되면 스냅샷만 전진해 diff 이벤트가 유실됩니다
-- **실패 가시성** — 건전성 경고와 치명적 실패는 현재 Actions 로그에만 남습니다. Actions 실패 알림 메일에 의존할지, 텔레그램으로도 보낼지 결정 필요
-- **하루치 실행이 통째로 실패하면** 그날의 `LAST_DAY`(오늘 마감) 알림은 복구되지 않습니다. 같은 날 `workflow_dispatch` 수동 실행이 유일한 복구 경로입니다
+### 설계상 중요한 지점
+
+**발송 → 저장 순서.** 반대면 발송 실패 시 이벤트가 영구 유실됩니다. 이 불변식은 `tests/pipeline.test.ts`가 지킵니다 — 순서를 뒤집으면 5개 테스트가 깨집니다.
+
+**state 커밋 스텝의 `if: always()`.** 텔레그램 4xx일 때 파이프라인은 state를 전진시키고 실패로 끝나는데, 여기서 커밋을 건너뛰면 다음 날도 같은 payload로 실패하는 무한 루프가 되어 이후 모든 알림이 죽습니다.
+
+**`concurrency: cancel-in-progress: false`.** 진행 중 실행을 취소하면 발송은 됐는데 state가 커밋되지 않아 다음 날 중복 발송이 납니다.
+
+**두 state 파일을 한 커밋에.** 커밋이 곧 영속화 경계라, 로컬 쓰기 도중 러너가 죽어도 절반만 남는 상황이 생기지 않습니다.
+
+### 알려진 한계
+
+하루치 실행이 통째로 실패하면 그날의 `LAST_DAY`(오늘 마감) 알림은 복구되지 않습니다. 같은 날 `workflow_dispatch` 수동 실행이 유일한 복구 경로입니다. 실패는 Actions 기본 알림 메일로 통보됩니다.

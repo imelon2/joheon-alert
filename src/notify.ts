@@ -6,9 +6,7 @@ const SECTIONS: Array<{ type: EventType; heading: string }> = [
   { type: 'LAST_DAY', heading: '⚠️ 오늘 청약 마감' },
   { type: 'D_DAY', heading: '🔔 오늘 청약 시작' },
   { type: 'D_MINUS_1', heading: '⏰ 내일 청약 시작' },
-  { type: 'PRICE_FIXED', heading: '💰 공모가 확정' },
   { type: 'SCHEDULE_CHANGED', heading: '📅 일정 변경' },
-  { type: 'NEW', heading: '🆕 신규 등록' },
 ];
 
 /** 텔레그램 sendMessage의 text 하드 상한. */

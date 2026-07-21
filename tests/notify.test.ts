@@ -38,7 +38,7 @@ describe('renderMessages — 내용', () => {
   it('급한 것부터(마감 → 오늘 → 내일) 정렬한다', () => {
     // 종목명은 라벨(확정가/희망가 등)과 겹치지 않는 문자열이어야 indexOf가 정확하다
     const text = only([
-      { type: 'NEW', row: row({ no: '1', name: 'ZETA' }) },
+      { type: 'SCHEDULE_CHANGED', row: row({ no: '1', name: 'ZETA' }) },
       { type: 'D_MINUS_1', row: row({ no: '2', name: 'YANKEE' }) },
       { type: 'LAST_DAY', row: row({ no: '3', name: 'XRAY' }) },
       { type: 'D_DAY', row: row({ no: '4', name: 'WHISKEY' }) },
@@ -86,21 +86,25 @@ describe('renderMessages — 내용', () => {
 
   it('변경 이벤트는 detail을 함께 보여준다', () => {
     const text = only([
-      { type: 'PRICE_FIXED', row: row(), detail: '희망 16,500~19,500 → 확정 19,500' },
+      {
+        type: 'SCHEDULE_CHANGED',
+        row: row(),
+        detail: '2026-08-25~2026-08-26 → 2026-09-01~2026-09-02',
+      },
     ]);
-    expect(text).toContain('변경    희망 16,500~19,500 → 확정 19,500');
+    expect(text).toContain('변경    2026-08-25~2026-08-26 → 2026-09-01~2026-09-02');
   });
 
   it('해당 없는 섹션 제목은 출력하지 않는다', () => {
     const text = only([{ type: 'D_DAY', row: row() }]);
     expect(text).toContain('오늘 청약 시작');
-    expect(text).not.toContain('신규 등록');
+    expect(text).not.toContain('일정 변경');
     expect(text).not.toContain('마감');
   });
 });
 
 describe('renderMessages — 분할', () => {
-  const many = (n: number, type: IpoEvent['type'] = 'NEW'): IpoEvent[] =>
+  const many = (n: number, type: IpoEvent['type'] = 'D_MINUS_1'): IpoEvent[] =>
     Array.from({ length: n }, (_, i) => ({ type, row: row({ no: String(i), name: `종목${i}` }) }));
 
   it('대량 이벤트도 텔레그램 상한을 넘지 않는다', () => {
@@ -220,7 +224,7 @@ describe('visibleLength', () => {
   it('분할이 태그가 아니라 보이는 텍스트 기준으로 일어난다', () => {
     // 링크가 붙어도 불필요하게 잘게 쪼개지면 안 된다
     const many = Array.from({ length: 12 }, (_, i) => ({
-      type: 'NEW' as const,
+      type: 'D_MINUS_1' as const,
       row: row({ no: String(i), name: `종목${i}`, underwriter: '미래에셋증권,삼성증권' }),
     }));
     const messages = renderMessages(many, '2026-08-25');

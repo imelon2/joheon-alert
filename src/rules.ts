@@ -12,35 +12,19 @@ export function detectEvents(
 ): IpoEvent[] {
   const events: IpoEvent[] = [];
   const tomorrow = addDays(today, 1);
-  const isFirstRun = Object.keys(prev).length === 0;
 
   for (const row of curr) {
     const before = prev[row.no];
 
     // --- 스냅샷 diff 기반 ---
-    if (!before) {
-      // 최초 실행은 기존 목록 전체가 'NEW'가 되어 32건이 쏟아진다. 베이스라인만 잡는다.
-      if (!isFirstRun) events.push({ type: 'NEW', row });
-    } else {
-      // null→값(확정)뿐 아니라 값→값(정정)도 잡는다. 수요예측 재실시로 공모가가
-      // 정정되는 경우가 실제로 있고, 구독자가 가장 알아야 할 변화다.
-      if (row.finalPrice !== null && before.finalPrice !== row.finalPrice) {
-        events.push({
-          type: 'PRICE_FIXED',
-          row,
-          detail:
-            before.finalPrice === null
-              ? `희망 ${before.hopePrice ?? '-'} → 확정 ${row.finalPrice}`
-              : `확정가 정정 ${before.finalPrice} → ${row.finalPrice}`,
-        });
-      }
-      if (before.subStart !== row.subStart || before.subEnd !== row.subEnd) {
-        events.push({
-          type: 'SCHEDULE_CHANGED',
-          row,
-          detail: `${before.subStart}~${before.subEnd} → ${row.subStart}~${row.subEnd}`,
-        });
-      }
+    // 신규 등록·공모가 확정은 알리지 않는다. 어차피 D-1에 해당 종목을 알릴 때
+    // 확정가/희망가가 함께 나가므로, 별도 알림은 소음에 가깝다.
+    if (before && (before.subStart !== row.subStart || before.subEnd !== row.subEnd)) {
+      events.push({
+        type: 'SCHEDULE_CHANGED',
+        row,
+        detail: `${before.subStart}~${before.subEnd} → ${row.subStart}~${row.subEnd}`,
+      });
     }
 
     // --- 날짜 기반 (최초 실행에도 유효: 오늘 청약인 종목은 알려야 한다) ---
