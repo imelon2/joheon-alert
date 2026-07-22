@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-21T03:10:50.677Z",
+  "updatedAt": "2026-07-22T00:04:17.210Z",
   "items": {
     "2270": {
       "no": "2270",
@@ -10,7 +10,8 @@
       "hopePrice": "9,000~11,000",
       "ratio": "2097.68:1",
       "underwriter": "한국투자증권,KB증권",
-      "url": "http://www.38.co.kr/html/fund/?o=v&no=2270"
+      "url": "http://www.38.co.kr/html/fund/?o=v&no=2270",
+      "listingDate": null
     },
     "2275": {
       "no": "2275",
@@ -21,7 +22,8 @@
       "hopePrice": "12,100~16,600",
       "ratio": "1913:1",
       "underwriter": "NH투자증권,유진투자증권",
-      "url": "http://www.38.co.kr/html/fund/?o=v&no=2275"
+      "url": "http://www.38.co.kr/html/fund/?o=v&no=2275",
+      "listingDate": null
     },
     "2277": {
       "no": "2277",
@@ -32,7 +34,8 @@
       "hopePrice": "2,000~2,000",
       "ratio": "569.27:1",
       "underwriter": "NH투자증권",
-      "url": "http://www.38.co.kr/html/fund/?o=v&no=2277"
+      "url": "http://www.38.co.kr/html/fund/?o=v&no=2277",
+      "listingDate": null
     },
     "2278": {
       "no": "2278",
@@ -43,7 +46,8 @@
       "hopePrice": "5,300~6,000",
       "ratio": "2013:1",
       "underwriter": "유진투자증권,NH투자증권,유안타증권",
-      "url": "http://www.38.co.kr/html/fund/?o=v&no=2278"
+      "url": "http://www.38.co.kr/html/fund/?o=v&no=2278",
+      "listingDate": null
     },
     "2279": {
       "no": "2279",
@@ -54,7 +58,8 @@
       "hopePrice": "2,000~2,000",
       "ratio": "747:1",
       "underwriter": "교보증권",
-      "url": "http://www.38.co.kr/html/fund/?o=v&no=2279"
+      "url": "http://www.38.co.kr/html/fund/?o=v&no=2279",
+      "listingDate": null
     },
     "2280": {
       "no": "2280",
@@ -65,7 +70,8 @@
       "hopePrice": "2,000~2,000",
       "ratio": "1403.74:1",
       "underwriter": "신한투자증권",
-      "url": "http://www.38.co.kr/html/fund/?o=v&no=2280"
+      "url": "http://www.38.co.kr/html/fund/?o=v&no=2280",
+      "listingDate": null
     },
     "2281": {
       "no": "2281",
@@ -76,7 +82,8 @@
       "hopePrice": "12,300~15,300",
       "ratio": "302:1",
       "underwriter": "KB증권,삼성증권,대신증권,하나증권",
-      "url": "http://www.38.co.kr/html/fund/?o=v&no=2281"
+      "url": "http://www.38.co.kr/html/fund/?o=v&no=2281",
+      "listingDate": null
     },
     "2282": {
       "no": "2282",
@@ -87,7 +94,8 @@
       "hopePrice": "2,000~2,000",
       "ratio": "1727.59:1",
       "underwriter": "키움증권",
-      "url": "http://www.38.co.kr/html/fund/?o=v&no=2282"
+      "url": "http://www.38.co.kr/html/fund/?o=v&no=2282",
+      "listingDate": null
     },
     "2284": {
       "no": "2284",
@@ -98,7 +106,8 @@
       "hopePrice": "2,000~2,000",
       "ratio": "1601.36:1",
       "underwriter": "신한투자증권",
-      "url": "http://www.38.co.kr/html/fund/?o=v&no=2284"
+      "url": "http://www.38.co.kr/html/fund/?o=v&no=2284",
+      "listingDate": null
     },
     "2285": {
       "no": "2285",
@@ -109,7 +118,8 @@
       "hopePrice": "12,500~15,000",
       "ratio": "2807.8:1",
       "underwriter": "미래에셋증권,현대차증권",
-      "url": "http://www.38.co.kr/html/fund/?o=v&no=2285"
+      "url": "http://www.38.co.kr/html/fund/?o=v&no=2285",
+      "listingDate": null
     },
     "2286": {
       "no": "2286",
@@ -120,7 +130,8 @@
       "hopePrice": "4,100~5,000",
       "ratio": "3169.86:1",
       "underwriter": "NH투자증권",
-      "url": "http://www.38.co.kr/html/fund/?o=v&no=2286"
+      "url": "http://www.38.co.kr/html/fund/?o=v&no=2286",
+      "listingDate": null
     },
     "2287": {
       "no": "2287",
@@ -131,7 +142,8 @@
       "hopePrice": "19,000~21,500",
       "ratio": "1194.94:1",
       "underwriter": "NH투자증권,미래에셋증권",
-      "url": "http://www.38.co.kr/html/fund/?o=v&no=2287"
+      "url": "http://www.38.co.kr/html/fund/?o=v&no=2287",
+      "listingDate": "2026-06-08"
     },
     "2288": {
       "no": "2288",
@@ -142,7 +154,8 @@
       "hopePrice": "2,000~2,000",
       "ratio": "1468.88:1",
       "underwriter": "대신증권",
-      "url": "http://www.38.co.kr/html/fund/?o=v&no=2288"
+      "url": "http://www.38.co.kr/html/fund/?o=v&no=2288",
+      "listingDate": "2026-06-05"
     },
     "2289": {
       "no": "2289",
@@ -153,7 +166,8 @@
       "hopePrice": "12,000~14,000",
       "ratio": "45.83:1",
       "underwriter": "KB증권",
-      "url": "http://www.38.co.kr/html/fund/?o=v&no=2289"
+      "url": "http://www.38.co.kr/html/fund/?o=v&no=2289",
+      "listingDate": "2026-06-30"
     },
     "2290": {
       "no": "2290",
@@ -164,7 +178,8 @@
       "hopePrice": "7,000~8,000",
       "ratio": "3304.76:1",
       "underwriter": "미래에셋증권",
-      "url": "http://www.38.co.kr/html/fund/?o=v&no=2290"
+      "url": "http://www.38.co.kr/html/fund/?o=v&no=2290",
+      "listingDate": "2026-07-01"
     },
     "2291": {
       "no": "2291",
@@ -175,7 +190,8 @@
       "hopePrice": "10,500~12,500",
       "ratio": "2,783.89:1",
       "underwriter": "삼성증권",
-      "url": "http://www.38.co.kr/html/fund/?o=v&no=2291"
+      "url": "http://www.38.co.kr/html/fund/?o=v&no=2291",
+      "listingDate": "2026-06-29"
     },
     "2293": {
       "no": "2293",
@@ -186,7 +202,8 @@
       "hopePrice": "7,500~10,000",
       "ratio": "1510.57:1",
       "underwriter": "KB증권",
-      "url": "http://www.38.co.kr/html/fund/?o=v&no=2293"
+      "url": "http://www.38.co.kr/html/fund/?o=v&no=2293",
+      "listingDate": "2026-07-06"
     },
     "2294": {
       "no": "2294",
@@ -197,7 +214,8 @@
       "hopePrice": "20,000~24,000",
       "ratio": null,
       "underwriter": "유진투자증권,미래에셋증권",
-      "url": "http://www.38.co.kr/html/fund/?o=v&no=2294"
+      "url": "http://www.38.co.kr/html/fund/?o=v&no=2294",
+      "listingDate": null
     },
     "2295": {
       "no": "2295",
@@ -208,7 +226,8 @@
       "hopePrice": "2,000~2,000",
       "ratio": "1388.66:1",
       "underwriter": "메리츠증권",
-      "url": "http://www.38.co.kr/html/fund/?o=v&no=2295"
+      "url": "http://www.38.co.kr/html/fund/?o=v&no=2295",
+      "listingDate": "2026-06-19"
     },
     "2296": {
       "no": "2296",
@@ -219,7 +238,8 @@
       "hopePrice": "17,800~20,700",
       "ratio": "1706.71:1",
       "underwriter": "KB증권",
-      "url": "http://www.38.co.kr/html/fund/?o=v&no=2296"
+      "url": "http://www.38.co.kr/html/fund/?o=v&no=2296",
+      "listingDate": "2026-07-13"
     },
     "2297": {
       "no": "2297",
@@ -230,7 +250,8 @@
       "hopePrice": "2,000~2,000",
       "ratio": "1274.77:1",
       "underwriter": "한국투자증권",
-      "url": "http://www.38.co.kr/html/fund/?o=v&no=2297"
+      "url": "http://www.38.co.kr/html/fund/?o=v&no=2297",
+      "listingDate": "2026-06-30"
     },
     "2298": {
       "no": "2298",
@@ -241,7 +262,8 @@
       "hopePrice": "12,000~14,500",
       "ratio": null,
       "underwriter": "삼성증권",
-      "url": "http://www.38.co.kr/html/fund/?o=v&no=2298"
+      "url": "http://www.38.co.kr/html/fund/?o=v&no=2298",
+      "listingDate": null
     },
     "2299": {
       "no": "2299",
@@ -252,7 +274,8 @@
       "hopePrice": "9,000~9,000",
       "ratio": null,
       "underwriter": "IBK투자증권",
-      "url": "http://www.38.co.kr/html/fund/?o=v&no=2299"
+      "url": "http://www.38.co.kr/html/fund/?o=v&no=2299",
+      "listingDate": "2026-08-14"
     },
     "2301": {
       "no": "2301",
@@ -263,7 +286,8 @@
       "hopePrice": "18,500~21,500",
       "ratio": "666.78:1",
       "underwriter": "KB증권,IBK투자증권",
-      "url": "http://www.38.co.kr/html/fund/?o=v&no=2301"
+      "url": "http://www.38.co.kr/html/fund/?o=v&no=2301",
+      "listingDate": "2026-07-24"
     },
     "2302": {
       "no": "2302",
@@ -274,7 +298,8 @@
       "hopePrice": "5,000~7,000",
       "ratio": null,
       "underwriter": "한국투자증권",
-      "url": "http://www.38.co.kr/html/fund/?o=v&no=2302"
+      "url": "http://www.38.co.kr/html/fund/?o=v&no=2302",
+      "listingDate": null
     },
     "2303": {
       "no": "2303",
@@ -285,7 +310,8 @@
       "hopePrice": "30,000~41,200",
       "ratio": null,
       "underwriter": "삼성증권",
-      "url": "http://www.38.co.kr/html/fund/?o=v&no=2303"
+      "url": "http://www.38.co.kr/html/fund/?o=v&no=2303",
+      "listingDate": null
     },
     "2304": {
       "no": "2304",
@@ -296,7 +322,8 @@
       "hopePrice": "23,000~28,000",
       "ratio": null,
       "underwriter": "DB증권",
-      "url": "http://www.38.co.kr/html/fund/?o=v&no=2304"
+      "url": "http://www.38.co.kr/html/fund/?o=v&no=2304",
+      "listingDate": null
     },
     "2305": {
       "no": "2305",
@@ -307,7 +334,8 @@
       "hopePrice": "24,800~28,400",
       "ratio": null,
       "underwriter": "미래에셋증권,삼성증권",
-      "url": "http://www.38.co.kr/html/fund/?o=v&no=2305"
+      "url": "http://www.38.co.kr/html/fund/?o=v&no=2305",
+      "listingDate": null
     },
     "2306": {
       "no": "2306",
@@ -318,7 +346,8 @@
       "hopePrice": "13,000~16,000",
       "ratio": null,
       "underwriter": "한국투자증권",
-      "url": "http://www.38.co.kr/html/fund/?o=v&no=2306"
+      "url": "http://www.38.co.kr/html/fund/?o=v&no=2306",
+      "listingDate": null
     },
     "2307": {
       "no": "2307",
@@ -329,7 +358,8 @@
       "hopePrice": "16,500~19,500",
       "ratio": null,
       "underwriter": "IBK투자증권",
-      "url": "http://www.38.co.kr/html/fund/?o=v&no=2307"
+      "url": "http://www.38.co.kr/html/fund/?o=v&no=2307",
+      "listingDate": null
     }
   }
 }
