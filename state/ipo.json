@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-27T01:05:49.144Z",
+  "updatedAt": "2026-07-27T23:36:22.742Z",
   "items": {
     "2270": {
       "no": "2270",
@@ -239,7 +239,7 @@
       "ratio": null,
       "underwriter": "삼성증권",
       "url": "http://www.38.co.kr/html/fund/?o=v&no=2298",
-      "listingDate": null
+      "listingDate": "2026-08-18"
     },
     "2299": {
       "no": "2299",
@@ -247,7 +247,7 @@
       "subStart": "2026-08-04",
       "subEnd": "2026-08-05",
       "finalPrice": null,
-      "hopePrice": "9,000~9,000",
+      "hopePrice": "9,000~11,000",
       "ratio": null,
       "underwriter": "IBK투자증권",
       "url": "http://www.38.co.kr/html/fund/?o=v&no=2299",
@@ -275,7 +275,7 @@
       "ratio": null,
       "underwriter": "한국투자증권",
       "url": "http://www.38.co.kr/html/fund/?o=v&no=2302",
-      "listingDate": null
+      "listingDate": "2026-08-12"
     },
     "2303": {
       "no": "2303",
@@ -287,7 +287,7 @@
       "ratio": null,
       "underwriter": "삼성증권",
       "url": "http://www.38.co.kr/html/fund/?o=v&no=2303",
-      "listingDate": null
+      "listingDate": "2026-08-24"
     },
     "2304": {
       "no": "2304",
