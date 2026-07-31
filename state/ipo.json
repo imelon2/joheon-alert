@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-31T01:01:32.255Z",
+  "updatedAt": "2026-07-31T23:32:24.283Z",
   "items": {
     "2278": {
       "no": "2278",
@@ -200,7 +200,7 @@
       "subEnd": "2026-07-31",
       "finalPrice": "12,000",
       "hopePrice": "12,000~14,500",
-      "ratio": null,
+      "ratio": "3.09:1",
       "underwriter": "삼성증권",
       "url": "http://www.38.co.kr/html/fund/?o=v&no=2298",
       "listingDate": "2026-08-18"
@@ -234,7 +234,7 @@
       "name": "딜리셔스",
       "subStart": "2026-08-03",
       "subEnd": "2026-08-04",
-      "finalPrice": null,
+      "finalPrice": "7,000",
       "hopePrice": "5,000~7,000",
       "ratio": null,
       "underwriter": "한국투자증권",
