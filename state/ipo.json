@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-03T01:03:41.692Z",
+  "updatedAt": "2026-08-03T23:39:25.563Z",
   "items": {
     "2278": {
       "no": "2278",
@@ -148,8 +148,8 @@
     "2294": {
       "no": "2294",
       "name": "빅웨이브로보틱스",
-      "subStart": "2026-08-13",
-      "subEnd": "2026-08-14",
+      "subStart": "2026-09-16",
+      "subEnd": "2026-09-17",
       "finalPrice": null,
       "hopePrice": "20,000~24,000",
       "ratio": null,
@@ -210,7 +210,7 @@
       "name": "케이앤에스아이앤씨",
       "subStart": "2026-08-04",
       "subEnd": "2026-08-05",
-      "finalPrice": null,
+      "finalPrice": "11,000",
       "hopePrice": "9,000~11,000",
       "ratio": null,
       "underwriter": "IBK투자증권",
