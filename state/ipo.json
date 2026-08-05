@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-05T00:52:46.582Z",
+  "updatedAt": "2026-08-05T23:30:51.130Z",
   "items": {
     "2278": {
       "no": "2278",
@@ -212,7 +212,7 @@
       "subEnd": "2026-08-05",
       "finalPrice": "11,000",
       "hopePrice": "9,000~11,000",
-      "ratio": null,
+      "ratio": "1079.55:1",
       "underwriter": "IBK투자증권",
       "url": "http://www.38.co.kr/html/fund/?o=v&no=2299",
       "listingDate": "2026-08-14"
