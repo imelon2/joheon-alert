@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-09T23:56:35.433Z",
+  "updatedAt": "2026-08-10T23:08:09.800Z",
   "items": {
     "2278": {
       "no": "2278",
@@ -258,7 +258,7 @@
       "name": "해치텍",
       "subStart": "2026-08-12",
       "subEnd": "2026-08-13",
-      "finalPrice": null,
+      "finalPrice": "23,000",
       "hopePrice": "23,000~28,000",
       "ratio": null,
       "underwriter": "DB증권",
@@ -270,7 +270,7 @@
       "name": "기도산업",
       "subStart": "2026-08-11",
       "subEnd": "2026-08-12",
-      "finalPrice": null,
+      "finalPrice": "28,400",
       "hopePrice": "24,800~28,400",
       "ratio": null,
       "underwriter": "미래에셋증권,삼성증권",
