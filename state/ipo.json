@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-10T23:58:26.635Z",
+  "updatedAt": "2026-08-11T23:19:46.707Z",
   "items": {
     "2278": {
       "no": "2278",
@@ -246,7 +246,7 @@
       "name": "니어스랩",
       "subStart": "2026-08-12",
       "subEnd": "2026-08-13",
-      "finalPrice": null,
+      "finalPrice": "41,200",
       "hopePrice": "30,000~41,200",
       "ratio": null,
       "underwriter": "삼성증권",
