@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-13T00:05:46.175Z",
+  "updatedAt": "2026-08-13T23:20:14.833Z",
   "items": {
     "2278": {
       "no": "2278",
@@ -23,18 +23,6 @@
       "ratio": "302:1",
       "underwriter": "KB증권,삼성증권,대신증권,하나증권",
       "url": "http://www.38.co.kr/html/fund/?o=v&no=2281",
-      "listingDate": null
-    },
-    "2282": {
-      "no": "2282",
-      "name": "키움히어로스팩2호",
-      "subStart": "2026-04-14",
-      "subEnd": "2026-04-15",
-      "finalPrice": "2,000",
-      "hopePrice": "2,000~2,000",
-      "ratio": "1727.59:1",
-      "underwriter": "키움증권",
-      "url": "http://www.38.co.kr/html/fund/?o=v&no=2282",
       "listingDate": null
     },
     "2284": {
@@ -248,7 +236,7 @@
       "subEnd": "2026-08-13",
       "finalPrice": "41,200",
       "hopePrice": "30,000~41,200",
-      "ratio": null,
+      "ratio": "522.99:1",
       "underwriter": "삼성증권",
       "url": "http://www.38.co.kr/html/fund/?o=v&no=2303",
       "listingDate": "2026-08-24"
@@ -260,7 +248,7 @@
       "subEnd": "2026-08-13",
       "finalPrice": "23,000",
       "hopePrice": "23,000~28,000",
-      "ratio": null,
+      "ratio": "25.73:1",
       "underwriter": "DB증권",
       "url": "http://www.38.co.kr/html/fund/?o=v&no=2304",
       "listingDate": "2026-08-25"
@@ -359,6 +347,18 @@
       "ratio": null,
       "underwriter": "NH투자증권",
       "url": "http://www.38.co.kr/html/fund/?o=v&no=2312",
+      "listingDate": null
+    },
+    "2313": {
+      "no": "2313",
+      "name": "KB스팩34호",
+      "subStart": "2026-09-10",
+      "subEnd": "2026-09-11",
+      "finalPrice": null,
+      "hopePrice": "2,000~2,000",
+      "ratio": null,
+      "underwriter": "KB증권",
+      "url": "http://www.38.co.kr/html/fund/?o=v&no=2313",
       "listingDate": null
     }
   }
