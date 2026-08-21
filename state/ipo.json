@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-20T23:47:54.516Z",
+  "updatedAt": "2026-08-21T22:52:43.691Z",
   "items": {
     "2278": {
       "no": "2278",
@@ -11,18 +11,6 @@
       "ratio": "2013:1",
       "underwriter": "유진투자증권,NH투자증권,유안타증권",
       "url": "http://www.38.co.kr/html/fund/?o=v&no=2278",
-      "listingDate": null
-    },
-    "2281": {
-      "no": "2281",
-      "name": "채비(구.대영채비)",
-      "subStart": "2026-04-20",
-      "subEnd": "2026-04-21",
-      "finalPrice": "12,300",
-      "hopePrice": "12,300~15,300",
-      "ratio": "302:1",
-      "underwriter": "KB증권,삼성증권,대신증권,하나증권",
-      "url": "http://www.38.co.kr/html/fund/?o=v&no=2281",
       "listingDate": null
     },
     "2285": {
@@ -124,8 +112,8 @@
     "2294": {
       "no": "2294",
       "name": "빅웨이브로보틱스",
-      "subStart": "2026-09-16",
-      "subEnd": "2026-09-17",
+      "subStart": "2026-09-15",
+      "subEnd": "2026-09-16",
       "finalPrice": null,
       "hopePrice": "20,000~24,000",
       "ratio": null,
@@ -359,6 +347,18 @@
       "ratio": null,
       "underwriter": "한국투자증권",
       "url": "http://www.38.co.kr/html/fund/?o=v&no=2314",
+      "listingDate": null
+    },
+    "2315": {
+      "no": "2315",
+      "name": "멜콘(구.에스앤에프솔루션)",
+      "subStart": "2026-10-01",
+      "subEnd": "2026-10-02",
+      "finalPrice": null,
+      "hopePrice": "10,700~12,300",
+      "ratio": null,
+      "underwriter": "대신증권",
+      "url": "http://www.38.co.kr/html/fund/?o=v&no=2315",
       "listingDate": null
     }
   }
