@@ -1,18 +1,6 @@
 {
-  "updatedAt": "2026-08-23T23:42:28.510Z",
+  "updatedAt": "2026-08-24T22:55:18.546Z",
   "items": {
-    "2278": {
-      "no": "2278",
-      "name": "코스모로보틱스(구.엑소아틀레트아시아)",
-      "subStart": "2026-04-27",
-      "subEnd": "2026-04-28",
-      "finalPrice": "6,000",
-      "hopePrice": "5,300~6,000",
-      "ratio": "2013:1",
-      "underwriter": "유진투자증권,NH투자증권,유안타증권",
-      "url": "http://www.38.co.kr/html/fund/?o=v&no=2278",
-      "listingDate": null
-    },
     "2285": {
       "no": "2285",
       "name": "마키나락스",
@@ -359,6 +347,18 @@
       "ratio": null,
       "underwriter": "대신증권",
       "url": "http://www.38.co.kr/html/fund/?o=v&no=2315",
+      "listingDate": null
+    },
+    "2316": {
+      "no": "2316",
+      "name": "엘리스그룹",
+      "subStart": "2026-09-18",
+      "subEnd": "2026-09-21",
+      "finalPrice": null,
+      "hopePrice": "70,400~90,500",
+      "ratio": null,
+      "underwriter": "미래에셋증권,삼성증권",
+      "url": "http://www.38.co.kr/html/fund/?o=v&no=2316",
       "listingDate": null
     }
   }
