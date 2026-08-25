@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-24T23:43:26.414Z",
+  "updatedAt": "2026-08-25T22:57:17.252Z",
   "items": {
     "2285": {
       "no": "2285",
@@ -11,18 +11,6 @@
       "ratio": "2807.8:1",
       "underwriter": "미래에셋증권,현대차증권",
       "url": "http://www.38.co.kr/html/fund/?o=v&no=2285",
-      "listingDate": null
-    },
-    "2286": {
-      "no": "2286",
-      "name": "폴레드",
-      "subStart": "2026-05-04",
-      "subEnd": "2026-05-06",
-      "finalPrice": "5,000",
-      "hopePrice": "4,100~5,000",
-      "ratio": "3169.86:1",
-      "underwriter": "NH투자증권",
-      "url": "http://www.38.co.kr/html/fund/?o=v&no=2286",
       "listingDate": null
     },
     "2287": {
@@ -234,18 +222,18 @@
       "name": "스카이랩스",
       "subStart": "2026-08-26",
       "subEnd": "2026-08-27",
-      "finalPrice": null,
+      "finalPrice": "10,000",
       "hopePrice": "13,000~16,000",
       "ratio": null,
       "underwriter": "한국투자증권",
       "url": "http://www.38.co.kr/html/fund/?o=v&no=2306",
-      "listingDate": null
+      "listingDate": "2026-09-04"
     },
     "2307": {
       "no": "2307",
       "name": "브릴스",
-      "subStart": "2026-09-08",
-      "subEnd": "2026-09-09",
+      "subStart": "2026-09-17",
+      "subEnd": "2026-09-18",
       "finalPrice": null,
       "hopePrice": "16,500~19,500",
       "ratio": null,
@@ -311,7 +299,7 @@
       "ratio": null,
       "underwriter": "NH투자증권",
       "url": "http://www.38.co.kr/html/fund/?o=v&no=2312",
-      "listingDate": null
+      "listingDate": "2026-09-11"
     },
     "2313": {
       "no": "2313",
@@ -359,6 +347,18 @@
       "ratio": null,
       "underwriter": "미래에셋증권,삼성증권",
       "url": "http://www.38.co.kr/html/fund/?o=v&no=2316",
+      "listingDate": null
+    },
+    "2318": {
+      "no": "2318",
+      "name": "래블업",
+      "subStart": "2026-10-12",
+      "subEnd": "2026-10-13",
+      "finalPrice": null,
+      "hopePrice": "20,000~23,000",
+      "ratio": null,
+      "underwriter": "NH투자증권",
+      "url": "http://www.38.co.kr/html/fund/?o=v&no=2318",
       "listingDate": null
     }
   }
