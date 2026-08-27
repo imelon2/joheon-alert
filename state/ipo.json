@@ -1,18 +1,6 @@
 {
-  "updatedAt": "2026-08-25T23:46:12.565Z",
+  "updatedAt": "2026-08-27T03:29:43.235Z",
   "items": {
-    "2285": {
-      "no": "2285",
-      "name": "마키나락스",
-      "subStart": "2026-05-11",
-      "subEnd": "2026-05-12",
-      "finalPrice": "15,000",
-      "hopePrice": "12,500~15,000",
-      "ratio": "2807.8:1",
-      "underwriter": "미래에셋증권,현대차증권",
-      "url": "http://www.38.co.kr/html/fund/?o=v&no=2285",
-      "listingDate": null
-    },
     "2287": {
       "no": "2287",
       "name": "피스피스스튜디오",
@@ -359,6 +347,18 @@
       "ratio": null,
       "underwriter": "NH투자증권",
       "url": "http://www.38.co.kr/html/fund/?o=v&no=2318",
+      "listingDate": null
+    },
+    "2319": {
+      "no": "2319",
+      "name": "SK증권스팩14호",
+      "subStart": "2026-10-15",
+      "subEnd": "2026-10-16",
+      "finalPrice": null,
+      "hopePrice": "2,000~2,000",
+      "ratio": null,
+      "underwriter": "SK증권",
+      "url": "http://www.38.co.kr/html/fund/?o=v&no=2319",
       "listingDate": null
     }
   }
