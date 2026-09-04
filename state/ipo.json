@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-03T01:15:54.062Z",
+  "updatedAt": "2026-09-04T00:17:38.009Z",
   "items": {
     "2289": {
       "no": "2289",
@@ -60,18 +60,6 @@
       "underwriter": "유진투자증권,미래에셋증권",
       "url": "http://www.38.co.kr/html/fund/?o=v&no=2294",
       "listingDate": null
-    },
-    "2295": {
-      "no": "2295",
-      "name": "메리츠스팩2호",
-      "subStart": "2026-06-09",
-      "subEnd": "2026-06-10",
-      "finalPrice": "2,000",
-      "hopePrice": "2,000~2,000",
-      "ratio": "1388.66:1",
-      "underwriter": "메리츠증권",
-      "url": "http://www.38.co.kr/html/fund/?o=v&no=2295",
-      "listingDate": "2026-06-19"
     },
     "2296": {
       "no": "2296",
@@ -359,6 +347,18 @@
       "ratio": null,
       "underwriter": "하나증권",
       "url": "http://www.38.co.kr/html/fund/?o=v&no=2321",
+      "listingDate": null
+    },
+    "2322": {
+      "no": "2322",
+      "name": "티앤이코리아",
+      "subStart": "2026-10-20",
+      "subEnd": "2026-10-21",
+      "finalPrice": null,
+      "hopePrice": "12,600~15,300",
+      "ratio": null,
+      "underwriter": "신한투자증권",
+      "url": "http://www.38.co.kr/html/fund/?o=v&no=2322",
       "listingDate": null
     }
   }
