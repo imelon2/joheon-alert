@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-04T01:07:11.541Z",
+  "updatedAt": "2026-09-05T00:18:10.872Z",
   "items": {
     "2289": {
       "no": "2289",
@@ -24,18 +24,6 @@
       "underwriter": "미래에셋증권",
       "url": "http://www.38.co.kr/html/fund/?o=v&no=2290",
       "listingDate": "2026-07-01"
-    },
-    "2291": {
-      "no": "2291",
-      "name": "져스텍",
-      "subStart": "2026-06-18",
-      "subEnd": "2026-06-19",
-      "finalPrice": "12,500",
-      "hopePrice": "10,500~12,500",
-      "ratio": "2,783.89:1",
-      "underwriter": "삼성증권",
-      "url": "http://www.38.co.kr/html/fund/?o=v&no=2291",
-      "listingDate": "2026-06-29"
     },
     "2293": {
       "no": "2293",
@@ -359,6 +347,18 @@
       "ratio": null,
       "underwriter": "신한투자증권",
       "url": "http://www.38.co.kr/html/fund/?o=v&no=2322",
+      "listingDate": null
+    },
+    "2323": {
+      "no": "2323",
+      "name": "크리에이츠",
+      "subStart": "2026-10-20",
+      "subEnd": "2026-10-21",
+      "finalPrice": null,
+      "hopePrice": "15,000~18,000",
+      "ratio": null,
+      "underwriter": "삼성증권",
+      "url": "http://www.38.co.kr/html/fund/?o=v&no=2323",
       "listingDate": null
     }
   }
