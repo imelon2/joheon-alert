@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-07T01:09:43.732Z",
+  "updatedAt": "2026-09-08T00:37:44.208Z",
   "items": {
     "2289": {
       "no": "2289",
@@ -43,7 +43,7 @@
       "subStart": "2026-09-15",
       "subEnd": "2026-09-16",
       "finalPrice": null,
-      "hopePrice": "20,000~24,000",
+      "hopePrice": "15,000~18,000",
       "ratio": null,
       "underwriter": "유진투자증권,미래에셋증권",
       "url": "http://www.38.co.kr/html/fund/?o=v&no=2294",
@@ -280,8 +280,8 @@
     "2316": {
       "no": "2316",
       "name": "엘리스그룹",
-      "subStart": "2026-09-18",
-      "subEnd": "2026-09-21",
+      "subStart": "2026-10-07",
+      "subEnd": "2026-10-08",
       "finalPrice": null,
       "hopePrice": "70,400~90,500",
       "ratio": null,
