@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-09T00:28:44.629Z",
+  "updatedAt": "2026-09-09T01:20:09.420Z",
   "items": {
     "2290": {
       "no": "2290",
@@ -48,18 +48,6 @@
       "underwriter": "KB증권",
       "url": "http://www.38.co.kr/html/fund/?o=v&no=2296",
       "listingDate": "2026-07-13"
-    },
-    "2297": {
-      "no": "2297",
-      "name": "한국스팩16호",
-      "subStart": "2026-06-22",
-      "subEnd": "2026-06-23",
-      "finalPrice": "2,000",
-      "hopePrice": "2,000~2,000",
-      "ratio": "1274.77:1",
-      "underwriter": "한국투자증권",
-      "url": "http://www.38.co.kr/html/fund/?o=v&no=2297",
-      "listingDate": "2026-06-30"
     },
     "2298": {
       "no": "2298",
@@ -359,6 +347,18 @@
       "ratio": null,
       "underwriter": "KB증권",
       "url": "http://www.38.co.kr/html/fund/?o=v&no=2324",
+      "listingDate": null
+    },
+    "2325": {
+      "no": "2325",
+      "name": "바로팜",
+      "subStart": "2026-11-02",
+      "subEnd": "2026-11-03",
+      "finalPrice": null,
+      "hopePrice": "16,400~20,200",
+      "ratio": null,
+      "underwriter": "미래에셋증권",
+      "url": "http://www.38.co.kr/html/fund/?o=v&no=2325",
       "listingDate": null
     }
   }
