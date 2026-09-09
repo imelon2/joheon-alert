@@ -1,18 +1,6 @@
 {
-  "updatedAt": "2026-09-08T01:15:52.411Z",
+  "updatedAt": "2026-09-09T00:28:44.629Z",
   "items": {
-    "2289": {
-      "no": "2289",
-      "name": "스트라드비젼",
-      "subStart": "2026-06-18",
-      "subEnd": "2026-06-19",
-      "finalPrice": "12,000",
-      "hopePrice": "12,000~14,000",
-      "ratio": "45.83:1",
-      "underwriter": "KB증권",
-      "url": "http://www.38.co.kr/html/fund/?o=v&no=2289",
-      "listingDate": "2026-06-30"
-    },
     "2290": {
       "no": "2290",
       "name": "매드업",
@@ -246,7 +234,7 @@
       "name": "KB스팩34호",
       "subStart": "2026-09-10",
       "subEnd": "2026-09-11",
-      "finalPrice": null,
+      "finalPrice": "2,000",
       "hopePrice": "2,000~2,000",
       "ratio": null,
       "underwriter": "KB증권",
@@ -296,7 +284,7 @@
       "subEnd": "2026-10-13",
       "finalPrice": null,
       "hopePrice": "20,000~23,000",
-      "ratio": null,
+      "ratio": "정정신고서 제출 요구",
       "underwriter": "NH투자증권",
       "url": "http://www.38.co.kr/html/fund/?o=v&no=2318",
       "listingDate": null
@@ -359,6 +347,18 @@
       "ratio": null,
       "underwriter": "삼성증권",
       "url": "http://www.38.co.kr/html/fund/?o=v&no=2323",
+      "listingDate": null
+    },
+    "2324": {
+      "no": "2324",
+      "name": "엠에스바이오",
+      "subStart": "2026-10-12",
+      "subEnd": "2026-10-13",
+      "finalPrice": null,
+      "hopePrice": "6,800~7,800",
+      "ratio": null,
+      "underwriter": "KB증권",
+      "url": "http://www.38.co.kr/html/fund/?o=v&no=2324",
       "listingDate": null
     }
   }
