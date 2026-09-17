@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-17T00:49:22.957Z",
+  "updatedAt": "2026-09-17T01:34:03.399Z",
   "items": {
     "2294": {
       "no": "2294",
@@ -12,18 +12,6 @@
       "underwriter": "유진투자증권,미래에셋증권",
       "url": "http://www.38.co.kr/html/fund/?o=v&no=2294",
       "listingDate": "2026-09-29"
-    },
-    "2296": {
-      "no": "2296",
-      "name": "레메디",
-      "subStart": "2026-07-01",
-      "subEnd": "2026-07-02",
-      "finalPrice": "20,700",
-      "hopePrice": "17,800~20,700",
-      "ratio": "1706.71:1",
-      "underwriter": "KB증권",
-      "url": "http://www.38.co.kr/html/fund/?o=v&no=2296",
-      "listingDate": "2026-07-13"
     },
     "2298": {
       "no": "2298",
@@ -359,6 +347,18 @@
       "ratio": null,
       "underwriter": "대신증권",
       "url": "http://www.38.co.kr/html/fund/?o=v&no=2327",
+      "listingDate": null
+    },
+    "2328": {
+      "no": "2328",
+      "name": "인텔리빅스",
+      "subStart": "2026-10-21",
+      "subEnd": "2026-10-22",
+      "finalPrice": null,
+      "hopePrice": "7,600~9,000",
+      "ratio": null,
+      "underwriter": "미래에셋증권",
+      "url": "http://www.38.co.kr/html/fund/?o=v&no=2328",
       "listingDate": null
     }
   }
