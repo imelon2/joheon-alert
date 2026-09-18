@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-17T01:34:03.399Z",
+  "updatedAt": "2026-09-18T00:42:46.523Z",
   "items": {
     "2294": {
       "no": "2294",
@@ -8,7 +8,7 @@
       "subEnd": "2026-09-16",
       "finalPrice": "18,000",
       "hopePrice": "15,000~18,000",
-      "ratio": null,
+      "ratio": "1375.34:1",
       "underwriter": "유진투자증권,미래에셋증권",
       "url": "http://www.38.co.kr/html/fund/?o=v&no=2294",
       "listingDate": "2026-09-29"
@@ -36,18 +36,6 @@
       "underwriter": "IBK투자증권",
       "url": "http://www.38.co.kr/html/fund/?o=v&no=2299",
       "listingDate": "2026-08-14"
-    },
-    "2301": {
-      "no": "2301",
-      "name": "에이치엘지노믹스",
-      "subStart": "2026-07-13",
-      "subEnd": "2026-07-14",
-      "finalPrice": "21,500",
-      "hopePrice": "18,500~21,500",
-      "ratio": "666.78:1",
-      "underwriter": "KB증권,IBK투자증권",
-      "url": "http://www.38.co.kr/html/fund/?o=v&no=2301",
-      "listingDate": "2026-07-24"
     },
     "2302": {
       "no": "2302",
@@ -140,7 +128,7 @@
       "subEnd": "2026-09-17",
       "finalPrice": "14,600",
       "hopePrice": "12,400~14,600",
-      "ratio": null,
+      "ratio": "332.82:1",
       "underwriter": "대신증권",
       "url": "http://www.38.co.kr/html/fund/?o=v&no=2309",
       "listingDate": "2026-09-30"
@@ -152,7 +140,7 @@
       "subEnd": "2026-09-17",
       "finalPrice": "10,000",
       "hopePrice": "13,000~15,000",
-      "ratio": null,
+      "ratio": "57.15:1",
       "underwriter": "한국투자증권",
       "url": "http://www.38.co.kr/html/fund/?o=v&no=2310",
       "listingDate": "2026-09-29"
@@ -359,6 +347,18 @@
       "ratio": null,
       "underwriter": "미래에셋증권",
       "url": "http://www.38.co.kr/html/fund/?o=v&no=2328",
+      "listingDate": null
+    },
+    "2329": {
+      "no": "2329",
+      "name": "아이엠스팩1호",
+      "subStart": "2026-10-26",
+      "subEnd": "2026-10-27",
+      "finalPrice": null,
+      "hopePrice": "2,000~2,000",
+      "ratio": null,
+      "underwriter": "아이엠증권",
+      "url": "http://www.38.co.kr/html/fund/?o=v&no=2329",
       "listingDate": null
     }
   }
