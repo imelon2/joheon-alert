@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-18T01:21:21.480Z",
+  "updatedAt": "2026-09-19T00:31:55.768Z",
   "items": {
     "2294": {
       "no": "2294",
@@ -12,18 +12,6 @@
       "underwriter": "유진투자증권,미래에셋증권",
       "url": "http://www.38.co.kr/html/fund/?o=v&no=2294",
       "listingDate": "2026-09-29"
-    },
-    "2298": {
-      "no": "2298",
-      "name": "인제니아테라퓨틱스",
-      "subStart": "2026-07-30",
-      "subEnd": "2026-07-31",
-      "finalPrice": "12,000",
-      "hopePrice": "12,000~14,500",
-      "ratio": "3.09:1",
-      "underwriter": "삼성증권",
-      "url": "http://www.38.co.kr/html/fund/?o=v&no=2298",
-      "listingDate": "2026-08-18"
     },
     "2299": {
       "no": "2299",
@@ -104,7 +92,7 @@
       "subEnd": "2026-09-18",
       "finalPrice": "19,500",
       "hopePrice": "16,500~19,500",
-      "ratio": null,
+      "ratio": "1676.26:1",
       "underwriter": "IBK투자증권",
       "url": "http://www.38.co.kr/html/fund/?o=v&no=2307",
       "listingDate": "2026-10-01"
@@ -256,10 +244,10 @@
     "2321": {
       "no": "2321",
       "name": "엠비디",
-      "subStart": "2026-10-06",
-      "subEnd": "2026-10-07",
+      "subStart": "2026-10-28",
+      "subEnd": "2026-10-29",
       "finalPrice": null,
-      "hopePrice": "9,400~11,500",
+      "hopePrice": "9,600~11,700",
       "ratio": null,
       "underwriter": "하나증권",
       "url": "http://www.38.co.kr/html/fund/?o=v&no=2321",
@@ -359,6 +347,18 @@
       "ratio": null,
       "underwriter": "아이엠증권",
       "url": "http://www.38.co.kr/html/fund/?o=v&no=2329",
+      "listingDate": null
+    },
+    "2330": {
+      "no": "2330",
+      "name": "한화플러스스팩6호",
+      "subStart": "2026-10-20",
+      "subEnd": "2026-10-21",
+      "finalPrice": null,
+      "hopePrice": "2,000~2,000",
+      "ratio": null,
+      "underwriter": "한화투자증권",
+      "url": "http://www.38.co.kr/html/fund/?o=v&no=2330",
       "listingDate": null
     }
   }
