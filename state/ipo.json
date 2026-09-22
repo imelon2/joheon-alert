@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-21T01:18:40.354Z",
+  "updatedAt": "2026-09-22T01:03:31.949Z",
   "items": {
     "2294": {
       "no": "2294",
@@ -24,18 +24,6 @@
       "underwriter": "IBK투자증권",
       "url": "http://www.38.co.kr/html/fund/?o=v&no=2299",
       "listingDate": "2026-08-14"
-    },
-    "2302": {
-      "no": "2302",
-      "name": "딜리셔스",
-      "subStart": "2026-08-03",
-      "subEnd": "2026-08-04",
-      "finalPrice": "7,000",
-      "hopePrice": "5,000~7,000",
-      "ratio": "10.29:1",
-      "underwriter": "한국투자증권",
-      "url": "http://www.38.co.kr/html/fund/?o=v&no=2302",
-      "listingDate": "2026-08-12"
     },
     "2303": {
       "no": "2303",
@@ -359,6 +347,18 @@
       "ratio": null,
       "underwriter": "한화투자증권",
       "url": "http://www.38.co.kr/html/fund/?o=v&no=2330",
+      "listingDate": null
+    },
+    "2331": {
+      "no": "2331",
+      "name": "에이엘로봇",
+      "subStart": "2026-10-26",
+      "subEnd": "2026-10-27",
+      "finalPrice": null,
+      "hopePrice": "15,700~17,600",
+      "ratio": null,
+      "underwriter": "대신증권",
+      "url": "http://www.38.co.kr/html/fund/?o=v&no=2331",
       "listingDate": null
     }
   }
