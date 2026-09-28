@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-27T00:48:29.702Z",
+  "updatedAt": "2026-09-28T01:04:55.747Z",
   "items": {
     "2294": {
       "no": "2294",
@@ -24,18 +24,6 @@
       "underwriter": "삼성증권",
       "url": "http://www.38.co.kr/html/fund/?o=v&no=2303",
       "listingDate": "2026-08-24"
-    },
-    "2304": {
-      "no": "2304",
-      "name": "해치텍",
-      "subStart": "2026-08-12",
-      "subEnd": "2026-08-13",
-      "finalPrice": "23,000",
-      "hopePrice": "23,000~28,000",
-      "ratio": "25.73:1",
-      "underwriter": "DB증권",
-      "url": "http://www.38.co.kr/html/fund/?o=v&no=2304",
-      "listingDate": "2026-08-25"
     },
     "2306": {
       "no": "2306",
@@ -359,6 +347,18 @@
       "ratio": null,
       "underwriter": "IBK투자증권",
       "url": "http://www.38.co.kr/html/fund/?o=v&no=2334",
+      "listingDate": null
+    },
+    "2335": {
+      "no": "2335",
+      "name": "래블업",
+      "subStart": "2026-10-22",
+      "subEnd": "2026-10-23",
+      "finalPrice": null,
+      "hopePrice": "19,000~22,000",
+      "ratio": null,
+      "underwriter": "NH투자증권",
+      "url": "http://www.38.co.kr/html/fund/?o=v&no=2335",
       "listingDate": null
     }
   }
