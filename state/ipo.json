@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-02T02:22:57.236Z",
+  "updatedAt": "2026-10-03T01:20:39.216Z",
   "items": {
     "2294": {
       "no": "2294",
@@ -85,18 +85,6 @@
       "url": "http://www.38.co.kr/html/fund/?o=v&no=2313",
       "listingDate": "2026-09-22"
     },
-    "2314": {
-      "no": "2314",
-      "name": "한국스팩17호",
-      "subStart": "2026-09-10",
-      "subEnd": "2026-09-11",
-      "finalPrice": "2,000",
-      "hopePrice": "2,000~2,000",
-      "ratio": "494.62:1",
-      "underwriter": "한국투자증권",
-      "url": "http://www.38.co.kr/html/fund/?o=v&no=2314",
-      "listingDate": "2026-09-22"
-    },
     "2315": {
       "no": "2315",
       "name": "멜콘(구.에스앤에프솔루션)",
@@ -104,7 +92,7 @@
       "subEnd": "2026-10-02",
       "finalPrice": "12,300",
       "hopePrice": "10,700~12,300",
-      "ratio": null,
+      "ratio": "1741.48:1",
       "underwriter": "대신증권",
       "url": "http://www.38.co.kr/html/fund/?o=v&no=2315",
       "listingDate": "2026-10-15"
@@ -359,6 +347,18 @@
       "ratio": null,
       "underwriter": "삼성증권",
       "url": "http://www.38.co.kr/html/fund/?o=v&no=2339",
+      "listingDate": null
+    },
+    "2340": {
+      "no": "2340",
+      "name": "케이엠에프",
+      "subStart": "2026-11-24",
+      "subEnd": "2026-11-25",
+      "finalPrice": null,
+      "hopePrice": "15,000~17,800",
+      "ratio": null,
+      "underwriter": "IBK투자증권",
+      "url": "http://www.38.co.kr/html/fund/?o=v&no=2340",
       "listingDate": null
     }
   }
