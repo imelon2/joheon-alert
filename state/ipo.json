@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-06T03:10:48.483Z",
+  "updatedAt": "2026-10-07T01:45:11.268Z",
   "items": {
     "2294": {
       "no": "2294",
@@ -85,6 +85,18 @@
       "url": "http://www.38.co.kr/html/fund/?o=v&no=2313",
       "listingDate": "2026-09-22"
     },
+    "2314": {
+      "no": "2314",
+      "name": "한국스팩17호",
+      "subStart": "2026-09-10",
+      "subEnd": "2026-09-11",
+      "finalPrice": "2,000",
+      "hopePrice": "2,000~2,000",
+      "ratio": "494.62:1",
+      "underwriter": "한국투자증권",
+      "url": "http://www.38.co.kr/html/fund/?o=v&no=2314",
+      "listingDate": "2026-09-22"
+    },
     "2315": {
       "no": "2315",
       "name": "멜콘(구.에스앤에프솔루션)",
@@ -102,12 +114,12 @@
       "name": "엘리스그룹",
       "subStart": "2026-10-07",
       "subEnd": "2026-10-08",
-      "finalPrice": null,
+      "finalPrice": "90,500",
       "hopePrice": "70,400~90,500",
       "ratio": null,
       "underwriter": "미래에셋증권,삼성증권",
       "url": "http://www.38.co.kr/html/fund/?o=v&no=2316",
-      "listingDate": null
+      "listingDate": "2026-10-20"
     },
     "2319": {
       "no": "2319",
@@ -128,7 +140,7 @@
       "subEnd": "2026-10-06",
       "finalPrice": "23,500",
       "hopePrice": "19,500~23,500",
-      "ratio": null,
+      "ratio": "685:1",
       "underwriter": "하나증권",
       "url": "http://www.38.co.kr/html/fund/?o=v&no=2320",
       "listingDate": "2026-10-15"
@@ -203,18 +215,6 @@
       "ratio": null,
       "underwriter": "대신증권,유진증권",
       "url": "http://www.38.co.kr/html/fund/?o=v&no=2326",
-      "listingDate": null
-    },
-    "2327": {
-      "no": "2327",
-      "name": "다비오",
-      "subStart": "2026-10-19",
-      "subEnd": "2026-10-20",
-      "finalPrice": null,
-      "hopePrice": "12,300~16,600",
-      "ratio": null,
-      "underwriter": "대신증권",
-      "url": "http://www.38.co.kr/html/fund/?o=v&no=2327",
       "listingDate": null
     },
     "2328": {
