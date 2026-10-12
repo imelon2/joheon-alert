@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-11T01:11:23.879Z",
+  "updatedAt": "2026-10-12T01:38:27.078Z",
   "items": {
     "2294": {
       "no": "2294",
@@ -104,7 +104,7 @@
       "subEnd": "2026-10-08",
       "finalPrice": "90,500",
       "hopePrice": "70,400~90,500",
-      "ratio": null,
+      "ratio": "408:1",
       "underwriter": "미래에셋증권,삼성증권",
       "url": "http://www.38.co.kr/html/fund/?o=v&no=2316",
       "listingDate": "2026-10-20"
