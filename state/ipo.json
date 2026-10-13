@@ -1,18 +1,6 @@
 {
-  "updatedAt": "2026-10-12T02:32:17.520Z",
+  "updatedAt": "2026-10-13T03:07:57.401Z",
   "items": {
-    "2294": {
-      "no": "2294",
-      "name": "빅웨이브로보틱스",
-      "subStart": "2026-09-15",
-      "subEnd": "2026-09-16",
-      "finalPrice": "18,000",
-      "hopePrice": "15,000~18,000",
-      "ratio": "1375.34:1",
-      "underwriter": "유진투자증권,미래에셋증권",
-      "url": "http://www.38.co.kr/html/fund/?o=v&no=2294",
-      "listingDate": "2026-09-29"
-    },
     "2307": {
       "no": "2307",
       "name": "브릴스",
@@ -24,18 +12,6 @@
       "underwriter": "IBK투자증권",
       "url": "http://www.38.co.kr/html/fund/?o=v&no=2307",
       "listingDate": "2026-10-01"
-    },
-    "2308": {
-      "no": "2308",
-      "name": "네오사피엔스",
-      "subStart": "2026-09-10",
-      "subEnd": "2026-09-11",
-      "finalPrice": "10,000",
-      "hopePrice": "13,800~15,800",
-      "ratio": "1047.78:1",
-      "underwriter": "대신증권",
-      "url": "http://www.38.co.kr/html/fund/?o=v&no=2308",
-      "listingDate": "2026-09-21"
     },
     "2309": {
       "no": "2309",
@@ -60,30 +36,6 @@
       "underwriter": "한국투자증권",
       "url": "http://www.38.co.kr/html/fund/?o=v&no=2310",
       "listingDate": "2026-09-29"
-    },
-    "2311": {
-      "no": "2311",
-      "name": "와이즈플래닛컴퍼니",
-      "subStart": "2026-09-14",
-      "subEnd": "2026-09-15",
-      "finalPrice": "12,000",
-      "hopePrice": "10,000~12,000",
-      "ratio": "1477.65:1",
-      "underwriter": "대신증권",
-      "url": "http://www.38.co.kr/html/fund/?o=v&no=2311",
-      "listingDate": "2026-09-23"
-    },
-    "2313": {
-      "no": "2313",
-      "name": "KB스팩34호",
-      "subStart": "2026-09-10",
-      "subEnd": "2026-09-11",
-      "finalPrice": "2,000",
-      "hopePrice": "2,000~2,000",
-      "ratio": "397.33:1",
-      "underwriter": "KB증권",
-      "url": "http://www.38.co.kr/html/fund/?o=v&no=2313",
-      "listingDate": "2026-09-22"
     },
     "2315": {
       "no": "2315",
@@ -198,12 +150,12 @@
       "name": "디티에스(구.동양티에스)",
       "subStart": "2026-10-13",
       "subEnd": "2026-10-14",
-      "finalPrice": null,
+      "finalPrice": "18,500",
       "hopePrice": "17,000~18,500",
       "ratio": null,
       "underwriter": "대신증권,유진증권",
       "url": "http://www.38.co.kr/html/fund/?o=v&no=2326",
-      "listingDate": null
+      "listingDate": "2026-10-23"
     },
     "2328": {
       "no": "2328",
@@ -244,8 +196,8 @@
     "2331": {
       "no": "2331",
       "name": "에이엘로봇",
-      "subStart": "2026-10-26",
-      "subEnd": "2026-10-27",
+      "subStart": "2026-11-06",
+      "subEnd": "2026-11-09",
       "finalPrice": null,
       "hopePrice": "15,700~17,600",
       "ratio": null,
@@ -359,6 +311,54 @@
       "ratio": null,
       "underwriter": "삼성증권",
       "url": "http://www.38.co.kr/html/fund/?o=v&no=2341",
+      "listingDate": null
+    },
+    "2342": {
+      "no": "2342",
+      "name": "영광와이케이엠씨",
+      "subStart": "2026-11-04",
+      "subEnd": "2026-11-05",
+      "finalPrice": null,
+      "hopePrice": "9,400~11,000",
+      "ratio": null,
+      "underwriter": "대신증권",
+      "url": "http://www.38.co.kr/html/fund/?o=v&no=2342",
+      "listingDate": null
+    },
+    "2343": {
+      "no": "2343",
+      "name": "엔키화이트햇",
+      "subStart": "2026-11-12",
+      "subEnd": "2026-11-13",
+      "finalPrice": null,
+      "hopePrice": "13,000~16,500",
+      "ratio": null,
+      "underwriter": "신영증권",
+      "url": "http://www.38.co.kr/html/fund/?o=v&no=2343",
+      "listingDate": null
+    },
+    "2344": {
+      "no": "2344",
+      "name": "다비오",
+      "subStart": "2026-11-10",
+      "subEnd": "2026-11-11",
+      "finalPrice": null,
+      "hopePrice": "12,300~16,600",
+      "ratio": null,
+      "underwriter": "대신증권",
+      "url": "http://www.38.co.kr/html/fund/?o=v&no=2344",
+      "listingDate": null
+    },
+    "2345": {
+      "no": "2345",
+      "name": "아델",
+      "subStart": "2026-11-23",
+      "subEnd": "2026-11-24",
+      "finalPrice": null,
+      "hopePrice": "18,000~25,000",
+      "ratio": null,
+      "underwriter": "삼성증권,미래에셋증권",
+      "url": "http://www.38.co.kr/html/fund/?o=v&no=2345",
       "listingDate": null
     }
   }
