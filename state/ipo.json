@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-14T02:01:23.248Z",
+  "updatedAt": "2026-10-15T00:45:58.631Z",
   "items": {
     "2307": {
       "no": "2307",
@@ -66,7 +66,7 @@
       "name": "SK증권스팩14호",
       "subStart": "2026-10-15",
       "subEnd": "2026-10-16",
-      "finalPrice": null,
+      "finalPrice": "2,000",
       "hopePrice": "2,000~2,000",
       "ratio": null,
       "underwriter": "SK증권",
@@ -152,7 +152,7 @@
       "subEnd": "2026-10-14",
       "finalPrice": "18,500",
       "hopePrice": "17,000~18,500",
-      "ratio": null,
+      "ratio": "987:1",
       "underwriter": "대신증권,유진증권",
       "url": "http://www.38.co.kr/html/fund/?o=v&no=2326",
       "listingDate": "2026-10-23"
