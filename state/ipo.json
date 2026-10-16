@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-15T01:37:00.147Z",
+  "updatedAt": "2026-10-16T00:38:49.733Z",
   "items": {
     "2307": {
       "no": "2307",
@@ -88,8 +88,8 @@
     "2321": {
       "no": "2321",
       "name": "엠비디",
-      "subStart": "2026-10-28",
-      "subEnd": "2026-10-29",
+      "subStart": "2026-11-12",
+      "subEnd": "2026-11-13",
       "finalPrice": null,
       "hopePrice": "9,600~11,700",
       "ratio": null,
@@ -152,7 +152,7 @@
       "subEnd": "2026-10-14",
       "finalPrice": "18,500",
       "hopePrice": "17,000~18,500",
-      "ratio": "987:1",
+      "ratio": "986.99:1",
       "underwriter": "대신증권,유진증권",
       "url": "http://www.38.co.kr/html/fund/?o=v&no=2326",
       "listingDate": "2026-10-23"
