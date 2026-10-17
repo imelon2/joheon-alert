@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-16T01:32:50.790Z",
+  "updatedAt": "2026-10-17T00:43:15.055Z",
   "items": {
     "2307": {
       "no": "2307",
@@ -12,30 +12,6 @@
       "underwriter": "IBK투자증권",
       "url": "http://www.38.co.kr/html/fund/?o=v&no=2307",
       "listingDate": "2026-10-01"
-    },
-    "2309": {
-      "no": "2309",
-      "name": "덕산넵코어스(구.넵코어스)",
-      "subStart": "2026-09-16",
-      "subEnd": "2026-09-17",
-      "finalPrice": "14,600",
-      "hopePrice": "12,400~14,600",
-      "ratio": "332.82:1",
-      "underwriter": "대신증권",
-      "url": "http://www.38.co.kr/html/fund/?o=v&no=2309",
-      "listingDate": "2026-09-30"
-    },
-    "2310": {
-      "no": "2310",
-      "name": "글로벌테크놀로지",
-      "subStart": "2026-09-16",
-      "subEnd": "2026-09-17",
-      "finalPrice": "10,000",
-      "hopePrice": "13,000~15,000",
-      "ratio": "57.15:1",
-      "underwriter": "한국투자증권",
-      "url": "http://www.38.co.kr/html/fund/?o=v&no=2310",
-      "listingDate": "2026-09-29"
     },
     "2315": {
       "no": "2315",
@@ -68,7 +44,7 @@
       "subEnd": "2026-10-16",
       "finalPrice": "2,000",
       "hopePrice": "2,000~2,000",
-      "ratio": null,
+      "ratio": "656:1",
       "underwriter": "SK증권",
       "url": "http://www.38.co.kr/html/fund/?o=v&no=2319",
       "listingDate": "2026-10-27"
@@ -102,7 +78,7 @@
       "name": "티앤이코리아",
       "subStart": "2026-10-20",
       "subEnd": "2026-10-21",
-      "finalPrice": null,
+      "finalPrice": "15,300",
       "hopePrice": "12,600~15,300",
       "ratio": null,
       "underwriter": "신한투자증권",
@@ -359,6 +335,30 @@
       "ratio": null,
       "underwriter": "삼성증권,미래에셋증권",
       "url": "http://www.38.co.kr/html/fund/?o=v&no=2345",
+      "listingDate": null
+    },
+    "2346": {
+      "no": "2346",
+      "name": "씨앤엠",
+      "subStart": "2026-11-12",
+      "subEnd": "2026-11-13",
+      "finalPrice": null,
+      "hopePrice": "10,000~13,000",
+      "ratio": null,
+      "underwriter": "한국투자증권",
+      "url": "http://www.38.co.kr/html/fund/?o=v&no=2346",
+      "listingDate": null
+    },
+    "2347": {
+      "no": "2347",
+      "name": "제이앤티지",
+      "subStart": "2026-11-12",
+      "subEnd": "2026-11-13",
+      "finalPrice": null,
+      "hopePrice": "26,400~31,900",
+      "ratio": null,
+      "underwriter": "대신증권,NH투자증권",
+      "url": "http://www.38.co.kr/html/fund/?o=v&no=2347",
       "listingDate": null
     }
   }
