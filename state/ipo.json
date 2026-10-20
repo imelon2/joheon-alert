@@ -1,18 +1,6 @@
 {
-  "updatedAt": "2026-10-20T01:11:35.448Z",
+  "updatedAt": "2026-10-20T01:57:49.289Z",
   "items": {
-    "2307": {
-      "no": "2307",
-      "name": "브릴스",
-      "subStart": "2026-09-17",
-      "subEnd": "2026-09-18",
-      "finalPrice": "19,500",
-      "hopePrice": "16,500~19,500",
-      "ratio": "1676.26:1",
-      "underwriter": "IBK투자증권",
-      "url": "http://www.38.co.kr/html/fund/?o=v&no=2307",
-      "listingDate": "2026-10-01"
-    },
     "2315": {
       "no": "2315",
       "name": "멜콘(구.에스앤에프솔루션)",
@@ -359,6 +347,18 @@
       "ratio": null,
       "underwriter": "대신증권,NH투자증권",
       "url": "http://www.38.co.kr/html/fund/?o=v&no=2347",
+      "listingDate": null
+    },
+    "2348": {
+      "no": "2348",
+      "name": "씨아이에스케미칼",
+      "subStart": "2026-12-10",
+      "subEnd": "2026-12-11",
+      "finalPrice": null,
+      "hopePrice": "5,400~6,800",
+      "ratio": null,
+      "underwriter": "KB증권",
+      "url": "http://www.38.co.kr/html/fund/?o=v&no=2348",
       "listingDate": null
     }
   }
