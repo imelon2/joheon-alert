@@ -1,18 +1,6 @@
 {
-  "updatedAt": "2026-10-20T01:57:49.289Z",
+  "updatedAt": "2026-10-21T00:48:48.291Z",
   "items": {
-    "2315": {
-      "no": "2315",
-      "name": "멜콘(구.에스앤에프솔루션)",
-      "subStart": "2026-10-01",
-      "subEnd": "2026-10-02",
-      "finalPrice": "12,300",
-      "hopePrice": "10,700~12,300",
-      "ratio": "1741.48:1",
-      "underwriter": "대신증권",
-      "url": "http://www.38.co.kr/html/fund/?o=v&no=2315",
-      "listingDate": "2026-10-15"
-    },
     "2316": {
       "no": "2316",
       "name": "엘리스그룹",
@@ -83,7 +71,7 @@
       "ratio": null,
       "underwriter": "삼성증권",
       "url": "http://www.38.co.kr/html/fund/?o=v&no=2323",
-      "listingDate": null
+      "listingDate": "2026-10-30"
     },
     "2324": {
       "no": "2324",
@@ -126,12 +114,12 @@
       "name": "인텔리빅스",
       "subStart": "2026-10-21",
       "subEnd": "2026-10-22",
-      "finalPrice": null,
+      "finalPrice": "9,000",
       "hopePrice": "7,600~9,000",
       "ratio": null,
       "underwriter": "미래에셋증권",
       "url": "http://www.38.co.kr/html/fund/?o=v&no=2328",
-      "listingDate": null
+      "listingDate": "2026-10-30"
     },
     "2329": {
       "no": "2329",
@@ -359,6 +347,18 @@
       "ratio": null,
       "underwriter": "KB증권",
       "url": "http://www.38.co.kr/html/fund/?o=v&no=2348",
+      "listingDate": null
+    },
+    "2349": {
+      "no": "2349",
+      "name": "에스에프씨(유가)",
+      "subStart": "2026-11-18",
+      "subEnd": "2026-11-19",
+      "finalPrice": null,
+      "hopePrice": "31,600~36,100",
+      "ratio": null,
+      "underwriter": "미래에셋증권,한국투자증권,삼성증권",
+      "url": "http://www.38.co.kr/html/fund/?o=v&no=2349",
       "listingDate": null
     }
   }
