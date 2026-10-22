@@ -1,18 +1,6 @@
 {
-  "updatedAt": "2026-10-21T01:47:24.664Z",
+  "updatedAt": "2026-10-22T00:50:36.261Z",
   "items": {
-    "2316": {
-      "no": "2316",
-      "name": "엘리스그룹",
-      "subStart": "2026-10-07",
-      "subEnd": "2026-10-08",
-      "finalPrice": "90,500",
-      "hopePrice": "70,400~90,500",
-      "ratio": "408:1",
-      "underwriter": "미래에셋증권,삼성증권",
-      "url": "http://www.38.co.kr/html/fund/?o=v&no=2316",
-      "listingDate": "2026-10-20"
-    },
     "2319": {
       "no": "2319",
       "name": "SK증권스팩14호",
@@ -24,18 +12,6 @@
       "underwriter": "SK증권",
       "url": "http://www.38.co.kr/html/fund/?o=v&no=2319",
       "listingDate": "2026-10-27"
-    },
-    "2320": {
-      "no": "2320",
-      "name": "진코스텍",
-      "subStart": "2026-10-02",
-      "subEnd": "2026-10-06",
-      "finalPrice": "23,500",
-      "hopePrice": "19,500~23,500",
-      "ratio": "685:1",
-      "underwriter": "하나증권",
-      "url": "http://www.38.co.kr/html/fund/?o=v&no=2320",
-      "listingDate": "2026-10-15"
     },
     "2321": {
       "no": "2321",
@@ -56,7 +32,7 @@
       "subEnd": "2026-10-21",
       "finalPrice": "15,300",
       "hopePrice": "12,600~15,300",
-      "ratio": null,
+      "ratio": "1253.39:1",
       "underwriter": "신한투자증권",
       "url": "http://www.38.co.kr/html/fund/?o=v&no=2322",
       "listingDate": "2026-10-29"
@@ -68,7 +44,7 @@
       "subEnd": "2026-10-21",
       "finalPrice": "15,000",
       "hopePrice": "15,000~18,000",
-      "ratio": null,
+      "ratio": "6.92:1",
       "underwriter": "삼성증권",
       "url": "http://www.38.co.kr/html/fund/?o=v&no=2323",
       "listingDate": "2026-10-30"
@@ -140,7 +116,7 @@
       "subEnd": "2026-10-21",
       "finalPrice": "2,000",
       "hopePrice": "2,000~2,000",
-      "ratio": null,
+      "ratio": "185.75:1",
       "underwriter": "한화투자증권",
       "url": "http://www.38.co.kr/html/fund/?o=v&no=2330",
       "listingDate": "2026-10-30"
@@ -162,24 +138,24 @@
       "name": "이에스티",
       "subStart": "2026-10-22",
       "subEnd": "2026-10-23",
-      "finalPrice": null,
+      "finalPrice": "12,400",
       "hopePrice": "10,600~12,400",
       "ratio": null,
       "underwriter": "대신증권",
       "url": "http://www.38.co.kr/html/fund/?o=v&no=2332",
-      "listingDate": null
+      "listingDate": "2026-11-04"
     },
     "2333": {
       "no": "2333",
       "name": "영광(구.영광공작소)",
       "subStart": "2026-10-22",
       "subEnd": "2026-10-23",
-      "finalPrice": null,
+      "finalPrice": "17,000",
       "hopePrice": "14,000~17,000",
       "ratio": null,
       "underwriter": "한국투자증권",
       "url": "http://www.38.co.kr/html/fund/?o=v&no=2333",
-      "listingDate": null
+      "listingDate": "2026-11-02"
     },
     "2334": {
       "no": "2334",
@@ -198,7 +174,7 @@
       "name": "래블업",
       "subStart": "2026-10-22",
       "subEnd": "2026-10-23",
-      "finalPrice": null,
+      "finalPrice": "19,000",
       "hopePrice": "19,000~22,000",
       "ratio": null,
       "underwriter": "NH투자증권",
@@ -359,6 +335,30 @@
       "ratio": null,
       "underwriter": "미래에셋증권,한국투자증권,삼성증권",
       "url": "http://www.38.co.kr/html/fund/?o=v&no=2349",
+      "listingDate": null
+    },
+    "2350": {
+      "no": "2350",
+      "name": "에이엔에이치스트럭쳐",
+      "subStart": "2026-11-27",
+      "subEnd": "2026-11-30",
+      "finalPrice": null,
+      "hopePrice": "11,200~13,600",
+      "ratio": null,
+      "underwriter": "NH투자증권",
+      "url": "http://www.38.co.kr/html/fund/?o=v&no=2350",
+      "listingDate": null
+    },
+    "2351": {
+      "no": "2351",
+      "name": "이노보테라퓨틱스",
+      "subStart": "2026-12-07",
+      "subEnd": "2026-12-08",
+      "finalPrice": null,
+      "hopePrice": "20,000~24,000",
+      "ratio": null,
+      "underwriter": "한국투자증권",
+      "url": "http://www.38.co.kr/html/fund/?o=v&no=2351",
       "listingDate": null
     }
   }
