@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-22T00:50:36.261Z",
+  "updatedAt": "2026-10-22T01:40:05.938Z",
   "items": {
     "2319": {
       "no": "2319",
@@ -48,18 +48,6 @@
       "underwriter": "삼성증권",
       "url": "http://www.38.co.kr/html/fund/?o=v&no=2323",
       "listingDate": "2026-10-30"
-    },
-    "2324": {
-      "no": "2324",
-      "name": "엠에스바이오",
-      "subStart": "2026-10-12",
-      "subEnd": "2026-10-13",
-      "finalPrice": "7,800",
-      "hopePrice": "6,800~7,800",
-      "ratio": "1538.51:1",
-      "underwriter": "KB증권",
-      "url": "http://www.38.co.kr/html/fund/?o=v&no=2324",
-      "listingDate": "2026-10-22"
     },
     "2325": {
       "no": "2325",
@@ -359,6 +347,18 @@
       "ratio": null,
       "underwriter": "한국투자증권",
       "url": "http://www.38.co.kr/html/fund/?o=v&no=2351",
+      "listingDate": null
+    },
+    "2352": {
+      "no": "2352",
+      "name": "유캐스트",
+      "subStart": "2026-11-18",
+      "subEnd": "2026-11-19",
+      "finalPrice": null,
+      "hopePrice": "19,000~23,000",
+      "ratio": null,
+      "underwriter": "유진투자증권,신영증권",
+      "url": "http://www.38.co.kr/html/fund/?o=v&no=2352",
       "listingDate": null
     }
   }
