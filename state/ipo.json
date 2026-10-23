@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-22T01:40:05.938Z",
+  "updatedAt": "2026-10-23T00:51:31.862Z",
   "items": {
     "2319": {
       "no": "2319",
@@ -90,12 +90,12 @@
       "name": "아이엠스팩1호",
       "subStart": "2026-10-26",
       "subEnd": "2026-10-27",
-      "finalPrice": null,
+      "finalPrice": "2,000",
       "hopePrice": "2,000~2,000",
       "ratio": null,
       "underwriter": "아이엠증권",
       "url": "http://www.38.co.kr/html/fund/?o=v&no=2329",
-      "listingDate": null
+      "listingDate": "2026-11-04"
     },
     "2330": {
       "no": "2330",
@@ -167,7 +167,7 @@
       "ratio": null,
       "underwriter": "NH투자증권",
       "url": "http://www.38.co.kr/html/fund/?o=v&no=2335",
-      "listingDate": null
+      "listingDate": "2026-11-03"
     },
     "2336": {
       "no": "2336",
