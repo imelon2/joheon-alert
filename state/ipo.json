@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-23T01:43:02.257Z",
+  "updatedAt": "2026-10-24T00:58:38.878Z",
   "items": {
     "2319": {
       "no": "2319",
@@ -61,18 +61,6 @@
       "url": "http://www.38.co.kr/html/fund/?o=v&no=2325",
       "listingDate": null
     },
-    "2326": {
-      "no": "2326",
-      "name": "디티에스(구.동양티에스)",
-      "subStart": "2026-10-13",
-      "subEnd": "2026-10-14",
-      "finalPrice": "18,500",
-      "hopePrice": "17,000~18,500",
-      "ratio": "986.99:1",
-      "underwriter": "대신증권,유진증권",
-      "url": "http://www.38.co.kr/html/fund/?o=v&no=2326",
-      "listingDate": "2026-10-23"
-    },
     "2328": {
       "no": "2328",
       "name": "인텔리빅스",
@@ -128,7 +116,7 @@
       "subEnd": "2026-10-23",
       "finalPrice": "12,400",
       "hopePrice": "10,600~12,400",
-      "ratio": null,
+      "ratio": "28.95:1",
       "underwriter": "대신증권",
       "url": "http://www.38.co.kr/html/fund/?o=v&no=2332",
       "listingDate": "2026-11-04"
@@ -140,7 +128,7 @@
       "subEnd": "2026-10-23",
       "finalPrice": "17,000",
       "hopePrice": "14,000~17,000",
-      "ratio": null,
+      "ratio": "684.73:1",
       "underwriter": "한국투자증권",
       "url": "http://www.38.co.kr/html/fund/?o=v&no=2333",
       "listingDate": "2026-11-02"
@@ -164,7 +152,7 @@
       "subEnd": "2026-10-23",
       "finalPrice": "19,000",
       "hopePrice": "19,000~22,000",
-      "ratio": null,
+      "ratio": "3.55:1",
       "underwriter": "NH투자증권",
       "url": "http://www.38.co.kr/html/fund/?o=v&no=2335",
       "listingDate": "2026-11-03"
@@ -359,6 +347,18 @@
       "ratio": null,
       "underwriter": "유진투자증권,신영증권",
       "url": "http://www.38.co.kr/html/fund/?o=v&no=2352",
+      "listingDate": null
+    },
+    "2353": {
+      "no": "2353",
+      "name": "인터엑스",
+      "subStart": "2026-12-09",
+      "subEnd": "2026-12-10",
+      "finalPrice": null,
+      "hopePrice": "10,000~13,000",
+      "ratio": null,
+      "underwriter": "한국투자증권,BNK투자증권",
+      "url": "http://www.38.co.kr/html/fund/?o=v&no=2353",
       "listingDate": null
     }
   }
