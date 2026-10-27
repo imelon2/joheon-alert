@@ -1,18 +1,6 @@
 {
-  "updatedAt": "2026-10-26T01:26:15.705Z",
+  "updatedAt": "2026-10-27T01:35:47.282Z",
   "items": {
-    "2319": {
-      "no": "2319",
-      "name": "SK증권스팩14호",
-      "subStart": "2026-10-15",
-      "subEnd": "2026-10-16",
-      "finalPrice": "2,000",
-      "hopePrice": "2,000~2,000",
-      "ratio": "656:1",
-      "underwriter": "SK증권",
-      "url": "http://www.38.co.kr/html/fund/?o=v&no=2319",
-      "listingDate": "2026-10-27"
-    },
     "2321": {
       "no": "2321",
       "name": "엠비디",
@@ -208,8 +196,8 @@
     "2341": {
       "no": "2341",
       "name": "제논",
-      "subStart": "2026-11-04",
-      "subEnd": "2026-11-05",
+      "subStart": "2026-11-24",
+      "subEnd": "2026-11-25",
       "finalPrice": null,
       "hopePrice": "9,700~12,200",
       "ratio": null,
@@ -359,6 +347,18 @@
       "ratio": null,
       "underwriter": "한국투자증권,BNK투자증권",
       "url": "http://www.38.co.kr/html/fund/?o=v&no=2353",
+      "listingDate": null
+    },
+    "2354": {
+      "no": "2354",
+      "name": "우리투자스팩1호",
+      "subStart": "2026-12-02",
+      "subEnd": "2026-12-03",
+      "finalPrice": null,
+      "hopePrice": "2,000~2,000",
+      "ratio": null,
+      "underwriter": "우리투자증권",
+      "url": "http://www.38.co.kr/html/fund/?o=v&no=2354",
       "listingDate": null
     }
   }
