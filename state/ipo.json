@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-28T02:28:57.486Z",
+  "updatedAt": "2026-10-29T01:55:28.600Z",
   "items": {
     "2321": {
       "no": "2321",
@@ -12,30 +12,6 @@
       "underwriter": "하나증권",
       "url": "http://www.38.co.kr/html/fund/?o=v&no=2321",
       "listingDate": null
-    },
-    "2322": {
-      "no": "2322",
-      "name": "티앤이코리아",
-      "subStart": "2026-10-20",
-      "subEnd": "2026-10-21",
-      "finalPrice": "15,300",
-      "hopePrice": "12,600~15,300",
-      "ratio": "1253.39:1",
-      "underwriter": "신한투자증권",
-      "url": "http://www.38.co.kr/html/fund/?o=v&no=2322",
-      "listingDate": "2026-10-29"
-    },
-    "2323": {
-      "no": "2323",
-      "name": "크리에이츠",
-      "subStart": "2026-10-20",
-      "subEnd": "2026-10-21",
-      "finalPrice": "15,000",
-      "hopePrice": "15,000~18,000",
-      "ratio": "6.92:1",
-      "underwriter": "삼성증권",
-      "url": "http://www.38.co.kr/html/fund/?o=v&no=2323",
-      "listingDate": "2026-10-30"
     },
     "2325": {
       "no": "2325",
@@ -72,18 +48,6 @@
       "underwriter": "아이엠증권",
       "url": "http://www.38.co.kr/html/fund/?o=v&no=2329",
       "listingDate": "2026-11-04"
-    },
-    "2330": {
-      "no": "2330",
-      "name": "한화플러스스팩6호",
-      "subStart": "2026-10-20",
-      "subEnd": "2026-10-21",
-      "finalPrice": "2,000",
-      "hopePrice": "2,000~2,000",
-      "ratio": "185.75:1",
-      "underwriter": "한화투자증권",
-      "url": "http://www.38.co.kr/html/fund/?o=v&no=2330",
-      "listingDate": "2026-10-30"
     },
     "2331": {
       "no": "2331",
@@ -359,6 +323,42 @@
       "ratio": null,
       "underwriter": "우리투자증권",
       "url": "http://www.38.co.kr/html/fund/?o=v&no=2354",
+      "listingDate": null
+    },
+    "2355": {
+      "no": "2355",
+      "name": "KTE",
+      "subStart": "2026-12-14",
+      "subEnd": "2026-12-15",
+      "finalPrice": null,
+      "hopePrice": "19,000~23,000",
+      "ratio": null,
+      "underwriter": "NH투자증권",
+      "url": "http://www.38.co.kr/html/fund/?o=v&no=2355",
+      "listingDate": null
+    },
+    "2356": {
+      "no": "2356",
+      "name": "데스틴파워",
+      "subStart": "2026-12-14",
+      "subEnd": "2026-12-15",
+      "finalPrice": null,
+      "hopePrice": "8,000~11,000",
+      "ratio": null,
+      "underwriter": "한국투자증권",
+      "url": "http://www.38.co.kr/html/fund/?o=v&no=2356",
+      "listingDate": null
+    },
+    "2357": {
+      "no": "2357",
+      "name": "신영스팩12호",
+      "subStart": "2026-11-24",
+      "subEnd": "2026-11-25",
+      "finalPrice": null,
+      "hopePrice": "2,000~2,000",
+      "ratio": null,
+      "underwriter": "신영증권",
+      "url": "http://www.38.co.kr/html/fund/?o=v&no=2357",
       "listingDate": null
     }
   }
