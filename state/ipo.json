@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-29T02:35:42.517Z",
+  "updatedAt": "2026-10-30T02:06:29.199Z",
   "items": {
     "2321": {
       "no": "2321",
@@ -126,12 +126,12 @@
       "name": "옵토닉스",
       "subStart": "2026-11-05",
       "subEnd": "2026-11-06",
-      "finalPrice": null,
+      "finalPrice": "12,000",
       "hopePrice": "10,000~12,000",
       "ratio": null,
       "underwriter": "한국투자증권",
       "url": "http://www.38.co.kr/html/fund/?o=v&no=2338",
-      "listingDate": null
+      "listingDate": "2026-11-17"
     },
     "2339": {
       "no": "2339",
