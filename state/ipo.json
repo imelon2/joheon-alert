@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-30T02:06:29.199Z",
+  "updatedAt": "2026-10-30T02:45:22.721Z",
   "items": {
     "2321": {
       "no": "2321",
@@ -138,12 +138,12 @@
       "name": "동원파츠",
       "subStart": "2026-11-02",
       "subEnd": "2026-11-03",
-      "finalPrice": null,
+      "finalPrice": "26,500",
       "hopePrice": "23,000~26,500",
       "ratio": null,
       "underwriter": "삼성증권",
       "url": "http://www.38.co.kr/html/fund/?o=v&no=2339",
-      "listingDate": null
+      "listingDate": "2026-11-10"
     },
     "2340": {
       "no": "2340",
