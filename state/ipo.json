@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-30T02:45:22.721Z",
+  "updatedAt": "2026-10-31T01:45:04.319Z",
   "items": {
     "2321": {
       "no": "2321",
@@ -18,12 +18,12 @@
       "name": "바로팜",
       "subStart": "2026-11-02",
       "subEnd": "2026-11-03",
-      "finalPrice": null,
+      "finalPrice": "16,400",
       "hopePrice": "16,400~20,200",
       "ratio": null,
       "underwriter": "미래에셋증권",
       "url": "http://www.38.co.kr/html/fund/?o=v&no=2325",
-      "listingDate": null
+      "listingDate": "2026-11-11"
     },
     "2328": {
       "no": "2328",
@@ -114,12 +114,12 @@
       "name": "넥스아이",
       "subStart": "2026-11-03",
       "subEnd": "2026-11-04",
-      "finalPrice": null,
+      "finalPrice": "8,000",
       "hopePrice": "10,500~13,000",
       "ratio": null,
       "underwriter": "한국투자증권",
       "url": "http://www.38.co.kr/html/fund/?o=v&no=2336",
-      "listingDate": null
+      "listingDate": "2026-11-12"
     },
     "2338": {
       "no": "2338",
