@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-02T02:38:55.684Z",
+  "updatedAt": "2026-11-03T03:39:34.765Z",
   "items": {
     "2321": {
       "no": "2321",
@@ -193,18 +193,6 @@
       "url": "http://www.38.co.kr/html/fund/?o=v&no=2343",
       "listingDate": null
     },
-    "2344": {
-      "no": "2344",
-      "name": "다비오",
-      "subStart": "2026-11-10",
-      "subEnd": "2026-11-11",
-      "finalPrice": null,
-      "hopePrice": "12,300~16,600",
-      "ratio": null,
-      "underwriter": "대신증권",
-      "url": "http://www.38.co.kr/html/fund/?o=v&no=2344",
-      "listingDate": null
-    },
     "2345": {
       "no": "2345",
       "name": "아델",
@@ -359,6 +347,18 @@
       "ratio": null,
       "underwriter": "신영증권",
       "url": "http://www.38.co.kr/html/fund/?o=v&no=2357",
+      "listingDate": null
+    },
+    "2358": {
+      "no": "2358",
+      "name": "다비오",
+      "subStart": "2026-12-01",
+      "subEnd": "2026-12-02",
+      "finalPrice": null,
+      "hopePrice": "12,300~16,600",
+      "ratio": null,
+      "underwriter": "대신증권",
+      "url": "http://www.38.co.kr/html/fund/?o=v&no=2358",
       "listingDate": null
     }
   }
