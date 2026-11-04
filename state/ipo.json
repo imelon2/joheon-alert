@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-03T03:58:11.339Z",
+  "updatedAt": "2026-11-04T02:37:57.508Z",
   "items": {
     "2321": {
       "no": "2321",
@@ -20,7 +20,7 @@
       "subEnd": "2026-11-03",
       "finalPrice": "16,400",
       "hopePrice": "16,400~20,200",
-      "ratio": null,
+      "ratio": "19.27:1",
       "underwriter": "미래에셋증권",
       "url": "http://www.38.co.kr/html/fund/?o=v&no=2325",
       "listingDate": "2026-11-11"
@@ -140,7 +140,7 @@
       "subEnd": "2026-11-03",
       "finalPrice": "26,500",
       "hopePrice": "23,000~26,500",
-      "ratio": null,
+      "ratio": "1219.37:1",
       "underwriter": "삼성증권",
       "url": "http://www.38.co.kr/html/fund/?o=v&no=2339",
       "listingDate": "2026-11-10"
@@ -174,12 +174,12 @@
       "name": "영광와이케이엠씨",
       "subStart": "2026-11-04",
       "subEnd": "2026-11-05",
-      "finalPrice": null,
+      "finalPrice": "11,000",
       "hopePrice": "9,400~11,000",
       "ratio": null,
       "underwriter": "대신증권",
       "url": "http://www.38.co.kr/html/fund/?o=v&no=2342",
-      "listingDate": null
+      "listingDate": "2026-11-16"
     },
     "2343": {
       "no": "2343",
