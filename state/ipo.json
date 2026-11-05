@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-04T03:04:34.455Z",
+  "updatedAt": "2026-11-05T02:42:36.178Z",
   "items": {
     "2321": {
       "no": "2321",
@@ -54,7 +54,7 @@
       "name": "에이엘로봇",
       "subStart": "2026-11-06",
       "subEnd": "2026-11-09",
-      "finalPrice": null,
+      "finalPrice": "17,600",
       "hopePrice": "15,700~17,600",
       "ratio": null,
       "underwriter": "대신증권",
@@ -116,7 +116,7 @@
       "subEnd": "2026-11-04",
       "finalPrice": "8,000",
       "hopePrice": "10,500~13,000",
-      "ratio": null,
+      "ratio": "13.26:1",
       "underwriter": "한국투자증권",
       "url": "http://www.38.co.kr/html/fund/?o=v&no=2336",
       "listingDate": "2026-11-12"
