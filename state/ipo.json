@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-05T03:35:22.237Z",
+  "updatedAt": "2026-11-06T02:46:10.980Z",
   "items": {
     "2321": {
       "no": "2321",
@@ -176,7 +176,7 @@
       "subEnd": "2026-11-05",
       "finalPrice": "11,000",
       "hopePrice": "9,400~11,000",
-      "ratio": null,
+      "ratio": "1342.66:1",
       "underwriter": "대신증권",
       "url": "http://www.38.co.kr/html/fund/?o=v&no=2342",
       "listingDate": "2026-11-16"
