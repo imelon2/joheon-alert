@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-09T02:50:36.451Z",
+  "updatedAt": "2026-11-10T04:15:55.892Z",
   "items": {
     "2321": {
       "no": "2321",
@@ -56,10 +56,10 @@
       "subEnd": "2026-11-09",
       "finalPrice": "17,600",
       "hopePrice": "15,700~17,600",
-      "ratio": null,
+      "ratio": "834.73:1",
       "underwriter": "대신증권",
       "url": "http://www.38.co.kr/html/fund/?o=v&no=2331",
-      "listingDate": null
+      "listingDate": "2026-11-18"
     },
     "2332": {
       "no": "2332",
@@ -90,12 +90,12 @@
       "name": "하나에어로다이내믹스",
       "subStart": "2026-11-10",
       "subEnd": "2026-11-11",
-      "finalPrice": null,
+      "finalPrice": "5,700",
       "hopePrice": "4,700~5,700",
       "ratio": null,
       "underwriter": "IBK투자증권",
       "url": "http://www.38.co.kr/html/fund/?o=v&no=2334",
-      "listingDate": null
+      "listingDate": "2026-11-20"
     },
     "2335": {
       "no": "2335",
