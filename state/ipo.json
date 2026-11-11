@@ -1,17 +1,17 @@
 {
-  "updatedAt": "2026-11-10T04:42:18.007Z",
+  "updatedAt": "2026-11-11T02:08:34.354Z",
   "items": {
     "2321": {
       "no": "2321",
       "name": "엠비디",
       "subStart": "2026-11-12",
       "subEnd": "2026-11-13",
-      "finalPrice": null,
+      "finalPrice": "7,000",
       "hopePrice": "9,600~11,700",
       "ratio": null,
       "underwriter": "하나증권",
       "url": "http://www.38.co.kr/html/fund/?o=v&no=2321",
-      "listingDate": null
+      "listingDate": "2026-11-24"
     },
     "2325": {
       "no": "2325",
@@ -24,18 +24,6 @@
       "underwriter": "미래에셋증권",
       "url": "http://www.38.co.kr/html/fund/?o=v&no=2325",
       "listingDate": "2026-11-11"
-    },
-    "2328": {
-      "no": "2328",
-      "name": "인텔리빅스",
-      "subStart": "2026-10-21",
-      "subEnd": "2026-10-22",
-      "finalPrice": "9,000",
-      "hopePrice": "7,600~9,000",
-      "ratio": "1410.87:1",
-      "underwriter": "미래에셋증권",
-      "url": "http://www.38.co.kr/html/fund/?o=v&no=2328",
-      "listingDate": "2026-10-30"
     },
     "2329": {
       "no": "2329",
@@ -359,6 +347,18 @@
       "ratio": null,
       "underwriter": "대신증권",
       "url": "http://www.38.co.kr/html/fund/?o=v&no=2358",
+      "listingDate": null
+    },
+    "2359": {
+      "no": "2359",
+      "name": "마더스제약",
+      "subStart": "2026-12-08",
+      "subEnd": "2026-12-09",
+      "finalPrice": null,
+      "hopePrice": "11,000~14,500",
+      "ratio": null,
+      "underwriter": "KB증권,NH투자증권",
+      "url": "http://www.38.co.kr/html/fund/?o=v&no=2359",
       "listingDate": null
     }
   }
