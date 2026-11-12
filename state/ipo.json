@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-11T02:53:15.434Z",
+  "updatedAt": "2026-11-12T03:17:44.256Z",
   "items": {
     "2321": {
       "no": "2321",
@@ -13,6 +13,18 @@
       "url": "http://www.38.co.kr/html/fund/?o=v&no=2321",
       "listingDate": "2026-11-24"
     },
+    "2322": {
+      "no": "2322",
+      "name": "티앤이코리아",
+      "subStart": "2026-10-20",
+      "subEnd": "2026-10-21",
+      "finalPrice": "15,300",
+      "hopePrice": "12,600~15,300",
+      "ratio": "1253.39:1",
+      "underwriter": "신한투자증권",
+      "url": "http://www.38.co.kr/html/fund/?o=v&no=2322",
+      "listingDate": "2026-10-29"
+    },
     "2325": {
       "no": "2325",
       "name": "바로팜",
@@ -24,6 +36,18 @@
       "underwriter": "미래에셋증권",
       "url": "http://www.38.co.kr/html/fund/?o=v&no=2325",
       "listingDate": "2026-11-11"
+    },
+    "2328": {
+      "no": "2328",
+      "name": "인텔리빅스",
+      "subStart": "2026-10-21",
+      "subEnd": "2026-10-22",
+      "finalPrice": "9,000",
+      "hopePrice": "7,600~9,000",
+      "ratio": "1410.87:1",
+      "underwriter": "미래에셋증권",
+      "url": "http://www.38.co.kr/html/fund/?o=v&no=2328",
+      "listingDate": "2026-10-30"
     },
     "2329": {
       "no": "2329",
@@ -80,7 +104,7 @@
       "subEnd": "2026-11-11",
       "finalPrice": "5,700",
       "hopePrice": "4,700~5,700",
-      "ratio": null,
+      "ratio": "1851.14:1",
       "underwriter": "IBK투자증권",
       "url": "http://www.38.co.kr/html/fund/?o=v&no=2334",
       "listingDate": "2026-11-20"
@@ -191,30 +215,6 @@
       "ratio": null,
       "underwriter": "삼성증권,미래에셋증권",
       "url": "http://www.38.co.kr/html/fund/?o=v&no=2345",
-      "listingDate": null
-    },
-    "2346": {
-      "no": "2346",
-      "name": "씨앤엠",
-      "subStart": "2026-11-12",
-      "subEnd": "2026-11-13",
-      "finalPrice": null,
-      "hopePrice": "10,000~13,000",
-      "ratio": null,
-      "underwriter": "한국투자증권",
-      "url": "http://www.38.co.kr/html/fund/?o=v&no=2346",
-      "listingDate": null
-    },
-    "2347": {
-      "no": "2347",
-      "name": "제이앤티지",
-      "subStart": "2026-11-12",
-      "subEnd": "2026-11-13",
-      "finalPrice": null,
-      "hopePrice": "26,400~31,900",
-      "ratio": null,
-      "underwriter": "대신증권,NH투자증권",
-      "url": "http://www.38.co.kr/html/fund/?o=v&no=2347",
       "listingDate": null
     },
     "2348": {
@@ -340,8 +340,8 @@
     "2358": {
       "no": "2358",
       "name": "다비오",
-      "subStart": "2026-12-01",
-      "subEnd": "2026-12-02",
+      "subStart": "2026-12-09",
+      "subEnd": "2026-12-10",
       "finalPrice": null,
       "hopePrice": "12,300~16,600",
       "ratio": null,
