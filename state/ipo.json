@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-12T03:58:01.191Z",
+  "updatedAt": "2026-11-13T02:50:55.401Z",
   "items": {
     "2321": {
       "no": "2321",
@@ -12,18 +12,6 @@
       "underwriter": "하나증권",
       "url": "http://www.38.co.kr/html/fund/?o=v&no=2321",
       "listingDate": "2026-11-24"
-    },
-    "2322": {
-      "no": "2322",
-      "name": "티앤이코리아",
-      "subStart": "2026-10-20",
-      "subEnd": "2026-10-21",
-      "finalPrice": "15,300",
-      "hopePrice": "12,600~15,300",
-      "ratio": "1253.39:1",
-      "underwriter": "신한투자증권",
-      "url": "http://www.38.co.kr/html/fund/?o=v&no=2322",
-      "listingDate": "2026-10-29"
     },
     "2325": {
       "no": "2325",
@@ -215,7 +203,7 @@
       "ratio": null,
       "underwriter": "삼성증권,미래에셋증권",
       "url": "http://www.38.co.kr/html/fund/?o=v&no=2345",
-      "listingDate": null
+      "listingDate": "2026-12-02"
     },
     "2348": {
       "no": "2348",
@@ -239,7 +227,7 @@
       "ratio": null,
       "underwriter": "미래에셋증권,한국투자증권,삼성증권",
       "url": "http://www.38.co.kr/html/fund/?o=v&no=2349",
-      "listingDate": null
+      "listingDate": "2026-11-27"
     },
     "2350": {
       "no": "2350",
@@ -275,7 +263,7 @@
       "ratio": null,
       "underwriter": "유진투자증권,신영증권",
       "url": "http://www.38.co.kr/html/fund/?o=v&no=2352",
-      "listingDate": null
+      "listingDate": "2026-11-30"
     },
     "2353": {
       "no": "2353",
@@ -359,6 +347,18 @@
       "ratio": null,
       "underwriter": "KB증권,NH투자증권",
       "url": "http://www.38.co.kr/html/fund/?o=v&no=2359",
+      "listingDate": null
+    },
+    "2360": {
+      "no": "2360",
+      "name": "태석광학",
+      "subStart": "2026-12-14",
+      "subEnd": "2026-12-15",
+      "finalPrice": null,
+      "hopePrice": "17,500~20,200",
+      "ratio": null,
+      "underwriter": "신한투자증권,대신증권",
+      "url": "http://www.38.co.kr/html/fund/?o=v&no=2360",
       "listingDate": null
     }
   }
