@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-13T03:28:46.327Z",
+  "updatedAt": "2026-11-14T02:38:06.228Z",
   "items": {
     "2321": {
       "no": "2321",
@@ -8,7 +8,7 @@
       "subEnd": "2026-11-13",
       "finalPrice": "7,000",
       "hopePrice": "9,600~11,700",
-      "ratio": null,
+      "ratio": "172:1",
       "underwriter": "하나증권",
       "url": "http://www.38.co.kr/html/fund/?o=v&no=2321",
       "listingDate": "2026-11-24"
@@ -160,8 +160,8 @@
     "2341": {
       "no": "2341",
       "name": "제논",
-      "subStart": "2026-11-24",
-      "subEnd": "2026-11-25",
+      "subStart": "2026-12-14",
+      "subEnd": "2026-12-15",
       "finalPrice": null,
       "hopePrice": "9,700~12,200",
       "ratio": null,
