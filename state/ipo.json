@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-17T05:10:03.903Z",
+  "updatedAt": "2026-11-18T03:48:54.271Z",
   "items": {
     "2321": {
       "no": "2321",
@@ -24,18 +24,6 @@
       "underwriter": "미래에셋증권",
       "url": "http://www.38.co.kr/html/fund/?o=v&no=2325",
       "listingDate": "2026-11-11"
-    },
-    "2328": {
-      "no": "2328",
-      "name": "인텔리빅스",
-      "subStart": "2026-10-21",
-      "subEnd": "2026-10-22",
-      "finalPrice": "9,000",
-      "hopePrice": "7,600~9,000",
-      "ratio": "1410.87:1",
-      "underwriter": "미래에셋증권",
-      "url": "http://www.38.co.kr/html/fund/?o=v&no=2328",
-      "listingDate": "2026-10-30"
     },
     "2329": {
       "no": "2329",
@@ -217,18 +205,6 @@
       "url": "http://www.38.co.kr/html/fund/?o=v&no=2348",
       "listingDate": null
     },
-    "2349": {
-      "no": "2349",
-      "name": "에스에프씨(유가)",
-      "subStart": "2026-11-18",
-      "subEnd": "2026-11-19",
-      "finalPrice": null,
-      "hopePrice": "31,600~36,100",
-      "ratio": null,
-      "underwriter": "미래에셋증권,한국투자증권,삼성증권",
-      "url": "http://www.38.co.kr/html/fund/?o=v&no=2349",
-      "listingDate": "2026-11-27"
-    },
     "2350": {
       "no": "2350",
       "name": "에이엔에이치스트럭쳐",
@@ -258,7 +234,7 @@
       "name": "유캐스트",
       "subStart": "2026-11-18",
       "subEnd": "2026-11-19",
-      "finalPrice": null,
+      "finalPrice": "19,000",
       "hopePrice": "19,000~23,000",
       "ratio": null,
       "underwriter": "유진투자증권,신영증권",
@@ -359,6 +335,30 @@
       "ratio": null,
       "underwriter": "신한투자증권,대신증권",
       "url": "http://www.38.co.kr/html/fund/?o=v&no=2360",
+      "listingDate": null
+    },
+    "2361": {
+      "no": "2361",
+      "name": "이나인페이",
+      "subStart": "2026-12-16",
+      "subEnd": "2026-12-17",
+      "finalPrice": null,
+      "hopePrice": "7,500~10,500",
+      "ratio": null,
+      "underwriter": "한국투자증권",
+      "url": "http://www.38.co.kr/html/fund/?o=v&no=2361",
+      "listingDate": null
+    },
+    "2362": {
+      "no": "2362",
+      "name": "엠디에스코리아",
+      "subStart": "2026-12-14",
+      "subEnd": "2026-12-15",
+      "finalPrice": null,
+      "hopePrice": "9,500~11,500",
+      "ratio": null,
+      "underwriter": "미래에셋증권",
+      "url": "http://www.38.co.kr/html/fund/?o=v&no=2362",
       "listingDate": null
     }
   }
