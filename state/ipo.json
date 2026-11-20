@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-19T04:19:18.938Z",
+  "updatedAt": "2026-11-20T03:40:31.592Z",
   "items": {
     "2321": {
       "no": "2321",
@@ -24,6 +24,18 @@
       "underwriter": "미래에셋증권",
       "url": "http://www.38.co.kr/html/fund/?o=v&no=2325",
       "listingDate": "2026-11-11"
+    },
+    "2328": {
+      "no": "2328",
+      "name": "인텔리빅스",
+      "subStart": "2026-10-21",
+      "subEnd": "2026-10-22",
+      "finalPrice": "9,000",
+      "hopePrice": "7,600~9,000",
+      "ratio": "1410.87:1",
+      "underwriter": "미래에셋증권",
+      "url": "http://www.38.co.kr/html/fund/?o=v&no=2328",
+      "listingDate": "2026-10-30"
     },
     "2329": {
       "no": "2329",
@@ -180,18 +192,6 @@
       "underwriter": "신영증권",
       "url": "http://www.38.co.kr/html/fund/?o=v&no=2343",
       "listingDate": null
-    },
-    "2345": {
-      "no": "2345",
-      "name": "아델",
-      "subStart": "2026-11-23",
-      "subEnd": "2026-11-24",
-      "finalPrice": null,
-      "hopePrice": "18,000~25,000",
-      "ratio": null,
-      "underwriter": "삼성증권,미래에셋증권",
-      "url": "http://www.38.co.kr/html/fund/?o=v&no=2345",
-      "listingDate": "2026-12-02"
     },
     "2348": {
       "no": "2348",
