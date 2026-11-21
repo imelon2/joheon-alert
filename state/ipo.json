@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-20T04:07:21.173Z",
+  "updatedAt": "2026-11-21T03:23:38.858Z",
   "items": {
     "2321": {
       "no": "2321",
@@ -24,18 +24,6 @@
       "underwriter": "미래에셋증권",
       "url": "http://www.38.co.kr/html/fund/?o=v&no=2325",
       "listingDate": "2026-11-11"
-    },
-    "2328": {
-      "no": "2328",
-      "name": "인텔리빅스",
-      "subStart": "2026-10-21",
-      "subEnd": "2026-10-22",
-      "finalPrice": "9,000",
-      "hopePrice": "7,600~9,000",
-      "ratio": "1410.87:1",
-      "underwriter": "미래에셋증권",
-      "url": "http://www.38.co.kr/html/fund/?o=v&no=2328",
-      "listingDate": "2026-10-30"
     },
     "2329": {
       "no": "2329",
@@ -359,6 +347,18 @@
       "ratio": null,
       "underwriter": "미래에셋증권",
       "url": "http://www.38.co.kr/html/fund/?o=v&no=2362",
+      "listingDate": null
+    },
+    "2363": {
+      "no": "2363",
+      "name": "피지티",
+      "subStart": "2026-12-17",
+      "subEnd": "2026-12-18",
+      "finalPrice": null,
+      "hopePrice": "18,000~20,000",
+      "ratio": null,
+      "underwriter": "한국투자증권,유안타증권",
+      "url": "http://www.38.co.kr/html/fund/?o=v&no=2363",
       "listingDate": null
     }
   }
