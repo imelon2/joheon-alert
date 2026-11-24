@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-23T03:51:50.354Z",
+  "updatedAt": "2026-11-24T06:18:36.774Z",
   "items": {
     "2321": {
       "no": "2321",
@@ -24,6 +24,18 @@
       "underwriter": "미래에셋증권",
       "url": "http://www.38.co.kr/html/fund/?o=v&no=2325",
       "listingDate": "2026-11-11"
+    },
+    "2328": {
+      "no": "2328",
+      "name": "인텔리빅스",
+      "subStart": "2026-10-21",
+      "subEnd": "2026-10-22",
+      "finalPrice": "9,000",
+      "hopePrice": "7,600~9,000",
+      "ratio": "1410.87:1",
+      "underwriter": "미래에셋증권",
+      "url": "http://www.38.co.kr/html/fund/?o=v&no=2328",
+      "listingDate": "2026-10-30"
     },
     "2329": {
       "no": "2329",
@@ -132,18 +144,6 @@
       "underwriter": "삼성증권",
       "url": "http://www.38.co.kr/html/fund/?o=v&no=2339",
       "listingDate": "2026-11-10"
-    },
-    "2340": {
-      "no": "2340",
-      "name": "케이엠에프",
-      "subStart": "2026-11-24",
-      "subEnd": "2026-11-25",
-      "finalPrice": null,
-      "hopePrice": "15,000~17,800",
-      "ratio": null,
-      "underwriter": "IBK투자증권",
-      "url": "http://www.38.co.kr/html/fund/?o=v&no=2340",
-      "listingDate": null
     },
     "2341": {
       "no": "2341",
@@ -282,7 +282,7 @@
       "name": "신영스팩12호",
       "subStart": "2026-11-24",
       "subEnd": "2026-11-25",
-      "finalPrice": null,
+      "finalPrice": "2,000",
       "hopePrice": "2,000~2,000",
       "ratio": null,
       "underwriter": "신영증권",
